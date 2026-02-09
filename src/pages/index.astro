@@ -1,0 +1,104 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Timeline from '../components/Timeline.astro';
+import ProjectCarousel from '../components/ProjectCarousel.astro';
+
+const experience = [
+  {
+    date: "2022 - Present",
+    title: "Senior Software Engineer",
+    organization: "Tech Innovators Inc.",
+    description: "Leading the development of a distributed cloud platform.",
+    highlights: ["Improved system performance by 40%", "Mentored junior developers", "Implemented CI/CD pipelines"]
+  },
+  {
+    date: "2019 - 2022",
+    title: "Full Stack Developer",
+    organization: "Creative Solutions Group",
+    description: "Developed and maintained multiple high-traffic web applications.",
+    highlights: ["Migrated legacy systems to React", "Optimized database queries"]
+  }
+];
+
+const education = [
+  {
+    date: "2015 - 2019",
+    title: "B.Sc. in Computer Science",
+    organization: "University of Excellence",
+    description: "Specialized in Artificial Intelligence and Web Technologies."
+  }
+];
+
+const publications = [
+  {
+    date: "2021",
+    title: "Optimizing Web Performance in Latency-Sensitive Systems",
+    organization: "IEEE Conference",
+    description: "A research paper on modern web optimization techniques."
+  }
+];
+---
+
+<Layout title="Dmitrii Unuchek | Portfolio">
+  <!-- Hero Section -->
+  <section class="mb-24">
+    <div class="glass-card max-w-3xl">
+      <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gradient bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600">
+        Hello, I'm Dmitrii.
+      </h2>
+      <p class="text-xl md:text-2xl text-slate-600 dark:text-slate-400 leading-relaxed">
+        I'm a passionate Software Engineer and high-performance athlete based in the intersection of code and endurance. I build scalable web systems and push my physical limits in the mountains.
+      </p>
+      <div class="mt-8 flex gap-4">
+        <a href="#projects" class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold transition-all shadow-lg hover:shadow-blue-500/25">
+          View Projects
+        </a>
+        <a href="/sport" class="px-8 py-3 glass hover:bg-white/20 rounded-full font-bold transition-all">
+          Sports Journey
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CV Section -->
+  <section id="cv" class="space-y-20">
+    <div>
+      <h2 class="text-3xl font-bold mb-10 flex items-center gap-3">
+        <span class="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center">💼</span>
+        Work Experience
+      </h2>
+      <Timeline items={experience} />
+    </div>
+
+    <div>
+      <h2 class="text-3xl font-bold mb-10 flex items-center gap-3">
+        <span class="w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center">🎓</span>
+        Education & Extracurriculars
+      </h2>
+      <Timeline items={education} />
+    </div>
+
+    <div>
+      <h2 class="text-3xl font-bold mb-10 flex items-center gap-3">
+        <span class="w-8 h-8 rounded-lg bg-green-500/20 flex items-center justify-center">📄</span>
+        Publications & Patents
+      </h2>
+      <Timeline items={publications} />
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="mt-32">
+    <h2 class="text-4xl font-bold mb-12 flex items-center gap-3">
+       <span class="w-8 h-8 rounded-lg bg-yellow-500/20 flex items-center justify-center">🚀</span>
+       Featured Projects
+    </h2>
+    <ProjectCarousel />
+  </section>
+</Layout>
+
+<style>
+  .text-gradient {
+    -webkit-text-fill-color: transparent;
+  }
+</style>

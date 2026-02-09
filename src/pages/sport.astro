@@ -1,0 +1,131 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const results = [
+  { sport: "Triathlon", event: "Ironman 70.3 Nice", location: "Nice, France", distance: "113 km", result: "04:45:00", highlight: "Qualified for World Champs" },
+  { sport: "Trail Running", event: "UTMB OCC", location: "Chamonix, France", distance: "55 km", result: "06:30:00", highlight: "Top 10% finish" },
+  { sport: "Ski-Alpinism", event: "Patrouille des Glaciers", location: "Zermatt, Switzerland", distance: "57 km", result: "08:15:00", highlight: "Completed the legendary race" },
+  { sport: "Cross Country Ski", event: "Vasaloppet", location: "Mora, Sweden", distance: "90 km", result: "05:50:00", highlight: "Personal Best" },
+];
+
+const photos = [
+  { src: "https://images.unsplash.com/photo-1530549387074-d7d130e55f05?q=80&w=800&auto=format&fit=crop", alt: "Triathlon finish line" },
+  { src: "https://images.unsplash.com/photo-1551632432-c73581c61966?q=80&w=800&auto=format&fit=crop", alt: "Trail running in the Alps" },
+  { src: "https://images.unsplash.com/photo-1551698618-1fed5d978018?q=80&w=800&auto=format&fit=crop", alt: "Skiing at sunrise" },
+  { src: "https://images.unsplash.com/photo-1517177646040-d8efdfb6016e?q=80&w=800&auto=format&fit=crop", alt: "Cross country skiing" },
+];
+---
+
+<Layout title="Sports Journey | Dmitrii Unuchek">
+  <!-- Athlete Bio -->
+  <section class="mb-24">
+    <div class="glass-card max-w-3xl">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6 text-gradient bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-red-600">
+        Endurance & Mountains
+      </h1>
+      <p class="text-xl md:text-2xl text-slate-600 dark:text-slate-400 leading-relaxed">
+        I am a competitive level amateur athlete active in triathlon, trail running, ski-alpinism, and cross country skiing. For me, sport is not just about results; it's a way to explore the limits of human potential and connect with nature.
+      </p>
+    </div>
+  </section>
+
+  <!-- Hall of Fame -->
+  <section class="mb-32">
+    <h2 class="text-3xl font-bold mb-10 flex items-center gap-3">
+      <span class="w-8 h-8 rounded-lg bg-yellow-500/20 flex items-center justify-center">🏆</span>
+      Hall of Fame
+    </h2>
+    <div class="glass overflow-hidden rounded-2xl shadow-xl">
+      <div class="overflow-x-auto">
+        <table class="w-full text-left">
+          <thead class="bg-white/5 border-b border-white/10 text-sm uppercase tracking-wider text-slate-500">
+            <tr>
+              <th class="px-6 py-4">Sport</th>
+              <th class="px-6 py-4">Event</th>
+              <th class="px-6 py-4">Location</th>
+              <th class="px-6 py-4">Distance</th>
+              <th class="px-6 py-4">Result</th>
+              <th class="px-6 py-4">Highlight</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-white/5">
+            {results.map(row => (
+              <tr class="hover:bg-white/5 transition-colors">
+                <td class="px-6 py-4 font-medium">{row.sport}</td>
+                <td class="px-6 py-4">{row.event}</td>
+                <td class="px-6 py-4 text-slate-500">{row.location}</td>
+                <td class="px-6 py-4 text-slate-500">{row.distance}</td>
+                <td class="px-6 py-4 font-mono font-bold text-blue-500">{row.result}</td>
+                <td class="px-6 py-4 italic text-slate-400 text-sm">{row.highlight}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Sports Gallery -->
+  <section>
+    <h2 class="text-3xl font-bold mb-10 flex items-center gap-3">
+      <span class="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center">📷</span>
+      Gallery
+    </h2>
+    <div class="swiper sport-gallery w-full py-8">
+      <div class="swiper-wrapper">
+        {photos.map(photo => (
+          <div class="swiper-slide w-full md:w-[600px] aspect-video">
+            <div class="glass-card !p-0 overflow-hidden h-full">
+              <img src={photo.src} alt={photo.alt} class="w-full h-full object-cover" />
+            </div>
+          </div>
+        ))}
+      </div>
+      <div class="swiper-button-next !text-orange-500"></div>
+      <div class="swiper-button-prev !text-orange-500"></div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
+</Layout>
+
+<script>
+  import Swiper from 'swiper';
+  import { Navigation, Pagination, EffectCoverflow } from 'swiper/modules';
+  import 'swiper/css';
+  import 'swiper/css/navigation';
+  import 'swiper/css/pagination';
+  import 'swiper/css/effect-coverflow';
+
+  function initSportSwiper() {
+    new Swiper('.sport-gallery', {
+      modules: [Navigation, Pagination, EffectCoverflow],
+      effect: 'coverflow',
+      grabCursor: true,
+      centeredSlides: true,
+      slidesPerView: 'auto',
+      coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true,
+      },
+      pagination: {
+        el: '.swiper-pagination',
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+    });
+  }
+
+  initSportSwiper();
+  document.addEventListener('astro:after-swap', initSportSwiper);
+</script>
+
+<style>
+  .text-gradient {
+    -webkit-text-fill-color: transparent;
+  }
+</style>

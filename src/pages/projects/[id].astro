@@ -1,0 +1,92 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+export function getStaticPaths() {
+  return [
+    { params: { id: 'project-1' } },
+    { params: { id: 'project-2' } },
+    { params: { id: 'project-3' } },
+  ];
+}
+
+const { id } = Astro.params;
+
+const projects = {
+  "project-1": {
+    title: "AI Image Generator",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?q=80&w=800&auto=format&fit=crop",
+    stack: ["React", "Python", "OpenAI", "FastAPI", "Docker"],
+    description: "This project leverages state-of-the-art diffusion models to generate high-quality images from text prompts. It features a sleek user interface and seamless integration with multiple cloud providers. The backend is built with FastAPI for high-performance inference serving.",
+    links: { live: "#", source: "#" }
+  },
+  "project-2": {
+    title: "Eco-Track Dashboard",
+    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
+    stack: ["Astro", "Tailwind", "D3.js", "Firebase", "TypeScript"],
+    description: "Eco-Track is a comprehensive dashboard for urban planners to monitor air quality, traffic patterns, and energy consumption in real-time. It uses D3.js for complex data visualizations and Firebase for real-time data streaming.",
+    links: { live: "#", source: "#" }
+  },
+  "project-3": {
+    title: "Quantum Ledger",
+    image: "https://images.unsplash.com/photo-1639322537228-f710d846310a?q=80&w=800&auto=format&fit=crop",
+    stack: ["Rust", "Wasm", "Cryptography", "Substrate", "React"],
+    description: "Quantum Ledger addresses the threat of quantum computing to traditional blockchain systems by using lattice-based cryptographic primitives. The core protocol is implemented in Rust and compiled to WebAssembly for browser-side verification.",
+    links: { live: "#", source: "#" }
+  }
+};
+
+const project = projects[id as keyof typeof projects];
+---
+
+<Layout title={`${project.title} | Projects`}>
+  <div class="max-w-4xl mx-auto">
+    <a href="/#projects" class="inline-flex items-center text-blue-500 hover:text-blue-600 mb-8 font-medium transition-colors">
+      <svg class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+      </svg>
+      Back to Projects
+    </a>
+
+    <div class="glass-card overflow-hidden !p-0">
+      <div class="aspect-video w-full overflow-hidden">
+        <img 
+          src={project.image} 
+          alt={project.title} 
+          class="w-full h-full object-cover"
+          transition:name={`img-${id}`}
+        />
+      </div>
+      
+      <div class="p-8 md:p-12">
+        <h1 class="text-4xl font-bold mb-6" transition:name={`title-${id}`}>{project.title}</h1>
+        
+        <div class="flex flex-wrap gap-3 mb-8 text-sm">
+          {project.stack.map(tech => (
+            <span class="px-3 py-1 bg-blue-500/10 text-blue-500 rounded-full border border-blue-500/20 font-medium">
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        <div class="prose dark:prose-invert max-w-none text-xl leading-relaxed text-slate-600 dark:text-slate-400">
+          <p>{project.description}</p>
+        </div>
+
+        <div class="mt-12 flex flex-wrap gap-4">
+          <a href={project.links.live} class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl font-bold transition-all shadow-lg hover:shadow-blue-500/25 flex items-center gap-2">
+            View Live Demo
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+            </svg>
+          </a>
+          <a href={project.links.source} class="px-8 py-3 glass hover:bg-white/20 rounded-xl font-bold transition-all flex items-center gap-2">
+            View Source Code
+            <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</Layout>
