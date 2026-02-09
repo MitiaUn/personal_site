@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Timeline from '../components/Timeline.astro';
 import CompactList from '../components/CompactList.astro';
 import ProjectCarousel from '../components/ProjectCarousel.astro';
+import CollapsibleSection from '../components/CollapsibleSection.astro';
 
 const experience = [
   {
@@ -82,166 +83,165 @@ const education = [
 
 const publications = [
   {
-    date: "2018",
-    title: "Room-temperature electrical control of exciton flux",
-    organization: "Nature",
-    description: "D. Unuchek et al., Nature, 2018. Demonstrated the first room-temperature excitonic transistor.",
-    url: "#"
+    title: "Room-temperature electrical control of exciton flux in a van der Waals heterostructure",
+    year: "2018",
+    journal: "Nature",
+    authors: "D. Unuchek et al.",
+    url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fncAM5EAAAAJ&citation_for_view=fncAM5EAAAAJ:u5HHmVD_uO8C"
   },
   {
-    date: "2019",
-    title: "Valley-polarized exciton currents",
-    organization: "Nature Nanotechnology",
-    description: "D. Unuchek et al., Nature Nano, 2019. Research on valley-polarized exciton currents in van der Waals heterostructures.",
-    url: "#"
+    title: "Valley-polarized exciton currents in a van der Waals heterostructure",
+    year: "2019",
+    journal: "Nature Nano",
+    authors: "D. Unuchek et al.",
+    url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fncAM5EAAAAJ&citation_for_view=fncAM5EAAAAJ:9yKSN-GCB0IC"
   },
   {
-      date: "2019",
-      title: "Polarization switching and electrical control of interlayer excitons",
-      organization: "Nature Photonics",
-      description: "A. Ciarrocchi, D. Unuchek et al., Nature Photonics, 2019.",
-      url: "#"
+    title: "Polarization switching and electrical control of interlayer excitons in two-dimensional van der Waals heterostructures",
+    year: "2019",
+    journal: "Nature Photonics",
+    authors: "A. Ciarrocchi, D. Unuchek et al.",
+    url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fncAM5EAAAAJ&citation_for_view=fncAM5EAAAAJ:d1gkVwhDpl0C"
   },
   {
-      date: "2019",
-      title: "MoS2 photodetectors integrated with photonic circuits",
-      organization: "Nature npj 2D materials",
-      description: "J. Gonzalez, D. Unuchek et al., Nature npj 2D materials, 2019.",
-      url: "#"
+    title: "MoS2 photodetectors integrated with photonic circuits",
+    year: "2019",
+    journal: "Nature npj 2D materials",
+    authors: "J. Gonzalez, D. Unuchek et al.",
+    url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fncAM5EAAAAJ&citation_for_view=fncAM5EAAAAJ:qa_47z2sP6IC"
   },
   {
-      date: "2017",
-      title: "Optospintronics in Graphene via Proximity Coupling",
-      organization: "ACS Nano",
-      description: "A. Avsar*, D. Unuchek et al., ACS Nano, 2017.",
-      url: "#"
+    title: "Optospintronics in Graphene via Proximity Coupling",
+    year: "2017",
+    journal: "ACS Nano",
+    authors: "A. Avsar*, D. Unuchek et al.",
+    url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fncAM5EAAAAJ&citation_for_view=fncAM5EAAAAJ:u-x6o8ySG0sC"
+  },
+  {
+    title: "Room-temperature electrical control of polarization and emission angle in a cavity-integrated 2D pulsed LED",
+    year: "2022",
+    journal: "Nature Communications",
+    authors: "J. Gonzalez, D. Unuchek et al.",
+    url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fncAM5EAAAAJ&citation_for_view=fncAM5EAAAAJ:Y0pCki6q_DkC"
+  },
+  {
+    title: "Layer-modulated magnetism in two-dimensional metallic PtSe2",
+    year: "2019",
+    journal: "Nature Nanotechnology",
+    authors: "A. Avsar, A. Ciarrocchi, M. Pizzochero, D. Unuchek, O. Yazyev, A. Kis",
+    url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fncAM5EAAAAJ&citation_for_view=fncAM5EAAAAJ:zYLM7Y9cAGgC"
+  }
+];
+
+const conferences = [
+  {
+    title: 'Electrostatic control of exciton flux in van der Waals heterostructures',
+    year: '2019',
+    event: 'American Physical Society March Meeting. Boston, USA',
+    authors: 'D. Unuchek et al.'
+  },
+  {
+    title: 'Control of interlayer excitons in two-dimensional van der Waals heterostructures',
+    year: '2018',
+    event: 'Flatlands Beyond Graphene. Leipzig, Germany',
+    authors: 'D. Unuchek et al.'
+  },
+  {
+    title: 'Reconfigurable Diodes Based on Vertical WSe2 Transistors with van der Waals Bonded Contacts',
+    year: '2018',
+    event: 'American Physical Society March Meeting. Los Angeles, USA',
+    authors: 'D. Unuchek et al.'
+  },
+  {
+    title: 'Optospintronics in Graphene via Proximity Coupling',
+    year: '2018',
+    event: 'GRC Two Dimensional Electronics Beyond Graphene. Easton, USA',
+    authors: 'D. Unuchek et al.'
+  },
+  {
+    title: 'Atomically thin electrically tunable light-emitting diodes',
+    year: '2017',
+    event: 'Flatlands Beyond Graphene. Lausanne, Switzerland',
+    authors: 'D. Unuchek et al.'
   }
 ];
 
 const patents = [
     {
-        date: "Granted",
         title: "Multilayer Electronic Device and Method for Producing the Same",
-        organization: "US 17/926,750",
-        description: "Patent for multilayer electronic device structures and production methods.",
-        url: "#"
+        status: "Granted",
+        ref: "US 17/926,750"
     },
     {
-        date: "Granted",
         title: "Process of signing documents",
-        organization: "EP4152184.A1",
-        description: "Method and process for document signing.",
-        url: "#"
+        status: "Granted",
+        ref: "EP4152184.A1"
     },
     {
-        date: "Published",
         title: "Dispersive optical device, dispersive optical system comprising the same",
-        organization: "WO2022208130A1",
-        description: "Optical device technology for dispersive systems.",
-        url: "#"
+        status: "Published",
+        ref: "WO2022208130A1"
     },
     {
-        date: "Published",
-        title: "Sunlight steering apparatus and solar energy harvesting system",
-        organization: "WO2023031655A1",
-        description: "Apparatus for steering sunlight and harvesting solar energy.",
-        url: "#"
+        title: "Sunlight steering apparatus and solar energy harvesting system comprising the same",
+        status: "Published",
+        ref: "WO2023031655A1"
     },
     {
-        date: "Published",
         title: "Light collecting assembly",
-        organization: "WO2023175034A1",
-        description: "Assembly designed for efficient light collection.",
-        url: "#"
+        status: "Published",
+        ref: "WO2023175034A1"
     },
     {
-        date: "Published",
         title: "Optical system for a position determination device",
-        organization: "WO2023175034A1",
-        description: "Optical system intended for position determination applications.",
-        url: "#"
+        status: "Published",
+        ref: "WO2023175034A1"
     },
     {
-        date: "Published",
         title: "Method of detecting and processing spatially-distributed two-dimensional markers",
-        organization: "WO2024184765A1",
-        description: "Detection and processing method for 2D markers.",
-        url: "#"
+        status: "Published",
+        ref: "WO2024184765A1"
     },
     {
-        date: "Published",
         title: "Excitonic device and operating methods thereof",
-        organization: "WO2019229653A1",
-        description: "Device based on excitons and its operating methods.",
-        url: "#"
+        status: "Published",
+        ref: "WO2019229653A1"
     },
     {
-        date: "Pending",
-        title: "New Patent Applications",
-        organization: "EP24162349.5, EP24161016.1, EP24161026.0",
-        description: "Several patent applications currently in the filing/pending stage.",
-        url: "#"
+        title: "Not yet published",
+        status: "Pending",
+        ref: "EP24162349.5, EP24161016.1, EP24161026.0"
     }
 ];
 
-const awards = [
-    {
-        date: "2020",
-        title: "Gilbert Hausmann Award",
-        organization: "Scientific Recognition",
-        description: "For ground-breaking work on the realization of the first room-temperature exciton transistor and exceptional contributions to the understanding of exciton transport in two-dimensional semiconductors.",
-        url: "#"
+const awardsData = {
+  scientific: [
+    { 
+      year: "2020", 
+      title: "Gilbert Hausmann Award",
+      description: '"For ground-breaking work on the realization of the first room-temperature exciton transistor and exceptional contributions to the understanding of exciton transport in two-dimensional semiconductors."'
     },
-    {
-        date: "2019",
-        title: "Nature Photonics Cover Feature",
-        organization: "Scientific Recognition",
-        description: "Featured on the cover of Nature Photonics (volume 13, issue 2).",
-        url: "#"
+    { 
+      year: "2020", 
+      title: "EDMI Thesis Distinction"
     },
-    {
-        date: "2013-2015",
-        title: "Paris-Saclay Master Scholarship",
-        organization: "Scholarship",
-        description: "Two years of scholarship for Master studies.",
-        url: "#"
-    },
-    {
-        date: "2012-2013",
-        title: "Presidential Scholarship",
-        organization: "Scholarship",
-        description: "For outstanding academic performance.",
-        url: "#"
-    },
-    {
-        date: "2012-2013",
-        title: "Lift to the Future Scholarship",
-        organization: "Scholarship",
-        description: "For outstanding research and academic performance.",
-        url: "#"
-    },
-    {
-        date: "2009",
-        title: "Presidential Award for Talented Youth",
-        organization: "Award",
-        description: "National award for talented youth.",
-        url: "#"
-    },
-    {
-        date: "2008",
-        title: "Silver Medal - Int. Physics Olympiad 'Tuymaada'",
-        organization: "Olympiad",
-        description: "International Physics Olympiad 'Tuymaada'.",
-        url: "#"
-    },
-    {
-        date: "2008",
-        title: "Bronze Medal - Russian National Physics Olympiad",
-        organization: "Olympiad",
-        description: "National level physics competition.",
-        url: "#"
-    }
-];
+    { year: "2019", title: 'Featured on the cover of the Nature Photonics (volume 13, issue 2)' }
+  ],
+  scholarships: [
+    { year: "2013-15", title: 'Two years of "Paris-Saclay" master scholarship' },
+    { year: "2012-13", title: '"Presidential Scholarship" for outstanding academic performance' },
+    { year: "2012-13", title: 'Scholarship "Lift to the Future" for outstanding research and academic performance' },
+    { year: "2010, 12", title: 'Scholarship of "Foundation for the Development of Natural Science Innovation Education"' }
+  ],
+  awards: [
+    { year: "2009", title: 'Presidential Award for Talented Youth' },
+    { year: "2007, 08, 09", title: "Moscow Governor's Youth Award" }
+  ],
+  olympiads: [
+    { year: "2008", title: 'Silver medal at International Physics Olympiad "Tuymaada"' },
+    { year: "2008", title: 'Bronze medal at Russian National Physics Olympiad' }
+  ]
+};
 
 const skills = {
     languages: ["English", "Russian", "French"],
@@ -264,16 +264,23 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
 
 <Layout title="Dimitri Unuchek | RnD Director & Physicist">
   <!-- Hero Section -->
-  <section id="hero" class="min-h-screen flex items-start pt-32 md:pt-48 justify-center relative overflow-hidden">
+  <section id="hero" class="flex items-start pt-0 md:pt-8 justify-center relative overflow-hidden pb-12">
     <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 -z-10"></div>
     <div class="max-w-4xl mx-auto text-center px-4">
-      <h1 class="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
+      <h1 class="text-3xl md:text-4xl font-bold mb-6 tracking-tight">
         Hi, I'm <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600">Dimitri</span>
       </h1>
-      <p class="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-8 leading-relaxed max-w-2xl mx-auto">
-        RnD Director & Physicist. Driving innovation in electronics and renewable energy. 
-        Expert in managing cross-disciplinary teams and bringing deep-tech products from POC to industrialization.
-      </p>
+      <div class="text-lg md:text-xl text-slate-600 dark:text-slate-300 mb-8 leading-relaxed max-w-3xl mx-auto space-y-4 font-light">
+        <p>
+          Experienced R&D leader and scientist with a PhD from EPFL, specializing in the development of next-generation electrical, optical and renewable energy products.
+        </p>
+        <p>
+          My career spans from pioneering fundamental research of quantum phenomena in 2D materials to building and managing diverse cross-disciplinary teams and driving product development from POC to industrialization.
+        </p>
+        <p>
+          I thrive at the intersection of complex problem-solving, innovations and industrialization, bridging the gap between scientific breakthroughs and scalable hardware solutions.
+        </p>
+      </div>
       <div class="flex flex-wrap gap-4 justify-center">
         <a href="#projects" class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold transition-all shadow-lg hover:shadow-blue-500/25">
           View My Work
@@ -286,101 +293,233 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
   </section>
 
   <!-- CV Section -->
-  <section id="experience" class="max-w-4xl mx-auto px-4 py-20">
-    <h2 class="text-3xl font-bold mb-12 flex items-center gap-3">
-      <span class="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center">💼</span>
-      Experience
-    </h2>
-    <Timeline items={experience} inlineHeader={true} />
+  <section id="experience" class="max-w-4xl mx-auto px-4 mt-8">
+    <CollapsibleSection
+      id="experience-section"
+      title="Experience"
+      icon="💼"
+      iconColorClass="bg-blue-500/20"
+      description="7 years of experience in academic research and 6 years of R&D management and product development."
+    >
+      <Timeline items={experience} inlineHeader={true} />
+    </CollapsibleSection>
   </section>
 
-  <section id="education" class="max-w-4xl mx-auto px-4 mt-20">
-      <h2 class="text-3xl font-bold mb-12 flex items-center gap-3">
-        <span class="w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center">🎓</span>
-        Education
-      </h2>
+  <section id="education" class="max-w-4xl mx-auto px-4 mt-6">
+    <CollapsibleSection
+      id="education-section"
+      title="Education"
+      icon="🎓"
+      iconColorClass="bg-purple-500/20"
+      description="Doctoral degree in Electrical Engineering/Nanoelectronics and Master's in Physics."
+    >
       <Timeline items={education} inlineHeader={true} />
-    </section>
+    </CollapsibleSection>
+  </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="max-w-4xl mx-auto px-4 mt-20">
-      <h2 class="text-3xl font-bold mb-12 flex items-center gap-3">
-        <span class="w-8 h-8 rounded-lg bg-red-500/20 flex items-center justify-center">🛠️</span>
-        Skills & Languages
-      </h2>
-      
-      <div class="mb-10">
-        <h3 class="text-xl font-semibold mb-4 text-slate-800 dark:text-slate-200">Languages</h3>
-        <div class="flex flex-wrap gap-3">
-          {skills.languages.map(lang => (
-            <span class="px-4 py-2 bg-slate-100 dark:bg-slate-800 rounded-full text-sm font-medium text-slate-700 dark:text-slate-300">
-              {lang}
-            </span>
-          ))}
+    <section id="skills" class="max-w-4xl mx-auto px-4 mt-6">
+      <CollapsibleSection
+        id="skills-section"
+        title="Skills & Languages"
+        icon="🛠️"
+        iconColorClass="bg-red-500/20"
+        description="Multidisciplinary profile with extensive software and hardware skills."
+      >
+        <div class="mb-10">
+          <h3 class="text-xl font-semibold mb-4 text-slate-800 dark:text-slate-200">Languages</h3>
+          <div class="flex flex-wrap gap-3">
+            {skills.languages.map(lang => (
+              <span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-sm font-medium text-slate-700 dark:text-slate-300">
+                {lang}
+              </span>
+            ))}
+          </div>
         </div>
-      </div>
 
-      <div class="grid md:grid-cols-2 gap-8">
-        <div>
-          <h3 class="text-xl font-semibold mb-6 text-slate-800 dark:text-slate-200">Technical Skills</h3>
-          <div class="space-y-6">
-            {skills.technical.map(group => (
-              <div>
-                <h4 class="font-medium text-blue-600 dark:text-blue-400 mb-2">{group.category}</h4>
-                <div class="flex flex-wrap gap-2">
-                  {group.items.map(skill => (
-                    <span class="px-3 py-1 bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-md text-sm text-slate-600 dark:text-slate-400">
-                      {skill}
-                    </span>
-                  ))}
+        <div class="grid md:grid-cols-2 gap-8">
+          <div>
+            <h3 class="text-xl font-semibold mb-6 text-slate-800 dark:text-slate-200">Technical Skills</h3>
+            <div class="space-y-6">
+              {skills.technical.map(group => (
+                <div>
+                  <h4 class="font-medium text-blue-600 dark:text-blue-400 mb-2">{group.category}</h4>
+                  <div class="flex flex-wrap gap-2">
+                    {group.items.map(skill => (
+                      <span class="px-3 py-1 bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-md text-sm text-slate-600 dark:text-slate-400">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
+          </div>
+          
+          <div>
+            <h3 class="text-xl font-semibold mb-6 text-slate-800 dark:text-slate-200">Computer Skills</h3>
+            <div class="space-y-6">
+              {skills.computer.map(group => (
+                <div>
+                  <h4 class="font-medium text-purple-600 dark:text-purple-400 mb-2">{group.category}</h4>
+                  <div class="flex flex-wrap gap-2">
+                    {group.items.map(skill => (
+                      <span class="px-3 py-1 bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-md text-sm text-slate-600 dark:text-slate-400">
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-        
-        <div>
-          <h3 class="text-xl font-semibold mb-6 text-slate-800 dark:text-slate-200">Computer Skills</h3>
-          <div class="space-y-6">
-            {skills.computer.map(group => (
-              <div>
-                <h4 class="font-medium text-purple-600 dark:text-purple-400 mb-2">{group.category}</h4>
-                <div class="flex flex-wrap gap-2">
-                  {group.items.map(skill => (
-                    <span class="px-3 py-1 bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-md text-sm text-slate-600 dark:text-slate-400">
-                      {skill}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </div>
+      </CollapsibleSection>
     </section>
     
-    <section id="publications" class="max-w-4xl mx-auto px-4 mt-20">
-      <h2 class="text-3xl font-bold mb-12 flex items-center gap-3">
-        <span class="w-8 h-8 rounded-lg bg-green-500/20 flex items-center justify-center">🔬</span>
-        Selected Publications
-      </h2>
-      <CompactList items={publications} />
+    <section id="publications" class="max-w-4xl mx-auto px-4 mt-6">
+      <CollapsibleSection
+        id="publications-section"
+        title="Selected Publications"
+        icon="🔬"
+        iconColorClass="bg-green-500/20"
+      >
+        <span slot="description">
+            Over 12 academic publications in top scientific journals. <a href="https://scholar.google.com/citations?user=fncAM5EAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline">Google Scholar</a>
+        </span>
+        <div class="space-y-8">
+          {publications.map((s) => (
+            <div class="group mx-2">
+              <a href={s.url} target="_blank" rel="noopener noreferrer" class="block group-hover:text-blue-600 transition-colors duration-200">
+                 <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1 group-hover:text-blue-500">{s.title}</h3>
+              </a>
+              <div class="text-base text-slate-600 dark:text-slate-400">
+                <span class="font-medium text-slate-800 dark:text-slate-300">{s.year}</span> <span class="mx-2">•</span> <span class="italic text-slate-700 dark:text-slate-300">{s.journal}</span> <span class="mx-2">•</span> {s.authors}
+              </div>
+            </div>
+          ))}
+        </div>
+      </CollapsibleSection>
     </section>
 
-    <section id="patents" class="max-w-4xl mx-auto px-4 mt-20">
-      <h2 class="text-3xl font-bold mb-12 flex items-center gap-3">
-        <span class="w-8 h-8 rounded-lg bg-orange-500/20 flex items-center justify-center">💡</span>
-        Patents
-      </h2>
-      <CompactList items={patents} />
+    <section id="conferences" class="max-w-4xl mx-auto px-4 mt-6">
+      <CollapsibleSection
+        id="conferences-section"
+        title="Conference Presentations"
+        icon="🎤"
+        iconColorClass="bg-teal-500/20"
+        description="Multiple talks at international scientific conferences."
+      >
+        <div class="space-y-8">
+          {conferences.map((c) => (
+            <div class="mx-2">
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">{c.title}</h3>
+              <div class="text-base text-slate-600 dark:text-slate-400">
+                <span class="font-medium text-slate-800 dark:text-slate-300">{c.year}</span> <span class="mx-2">•</span> <span class="italic text-slate-700 dark:text-slate-300">{c.event}</span> <span class="mx-2">•</span> {c.authors}
+              </div>
+            </div>
+          ))}
+        </div>
+      </CollapsibleSection>
     </section>
 
-    <section id="awards" class="max-w-4xl mx-auto px-4 mt-20">
-      <h2 class="text-3xl font-bold mb-12 flex items-center gap-3">
-        <span class="w-8 h-8 rounded-lg bg-yellow-500/20 flex items-center justify-center">🏆</span>
-        Prizes and Awards
-      </h2>
-      <CompactList items={awards} />
+    <section id="patents" class="max-w-4xl mx-auto px-4 mt-6">
+      <CollapsibleSection
+        id="patents-section"
+        title="Patents"
+        icon="💡"
+        iconColorClass="bg-orange-500/20"
+        description="Over 10 granted and pending patent applications."
+      >
+        <div class="space-y-6">
+            {patents.map((p) => (
+              <div class="mx-2">
+                  <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">{p.title}</h3>
+                  <div class="text-base text-slate-600 dark:text-slate-400">
+                      {p.status} <span class="mx-2 text-slate-300">•</span> {p.ref}
+                  </div>
+              </div>
+            ))}
+        </div>
+      </CollapsibleSection>
+    </section>
+
+    <section id="awards" class="max-w-4xl mx-auto px-4 mt-6">
+      <CollapsibleSection
+        id="awards-section"
+        title="Prizes and Awards"
+        icon="🏆"
+        iconColorClass="bg-yellow-500/20"
+        description="Recognition for scientific achievements and academic excellence."
+      >
+        <div class="space-y-10">
+          <div>
+              <h3 class="text-xl font-semibold mb-4 text-slate-800 dark:text-slate-200">Scientific recognition:</h3>
+              <div class="space-y-4">
+                  {awardsData.scientific.map(a => (
+                      <div class="mx-2">
+                          <div class="flex flex-row items-center gap-4">
+                              <span class="font-medium text-slate-500 dark:text-slate-500 min-w-[3rem] text-right flex-shrink-0">{a.year}</span>
+                              <span class="text-slate-400">•</span>
+                              <span class="text-slate-900 dark:text-white font-medium">{a.title}</span>
+                          </div>
+                          {a.description && (
+                              <div class="ml-[calc(3rem+1rem+0.5rem)] mt-1 text-slate-500 dark:text-slate-400 text-sm">
+                                  {a.description}
+                              </div>
+                          )}
+                      </div>
+                  ))}
+              </div>
+          </div>
+
+          <div>
+              <h3 class="text-xl font-semibold mb-4 text-slate-800 dark:text-slate-200">Scholarships:</h3>
+              <div class="space-y-4">
+                  {awardsData.scholarships.map(a => (
+                      <div class="mx-2">
+                           <div class="flex flex-row items-center gap-4">
+                              <span class="font-medium text-slate-500 dark:text-slate-500 min-w-[3rem] text-right flex-shrink-0">{a.year}</span>
+                              <span class="text-slate-400">•</span>
+                              <span class="text-slate-900 dark:text-white font-medium">{a.title}</span>
+                          </div>
+                      </div>
+                  ))}
+              </div>
+          </div>
+
+          <div>
+              <h3 class="text-xl font-semibold mb-4 text-slate-800 dark:text-slate-200">Awards:</h3>
+              <div class="space-y-4">
+                  {awardsData.awards.map(a => (
+                     <div class="mx-2">
+                          <div class="flex flex-row items-center gap-4">
+                              <span class="font-medium text-slate-500 dark:text-slate-500 min-w-[3rem] text-right flex-shrink-0">{a.year}</span>
+                              <span class="text-slate-400">•</span>
+                              <span class="text-slate-900 dark:text-white font-medium">{a.title}</span>
+                          </div>
+                      </div>
+                  ))}
+              </div>
+          </div>
+
+          <div>
+              <h3 class="text-xl font-semibold mb-4 text-slate-800 dark:text-slate-200">Science Olympiads Medals:</h3>
+              <div class="space-y-4">
+                  {awardsData.olympiads.map(a => (
+                      <div class="mx-2">
+                           <div class="flex flex-row items-center gap-4">
+                              <span class="font-medium text-slate-500 dark:text-slate-500 min-w-[3rem] text-right flex-shrink-0">{a.year}</span>
+                              <span class="text-slate-400">•</span>
+                              <span class="text-slate-900 dark:text-white font-medium">{a.title}</span>
+                          </div>
+                      </div>
+                  ))}
+              </div>
+          </div>
+
+        </div>
+      </CollapsibleSection>
     </section>
 
 
