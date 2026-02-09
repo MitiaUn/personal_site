@@ -16,23 +16,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Mobile Menu Toggle (Basic implementation)
+    // Theme Toggle Logic
+    const themeToggle = document.getElementById('theme-toggle');
+    const body = document.body;
+
+    // Check for saved theme preference
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        body.setAttribute('data-theme', savedTheme);
+    }
+
+    themeToggle.addEventListener('click', () => {
+        const currentTheme = body.getAttribute('data-theme');
+        const newTheme = currentTheme === 'dark' ? '' : 'dark';
+
+        if (newTheme === 'dark') {
+            body.setAttribute('data-theme', 'dark');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            body.removeAttribute('data-theme');
+            localStorage.setItem('theme', 'light');
+        }
+    });
+
+    // Mobile Menu Toggle
     const hamburger = document.querySelector('.hamburger');
     const navLinks = document.querySelector('.nav-links');
 
     if (hamburger && navLinks) {
         hamburger.addEventListener('click', () => {
-            navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
-            if (navLinks.style.display === 'flex') {
-                navLinks.style.flexDirection = 'column';
-                navLinks.style.position = 'absolute';
-                navLinks.style.top = '70px';
-                navLinks.style.left = '0';
-                navLinks.style.width = '100%';
-                navLinks.style.backgroundColor = 'rgba(13, 13, 18, 0.95)';
-                navLinks.style.padding = '2rem';
-                navLinks.style.alignItems = 'center';
-            }
+            navLinks.classList.toggle('active');
+
+            // Toggle hamburger animation
+            hamburger.classList.toggle('is-active');
         });
     }
 
@@ -40,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const header = document.querySelector('.header');
     window.addEventListener('scroll', () => {
         if (window.scrollY > 50) {
-            header.style.boxShadow = '0 5px 20px rgba(0,0,0,0.5)';
+            header.style.boxShadow = 'var(--card-shadow)';
         } else {
             header.style.boxShadow = 'none';
         }
