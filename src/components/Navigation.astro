@@ -1,14 +1,16 @@
 ---
-import ThemeToggle from './ThemeToggle.astro';
+
 import photo from '../assets/photo1.JPG';
 
+const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.replace(/\/$/, '');
+
 const navItems = [
-  { name: 'CV', href: '/#experience' },
-  { name: 'Skills', href: '/#skills' },
-  { name: 'Publications', href: '/#publications' },
-  { name: 'Awards', href: '/#awards' },
-  { name: 'Projects', href: '/#projects' },
-  { name: 'Sport', href: '/sport' },
+  { name: 'CV', href: `${base}/#experience` },
+  { name: 'Skills', href: `${base}/#skills` },
+  { name: 'Publications', href: `${base}/#publications` },
+  { name: 'Awards', href: `${base}/#awards` },
+  { name: 'Projects', href: `${base}/#projects` },
+  { name: 'Sport', href: `${base}/sport` },
 ];
 
 const { currentPath = '/' } = Astro.props;
@@ -16,7 +18,7 @@ const { currentPath = '/' } = Astro.props;
 
 <!-- Desktop Sidebar -->
 <nav class="hidden sm:flex flex-col fixed left-0 top-0 h-screen w-64 glass border-r z-50 p-8 items-center overflow-y-auto no-scrollbar">
-  <div class="flex flex-col items-center mb-8 shrink-0">
+  <a href={`${base}/#hero`} class="flex flex-col items-center mb-8 shrink-0 hover:opacity-80 transition-opacity">
     <img 
       src={photo.src} 
       alt="Profile Photo" 
@@ -25,8 +27,8 @@ const { currentPath = '/' } = Astro.props;
     <h2 class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600 text-center">
       Dimitri Unuchek
     </h2>
-    <p class="text-sm text-slate-500 dark:text-slate-400 text-center">R&D Leader | Physicist</p>
-  </div>
+    <p class="text-sm text-slate-400 text-center">R&D Leader | Physicist</p>
+  </a>
 
   <ul class="flex-1 w-full space-y-2">
     {navItems.map(item => (
@@ -34,7 +36,7 @@ const { currentPath = '/' } = Astro.props;
         <a 
           href={item.href} 
           class={`nav-link block w-full px-4 py-2 rounded-lg transition-all duration-200 hover:bg-white/10 ${
-            currentPath === item.href ? 'active-page text-blue-600 font-bold bg-blue-50/50 dark:bg-blue-900/20' : 'text-slate-600 dark:text-slate-400'
+            currentPath === item.href ? 'active-page text-blue-600 font-bold bg-blue-900/20' : 'text-slate-400'
           }`}
         >
           {item.name}
@@ -43,9 +45,7 @@ const { currentPath = '/' } = Astro.props;
     ))}
   </ul>
 
-  <div class="mt-8 pt-6 border-t border-white/10 w-full flex justify-center shrink-0">
-    <ThemeToggle />
-  </div>
+  <!-- Add some bottom padding if needed, but remove the ThemeToggle container -->
 </nav>
 
 <!-- Mobile Topbar -->
@@ -54,7 +54,6 @@ const { currentPath = '/' } = Astro.props;
   
   <!-- Hamburger Menu (Simplified for brevity, can be expanded) -->
   <div class="flex items-center gap-4">
-    <ThemeToggle />
     <!-- Mobile Menu Button could go here -->
   </div>
 </nav>
@@ -64,7 +63,7 @@ const { currentPath = '/' } = Astro.props;
     {navItems.map(item => (
       <a 
         href={item.href} 
-        class="nav-link whitespace-nowrap text-sm text-slate-600 dark:text-slate-400"
+        class="nav-link whitespace-nowrap text-sm text-slate-400"
       >
         {item.name}
       </a>
@@ -77,11 +76,11 @@ const { currentPath = '/' } = Astro.props;
     const navLinks = document.querySelectorAll('.nav-link');
     
     // Helper to clear active states from hash links
-    const clearActive = () => {
       navLinks.forEach(link => {
-        if (link.getAttribute('href')?.startsWith('/#') || link.getAttribute('href')?.startsWith('#')) {
-          link.classList.remove('text-blue-600', 'font-bold', 'bg-blue-50/50', 'dark:bg-blue-900/20');
-          link.classList.add('text-slate-600', 'dark:text-slate-400');
+        const href = link.getAttribute('href');
+        if (href && (href.includes('/#') || href.startsWith('#'))) {
+          link.classList.remove('text-blue-600', 'font-bold', 'bg-blue-900/20');
+          link.classList.add('text-slate-400');
         }
       });
     };
@@ -91,12 +90,12 @@ const { currentPath = '/' } = Astro.props;
         if (entry.isIntersecting) {
           const id = entry.target.getAttribute('id');
           // Only update if we are on the home page or it's a cross-page nav
-          if (window.location.pathname === '/') {
+          if (window.location.pathname === import.meta.env.BASE_URL || window.location.pathname === import.meta.env.BASE_URL + '/') {
             clearActive();
             const activeLink = document.querySelector(`.nav-link[href*="#${id}"]`);
             if (activeLink) {
-              activeLink.classList.remove('text-slate-600', 'dark:text-slate-400');
-              activeLink.classList.add('text-blue-600', 'font-bold', 'bg-blue-50/50', 'dark:bg-blue-900/20');
+              activeLink.classList.remove('text-slate-400');
+              activeLink.classList.add('text-blue-600', 'font-bold', 'bg-blue-900/20');
             }
           }
         }

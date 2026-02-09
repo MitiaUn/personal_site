@@ -9,7 +9,7 @@ interface Props {
   description?: string;
 }
 
-const { title, description = "Dmitrii Unuchek - RnD Leader & Physicist" } = Astro.props;
+const { title, description = "Dimitri Unuchek - RnD Leader & Physicist" } = Astro.props;
 const currentPath = Astro.url.pathname;
 ---
 
@@ -27,7 +27,7 @@ const currentPath = Astro.url.pathname;
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
   </head>
-  <body class="font-sans antialiased text-slate-900 dark:text-slate-100">
+  <body class="font-sans antialiased text-slate-100">
     <Navigation currentPath={currentPath} />
     
     <main class="sm:ml-64 min-h-screen">

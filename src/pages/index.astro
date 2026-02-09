@@ -1,6 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Timeline from '../components/Timeline.astro';
+import CompactList from '../components/CompactList.astro';
 import ProjectCarousel from '../components/ProjectCarousel.astro';
 
 const experience = [
@@ -26,7 +27,7 @@ const experience = [
   },
   {
     date: "2019 - 2020",
-    title: "Scientist",
+    title: "Optical Scientist",
     organization: "H.Glass, Switzerland",
     description: "Conceived and prototyped a novel photovoltaics product, securing budget for further dev.",
     highlights: [
@@ -36,11 +37,11 @@ const experience = [
   {
     date: "2015 - 2019",
     title: "Doctoral Assistant",
-    organization: "Nano-Electronics Lab, EPFL, Switzerland",
+    organization: "EPFL, Switzerland",
     description: "Research of quantum phenomena in 2-dimensional systems.",
     highlights: [
       "Main Achievements: Demonstration of the first excitonic transistors operational at room-temperature.",
-      "12 publications in high impact journals including Nature.",
+      "Outcomes: 12 publications in high impact journals including Nature.",
       "Other Projects: Development of spintronic and opto-spintronic devices based on 2D materials; Development of the electrically pumped laser based on 2D materials; Integration of 2D LED/photodetector with waveguides and photonic cavities.",
       "Key Responsibilities: Developing novel device architectures, numerical simulations, experiment design; Cleanroom microfabrication; Electrical transport and optical measurements; Designing and assembling cryogenic setups; Mentoring master and PhD students."
     ]
@@ -52,19 +53,30 @@ const education = [
     date: "2015 - 2019",
     title: "Ph.D. in Electrical Engineering",
     organization: "EPFL, Lausanne, Switzerland",
-    description: "Doctoral school of Microsystems and Microelectronics (EDMI) at EE department."
+    description: "Doctoral degree in optics and nanoelectronics of low dimensional systems.",
+    highlights: [
+      "Doctoral school of Microsystems and Microelectronics (EDMI) at EE department.",
+      "Thesis: Optospintronics in 2D materials."
+    ]
   },
   {
     date: "2013 - 2015",
     title: "M.Sc. in Physics",
     organization: "Ecole Polytechnique (X), Paris, France",
-    description: "Thesis: Synthesis and characterization of nanomaterials. Ranked 1st in the class. M1 'Physics for Optics and Nanosciences' and M2 'Nanosciences'. M1 GPA: 3.91/4; M2 GPA: 3.81/4."
+    description: " M1 'Physics for Optics and Nanosciences' and M2 'Nanosciences'. M1 GPA: 3.91/4; M2 GPA: 3.81/4.Ranked 1st in the class.",
+    highlights: [
+      "Thesis: Synthesis and characterization of nanomaterials. "
+    ]
   },
   {
     date: "2009 - 2013",
-    title: "B.Sc. in Physics and Technology of Nanostructures",
+    title: "B.Sc. in Physics ",
     organization: "MIPT, Moscow, Russia",
-    description: "Faculty of General and Applied Physics. Diploma with high honors. GPA: 4.94/5."
+    description: "Physics and Technology of Nanostructures.  Diploma with high honors. GPA: 4.94/5.",
+    highlights: [
+      "Faculty of General and Applied Physics.",
+      "Thesis: ..."
+    ]
   }
 ];
 
@@ -73,31 +85,36 @@ const publications = [
     date: "2018",
     title: "Room-temperature electrical control of exciton flux",
     organization: "Nature",
-    description: "D. Unuchek et al., Nature, 2018. Demonstrated the first room-temperature excitonic transistor."
+    description: "D. Unuchek et al., Nature, 2018. Demonstrated the first room-temperature excitonic transistor.",
+    url: "#"
   },
   {
     date: "2019",
     title: "Valley-polarized exciton currents",
     organization: "Nature Nanotechnology",
-    description: "D. Unuchek et al., Nature Nano, 2019. Research on valley-polarized exciton currents in van der Waals heterostructures."
+    description: "D. Unuchek et al., Nature Nano, 2019. Research on valley-polarized exciton currents in van der Waals heterostructures.",
+    url: "#"
   },
   {
       date: "2019",
       title: "Polarization switching and electrical control of interlayer excitons",
       organization: "Nature Photonics",
-      description: "A. Ciarrocchi, D. Unuchek et al., Nature Photonics, 2019."
+      description: "A. Ciarrocchi, D. Unuchek et al., Nature Photonics, 2019.",
+      url: "#"
   },
   {
       date: "2019",
       title: "MoS2 photodetectors integrated with photonic circuits",
       organization: "Nature npj 2D materials",
-      description: "J. Gonzalez, D. Unuchek et al., Nature npj 2D materials, 2019."
+      description: "J. Gonzalez, D. Unuchek et al., Nature npj 2D materials, 2019.",
+      url: "#"
   },
   {
       date: "2017",
       title: "Optospintronics in Graphene via Proximity Coupling",
       organization: "ACS Nano",
-      description: "A. Avsar*, D. Unuchek et al., ACS Nano, 2017."
+      description: "A. Avsar*, D. Unuchek et al., ACS Nano, 2017.",
+      url: "#"
   }
 ];
 
@@ -106,55 +123,64 @@ const patents = [
         date: "Granted",
         title: "Multilayer Electronic Device and Method for Producing the Same",
         organization: "US 17/926,750",
-        description: "Patent for multilayer electronic device structures and production methods."
+        description: "Patent for multilayer electronic device structures and production methods.",
+        url: "#"
     },
     {
         date: "Granted",
         title: "Process of signing documents",
         organization: "EP4152184.A1",
-        description: "Method and process for document signing."
+        description: "Method and process for document signing.",
+        url: "#"
     },
     {
         date: "Published",
         title: "Dispersive optical device, dispersive optical system comprising the same",
         organization: "WO2022208130A1",
-        description: "Optical device technology for dispersive systems."
+        description: "Optical device technology for dispersive systems.",
+        url: "#"
     },
     {
         date: "Published",
         title: "Sunlight steering apparatus and solar energy harvesting system",
         organization: "WO2023031655A1",
-        description: "Apparatus for steering sunlight and harvesting solar energy."
+        description: "Apparatus for steering sunlight and harvesting solar energy.",
+        url: "#"
     },
     {
         date: "Published",
         title: "Light collecting assembly",
         organization: "WO2023175034A1",
-        description: "Assembly designed for efficient light collection."
+        description: "Assembly designed for efficient light collection.",
+        url: "#"
     },
     {
         date: "Published",
         title: "Optical system for a position determination device",
         organization: "WO2023175034A1",
-        description: "Optical system intended for position determination applications."
+        description: "Optical system intended for position determination applications.",
+        url: "#"
     },
     {
         date: "Published",
         title: "Method of detecting and processing spatially-distributed two-dimensional markers",
         organization: "WO2024184765A1",
-        description: "Detection and processing method for 2D markers."
+        description: "Detection and processing method for 2D markers.",
+        url: "#"
     },
     {
         date: "Published",
         title: "Excitonic device and operating methods thereof",
         organization: "WO2019229653A1",
-        description: "Device based on excitons and its operating methods."
+        description: "Device based on excitons and its operating methods.",
+        url: "#"
     },
     {
         date: "Pending",
         title: "New Patent Applications",
         organization: "EP24162349.5, EP24161016.1, EP24161026.0",
-        description: "Several patent applications currently in the filing/pending stage."
+        description: "Several patent applications currently in the filing/pending stage.",
+        url: "#"
     }
 ];
 
@@ -163,49 +189,57 @@ const awards = [
         date: "2020",
         title: "Gilbert Hausmann Award",
         organization: "Scientific Recognition",
-        description: "For ground-breaking work on the realization of the first room-temperature exciton transistor and exceptional contributions to the understanding of exciton transport in two-dimensional semiconductors."
+        description: "For ground-breaking work on the realization of the first room-temperature exciton transistor and exceptional contributions to the understanding of exciton transport in two-dimensional semiconductors.",
+        url: "#"
     },
     {
         date: "2019",
         title: "Nature Photonics Cover Feature",
         organization: "Scientific Recognition",
-        description: "Featured on the cover of Nature Photonics (volume 13, issue 2)."
+        description: "Featured on the cover of Nature Photonics (volume 13, issue 2).",
+        url: "#"
     },
     {
         date: "2013-2015",
         title: "Paris-Saclay Master Scholarship",
         organization: "Scholarship",
-        description: "Two years of scholarship for Master studies."
+        description: "Two years of scholarship for Master studies.",
+        url: "#"
     },
     {
         date: "2012-2013",
         title: "Presidential Scholarship",
         organization: "Scholarship",
-        description: "For outstanding academic performance."
+        description: "For outstanding academic performance.",
+        url: "#"
     },
     {
         date: "2012-2013",
         title: "Lift to the Future Scholarship",
         organization: "Scholarship",
-        description: "For outstanding research and academic performance."
+        description: "For outstanding research and academic performance.",
+        url: "#"
     },
     {
         date: "2009",
         title: "Presidential Award for Talented Youth",
         organization: "Award",
-        description: "National award for talented youth."
+        description: "National award for talented youth.",
+        url: "#"
     },
     {
         date: "2008",
         title: "Silver Medal - Int. Physics Olympiad 'Tuymaada'",
         organization: "Olympiad",
-        description: "International Physics Olympiad 'Tuymaada'."
+        description: "International Physics Olympiad 'Tuymaada'.",
+        url: "#"
     },
     {
         date: "2008",
         title: "Bronze Medal - Russian National Physics Olympiad",
         organization: "Olympiad",
-        description: "National level physics competition."
+        description: "National level physics competition.",
+        url: "#"
     }
 ];
 
@@ -224,11 +258,13 @@ const skills = {
         { category: "Tools", items: ["Git/GitLab", "VSCode", "Adobe Illustrator", "SolidWorks", "DesignCAD"] }
     ]
 };
+
+const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Layout title="Dimitri Unuchek | RnD Director & Physicist">
   <!-- Hero Section -->
-  <section class="min-h-screen flex items-start pt-32 md:pt-48 justify-center relative overflow-hidden">
+  <section id="hero" class="min-h-screen flex items-start pt-32 md:pt-48 justify-center relative overflow-hidden">
     <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 -z-10"></div>
     <div class="max-w-4xl mx-auto text-center px-4">
       <h1 class="text-4xl md:text-5xl font-bold mb-6 tracking-tight">
@@ -242,7 +278,7 @@ const skills = {
         <a href="#projects" class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold transition-all shadow-lg hover:shadow-blue-500/25">
           View My Work
         </a>
-        <a href="/sport" class="px-8 py-3 glass hover:bg-white/20 rounded-full font-bold transition-all flex items-center gap-2">
+        <a href={`${base}/sport`} class="px-8 py-3 glass hover:bg-white/20 rounded-full font-bold transition-all flex items-center gap-2">
           <span>🏃‍♂️</span> Sports Endeavors  
         </a>
       </div>
@@ -255,26 +291,19 @@ const skills = {
       <span class="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center">💼</span>
       Experience
     </h2>
-    <Timeline items={experience} />
+    <Timeline items={experience} inlineHeader={true} />
+  </section>
 
-    <section id="education" class="mt-20">
+  <section id="education" class="max-w-4xl mx-auto px-4 mt-20">
       <h2 class="text-3xl font-bold mb-12 flex items-center gap-3">
         <span class="w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center">🎓</span>
         Education
       </h2>
-      <Timeline items={education} />
-    </section>
-    
-    <section id="publications" class="mt-20">
-      <h2 class="text-3xl font-bold mb-12 flex items-center gap-3">
-        <span class="w-8 h-8 rounded-lg bg-green-500/20 flex items-center justify-center">🔬</span>
-        Selected Publications
-      </h2>
-      <Timeline items={publications} />
+      <Timeline items={education} inlineHeader={true} />
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="mt-20">
+    <section id="skills" class="max-w-4xl mx-auto px-4 mt-20">
       <h2 class="text-3xl font-bold mb-12 flex items-center gap-3">
         <span class="w-8 h-8 rounded-lg bg-red-500/20 flex items-center justify-center">🛠️</span>
         Skills & Languages
@@ -329,23 +358,31 @@ const skills = {
         </div>
       </div>
     </section>
+    
+    <section id="publications" class="max-w-4xl mx-auto px-4 mt-20">
+      <h2 class="text-3xl font-bold mb-12 flex items-center gap-3">
+        <span class="w-8 h-8 rounded-lg bg-green-500/20 flex items-center justify-center">🔬</span>
+        Selected Publications
+      </h2>
+      <CompactList items={publications} />
+    </section>
 
-    <section id="patents" class="mt-20">
+    <section id="patents" class="max-w-4xl mx-auto px-4 mt-20">
       <h2 class="text-3xl font-bold mb-12 flex items-center gap-3">
         <span class="w-8 h-8 rounded-lg bg-orange-500/20 flex items-center justify-center">💡</span>
         Patents
       </h2>
-      <Timeline items={patents} />
+      <CompactList items={patents} />
     </section>
 
-    <section id="awards" class="mt-20">
+    <section id="awards" class="max-w-4xl mx-auto px-4 mt-20">
       <h2 class="text-3xl font-bold mb-12 flex items-center gap-3">
         <span class="w-8 h-8 rounded-lg bg-yellow-500/20 flex items-center justify-center">🏆</span>
         Prizes and Awards
       </h2>
-      <Timeline items={awards} />
+      <CompactList items={awards} />
     </section>
-  </section>
+
 
   <!-- Projects Section -->
   <section id="projects" class="mt-32">
