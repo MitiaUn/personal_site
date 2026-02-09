@@ -6,92 +6,130 @@ import ProjectCarousel from '../components/ProjectCarousel.astro';
 const experience = [
   {
     date: "2022 - Present",
-    title: "Senior Software Engineer",
-    organization: "Tech Innovators Inc.",
-    description: "Leading the development of a distributed cloud platform.",
-    highlights: ["Improved system performance by 40%", "Mentored junior developers", "Implemented CI/CD pipelines"]
+    title: "RnD Director",
+    organization: "Freshape, Switzerland",
+    description: "Leading 30-member RnD division (4 teams, 7 direct reports including HW team). Driving development of 5 products in the fields of electronics and renewable energy.",
+    highlights: [
+      "Managing a portfolio of patents and steering IP strategy to protect key innovations.",
+      "Implemented OKR framework aligned to product milestones, boosting delivery quality and shortening cycle times."
+    ]
   },
   {
-    date: "2019 - 2022",
-    title: "Full Stack Developer",
-    organization: "Creative Solutions Group",
-    description: "Developed and maintained multiple high-traffic web applications.",
-    highlights: ["Migrated legacy systems to React", "Optimized database queries"]
+    date: "2020 - 2022",
+    title: "RnD Manager",
+    organization: "Freshape (former H.Glass), Switzerland",
+    description: "Built and guided cross-disciplinary team of 12 people incl. material scientists, HW and SW engineers. Drove product development from POC to industrialization.",
+    highlights: [
+      "Managed a 2-year, $0.5 M federal-grant collaboration with CSEM."
+    ]
+  },
+  {
+    date: "2019 - 2020",
+    title: "Scientist",
+    organization: "H.Glass, Switzerland",
+    description: "Conceived and prototyped a novel photovoltaics product, securing budget for further dev.",
+    highlights: [
+      "Doubled efficiency of the organic PV cell with optimization of materials and fabrication."
+    ]
+  },
+  {
+    date: "2015 - 2019",
+    title: "Doctoral Assistant",
+    organization: "Nano-Electronics Lab, EPFL, Switzerland",
+    description: "Research of quantum phenomena in 2-dimensional systems.",
+    highlights: [
+      "Main Achievements: Demonstration of the first excitonic transistors operational at room-temperature.",
+      "12 publications in high impact journals including Nature."
+    ]
   }
 ];
 
 const education = [
   {
     date: "2015 - 2019",
-    title: "B.Sc. in Computer Science",
-    organization: "University of Excellence",
-    description: "Specialized in Artificial Intelligence and Web Technologies."
+    title: "Ph.D. in Electrical Engineering",
+    organization: "EPFL, Lausanne, Switzerland",
+    description: "Doctoral school of Microsystems and Microelectronics (EDMI) at EE department."
+  },
+  {
+    date: "2013 - 2015",
+    title: "M.Sc. in Physics",
+    organization: "Ecole Polytechnique (X), Paris, France",
+    description: "Thesis: Synthesis and characterization of nanomaterials. Ranked 1st in the class."
+  },
+  {
+    date: "2009 - 2013",
+    title: "B.Sc. in Physics and Technology of Nanostructures",
+    organization: "MIPT, Moscow, Russia",
+    description: "Diploma with high honors. GPA: 4.94/5."
   }
 ];
 
 const publications = [
   {
-    date: "2021",
-    title: "Optimizing Web Performance in Latency-Sensitive Systems",
-    organization: "IEEE Conference",
-    description: "A research paper on modern web optimization techniques."
+    date: "2018",
+    title: "Room-temperature electrical control of exciton flux",
+    organization: "Nature",
+    description: "D. Unuchek et al., Nature, 2018. Demonstrated the first room-temperature excitonic transistor."
+  },
+  {
+    date: "2019",
+    title: "Valley-polarized exciton currents",
+    organization: "Nature Nanotechnology",
+    description: "D. Unuchek et al., Nature Nano, 2019. Research on valley-polarized exciton currents in van der Waals heterostructures."
   }
 ];
 ---
 
-<Layout title="Dmitrii Unuchek | Portfolio">
+<Layout title="Dimitri Unuchek | RnD Director & Physicist">
   <!-- Hero Section -->
-  <section class="mb-24">
-    <div class="glass-card max-w-3xl">
-      <h2 class="text-4xl md:text-5xl font-bold mb-6 text-gradient bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600">
-        Hello, I'm Dmitrii.
-      </h2>
-      <p class="text-xl md:text-2xl text-slate-600 dark:text-slate-400 leading-relaxed">
-        I'm a passionate Software Engineer and high-performance athlete based in the intersection of code and endurance. I build scalable web systems and push my physical limits in the mountains.
+  <section class="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden">
+    <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 -z-10"></div>
+    <div class="max-w-4xl mx-auto text-center px-4">
+      <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
+        Hi, I'm <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600">Dimitri</span>
+      </h1>
+      <p class="text-xl md:text-2xl text-slate-600 dark:text-slate-300 mb-8 leading-relaxed max-w-2xl mx-auto">
+        RnD Director & Physicist. Driving innovation in electronics and renewable energy. 
+        Expert in managing cross-disciplinary teams and bringing deep-tech products from POC to industrialization.
       </p>
-      <div class="mt-8 flex gap-4">
+      <div class="flex flex-wrap gap-4 justify-center">
         <a href="#projects" class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold transition-all shadow-lg hover:shadow-blue-500/25">
-          View Projects
+          View Work
         </a>
-        <a href="/sport" class="px-8 py-3 glass hover:bg-white/20 rounded-full font-bold transition-all">
-          Sports Journey
+        <a href="/sport" class="px-8 py-3 glass hover:bg-white/20 rounded-full font-bold transition-all flex items-center gap-2">
+          <span>🏃‍♂️</span> Sports Journey
         </a>
       </div>
     </div>
   </section>
 
   <!-- CV Section -->
-  <section id="cv" class="space-y-20">
-    <div>
-      <h2 class="text-3xl font-bold mb-10 flex items-center gap-3">
-        <span class="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center">💼</span>
-        Work Experience
-      </h2>
-      <Timeline items={experience} />
-    </div>
+  <section id="cv" class="max-w-4xl mx-auto px-4 py-20">
+    <h2 class="text-3xl font-bold mb-12 flex items-center gap-3">
+      <span class="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center">💼</span>
+      Experience
+    </h2>
+    <Timeline items={experience} />
 
-    <div>
-      <h2 class="text-3xl font-bold mb-10 flex items-center gap-3">
-        <span class="w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center">🎓</span>
-        Education & Extracurriculars
-      </h2>
-      <Timeline items={education} />
-    </div>
-
-    <div>
-      <h2 class="text-3xl font-bold mb-10 flex items-center gap-3">
-        <span class="w-8 h-8 rounded-lg bg-green-500/20 flex items-center justify-center">📄</span>
-        Publications & Patents
-      </h2>
-      <Timeline items={publications} />
-    </div>
+    <h2 class="text-3xl font-bold mb-12 mt-20 flex items-center gap-3">
+      <span class="w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center">🎓</span>
+      Education
+    </h2>
+    <Timeline items={education} />
+    
+    <h2 class="text-3xl font-bold mb-12 mt-20 flex items-center gap-3">
+      <span class="w-8 h-8 rounded-lg bg-green-500/20 flex items-center justify-center">🔬</span>
+      Selected Publications
+    </h2>
+    <Timeline items={publications} />
   </section>
 
   <!-- Projects Section -->
   <section id="projects" class="mt-32">
-    <h2 class="text-4xl font-bold mb-12 flex items-center gap-3">
+    <h2 class="text-4xl font-bold mb-12 flex items-center gap-3 px-4 max-w-4xl mx-auto">
        <span class="w-8 h-8 rounded-lg bg-yellow-500/20 flex items-center justify-center">🚀</span>
-       Featured Projects
+       Key Projects & Innovations
     </h2>
     <ProjectCarousel />
   </section>

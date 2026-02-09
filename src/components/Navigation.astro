@@ -1,5 +1,6 @@
 ---
 import ThemeToggle from './ThemeToggle.astro';
+import photo from '../assets/photo1.JPG';
 
 const navItems = [
   { name: 'Home', href: '/' },
@@ -14,11 +15,13 @@ const { currentPath = '/' } = Astro.props;
 <nav class="hidden sm:flex flex-col fixed left-0 top-0 h-screen w-64 glass border-r z-50 p-8 items-center">
   <div class="flex flex-col items-center mb-12">
     <img 
-      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&h=200&auto=format&fit=crop" 
+      src={photo.src} 
       alt="Profile Photo" 
       class="w-32 h-32 rounded-full border-4 border-white/20 mb-4 object-cover shadow-2xl"
     />
-    <h1 class="text-xl font-bold tracking-tight text-center">Dmitrii Unuchek</h1>
+    <h2 class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
+      Dimitri Unuchek
+    </h2>
     <p class="text-sm text-slate-500 dark:text-slate-400">Software Engineer & Athlete</p>
   </div>
 

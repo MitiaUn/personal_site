@@ -1,0 +1,145 @@
+    Dimitri                                       PROFESSIONAL EXPERIENCE
+
+  UNUCHEK                                        2022­present. RnD director, Freshape, Switzerland
+                                                  Leading 30-member RnD division (4 teams, 7 direct reports including HW team)
+Personal Details                                  Driving development of 5 products in the elds of electronics and renewable energy
+                                                  Managing a portfolio of patents and steering IP strategy to protect key innovations
+ Lausanne, Switzerland                            Launched career-growth initiatives and cross-team chapters to foster innovation
+ d.s.unuchek@gmail.com                            Implemented OKR framework aligned to product milestones, boosting delivery quality
+ +41 76 817 22 92
+                                                    and shortening cycle times
+Languages                                        2020­2022. RnD manager, Freshape (former H.Glass), Switzerland
+                                                  Built and guided cross-disciplinary team of 12 people incl. material scientists,
+ English 
+ Russian                                            HW (optical, mechanical, electrical) and SW (algo, FW) engineers
+ French                                           Drove product development from POC to industrialization
+ German                                           Managed a 2-year, $0.5 M federal-grant collaboration with CSEM
+ Spanish                                         2019­2020. Scientist, H.Glass, Switzerland.
+                                                  Conceived and prototyped a novel photovoltaics product, securing budget for further dev.
+Technical Skills                                  Doubled e ciency of the organic PV cell with optimization of materials and fabrication
+
+Cryogenics                                       2015­2019. Doctoral Assistant, Nano-Electronics Lab, EPFL, Switzerland
+ broad experience in low-T UHV systems            Research of quantum phenomena in 2-dimensional systems
+ setting up and maintaining dilution fridge      Main Achievements:
+ wet and dry systems with high magnetic elds      Demonstration of the rst excitonic transistors operational at room-temperature
+Electrical Transport                              12 publications in high impact journals including Nature
+ quantum devices design and simulation           Other Projects:
+ low-noise / low-current / low-T measurements     Development of spintronic and opto-spintronic devices based on 2D materials
+ lock-in and current ampli ers                    Development of the electrically pumped laser based on 2D materials
+ spintronics and spin measurements                Integration of 2D LED/photodetector with waveguides and photonic cavities
+Optical Measurements                             Key Responsibilities (quantum devices from A to Z):
+ chip integrated photonics (PIC)                  Developing novel device architectures, numerical simulations, experiment design
+ continuous wave / ultrafast laser spectroscopy   Cleanroom microfabrication of optoelectronic devices and photonic structures
+ optical setup assembly and alignment             Electrical transport and optical measurements of fabricated devices
+Clean Room Microfabrication                       Designing and assembling cryogenic setups for complex optical experiments
+ photo-/ebeam lithography, ALD, PECVD             Mentoring master and PhD students and their research projects
+ physical deposition, wet and dry etching
+ wafer dicing, wire bonding                        EDUCATION
+Metrology / Material Characterisation
+ AFM, STM, SEM, FIB, PL, Raman, ellipsometry     2015­2019. EPFL, Lausanne, Switzerland
+                                                 Ph.D. in Electrical engineering
+Computer skills                                   Doctoral school of Microsystems and Microelectronics (EDMI) at EE department
+
+Programming and Numerical Simulation             2013­2015. Ecole Polytechnique (X), Paris, France
+ Python, LabVIEW, C, Mathematica, MATLAB         M.Sc. in Physics. Thesis: "Synthesis and characterization of nanomaterials"
+ Version control in git, GitLab                   M1 "Physics for Optics and Nanosciences" and M2 "Nanosciences"
+ Zemax - optical design, ray tracing              Ranked 1st in the class. M1 GPA: 3.91/4. M2 GPA: 3.81/4.
+ COMSOL - multiphysics device simulation
+ Lumerical - FDTD photonics simulations          2009­2013. MIPT, Moscow, Russia
+Data Analysis and Image Processing               B.Sc. in Physics and Technology of Nanostructures
+ Python (SciPy, Matplotlib, Pandas, OpenCV)       Faculty of General and Applied Physics. Diploma with high honors. GPA: 4.94/5
+ Igor Pro, Origin, ImageJ, GnuPlot
+Design Tools                                       TEACHING EXPERIENCE
+ Adobe Illustrator, DesignCAD, SolidWorks
+                                                 2015­2019. Teaching Assistant of "Measuring Systems" at EPFL
+Hobbies                                           Supervising and guiding electrical engineering students
+                                                  Conducting theoretical and experimental classes
+ Endurance sports, Triathlon                      Prototyping on NI ELVIS board and LabVIEW programming
+ IM70.3 in 4h18'
+ Matterhorn summit in 2h26'                      2009­10. Teacher, Distance School of Physics and Technology at MIPT
+                                                  Students counseling and correction of their works
+
+                                                   EXTRACURRICULAR EXPERIENCE
+
+                                                 2018. Organizer, Summer School "Optoelectronics on 2D materials"
+                                                  Fundraising (40k CHF), sponsorship search, and venue arrangement
+                                                  Speakers selection, invitation, and their travel arrangement; participants selection
+                                                  School promotion, website and school's design development
+
+                                                 2012. Jury, Final Round of National Physics Olympiad
+                                                  Organization of theoretical and experimental rounds
+                                                  Correcting and grading participants' works including tête-à-tête appeals
+  SELECTED PUBLICATIONS
+
+First Authorship / Equal Contribution*
+
+ D. Unuchek et al., "Room-temperature electrical control of exciton flux in a van der Waals heterostructure", Nature, 2018
+ D. Unuchek et al., "Valley-polarized exciton currents in a van der Waals heterostructure", Nature Nano, 2019
+ A. Ciarrocchi*, D. Unuchek* et al., "Polarization switching and electrical control of interlayer excitons in two-dimensional
+
+   van der Waals heterostructures", Nature Photonics, 2019
+ J. Gonzalez*, D. Unuchek* et al., "MoS2 photodetectors integrated with photonic circuits", Nature npj 2D materials, 2019
+ A. Avsar*, D. Unuchek* et al., "Optospintronics in Graphene via Proximity Coupling", ACS Nano, 2017
+
+Other Authorship
+
+ J. Gonzalez, D. Unuchek et al., "Room-temperature electrical control of polarization and emission angle in a cavity-integrated
+   2D pulsed LED", Nature Communications, 2022
+
+ A. Avsar, A. Ciarrocchi, M. Pizzochero, D. Unuchek, O. Yazyev, A. Kis, "Layer-modulated magnetism in two-dimensional metallic
+   PtSe2", Nature Nanotechnology , 2019
+
+  CONFERENCE PRESENTATIONS
+
+ 2019 American Physical Society March Meeting. Boston, USA
+   D. Unuchek et al., "Electrostatic control of exciton flux in van der Waals heterostructures"
+
+ 2018 Flatlands Beyond Graphene. Leipzig, Germany
+   D. Unuchek et al., "Control of interlayer excitons in two-dimensional van der Waals heterostructures"
+
+ 2018 American Physical Society March Meeting. Los Angeles, USA
+   D. Unuchek et al., "Reconfigurable Diodes Based on Vertical WSe2 Transistors with van der Waals Bonded Contacts"
+
+ 2018 GRC Two Dimensional Electronics Beyond Graphene. Easton, USA
+   D. Unuchek et al., "Optospintronics in Graphene via Proximity Coupling"
+
+ 2017 Flatlands Beyond Graphene. Lausanne, Switzerland
+   D Unuchek et al., "Atomically thin electrically tunable light-emitting diodes"
+
+  PATENTS
+
+ US 17/926,750 - "Multilayer Electronic Device and Method for Producing the Same" - Granted
+ EP4152184.A1 - "Process of signing documents" - Granted
+ WO2022208130A1 - "Dispersive optical device, dispersive optical system comprising the same"
+ WO2023031655A1 - "Sunlight steering apparatus and solar energy harvesting system comprising the same
+ WO2023175034A1 - "Light collecting assembly"
+ WO2023175034A1 - "Optical system for a position determination device"
+ WO2024184765A1- "Method of detecting and processing spatially-distributed two-dimensional markers"
+ WO2019229653A1 - "Excitonic device and operating methods thereof"
+ Not yet published: EP24162349.5, EP24161016.1, EP24161026.0
+
+  AWARDS
+
+Scientific recognition
+
+ 2020 Gilbert Hausmann Award "For ground-breaking work on the realization of the first room-temperature exciton transistor
+and exceptional contributions to the understanding of exciton transport in two-dimensional semicondcutors."
+ 2019 Featured on the cover of the Nature Photonics (volume 13, issue 2)
+
+Scholarships
+
+ 2013­15 Two years of "Paris-Saclay" master scholarship
+ 2012­13 "Presidential Scholarship" for outstanding academic performance
+ 2012­13 Scholarship "Lift to the Future" for outstanding research and academic performance
+ 2010, 12 Scholarship of "Foundation for the Development of Natural Science Innovation Education"
+
+Awards
+
+ 2009 Presidential Award for Talented Youth
+ 2007, 08, 09 Moscow Governor's Youth Award
+
+Science Olympiads Medals
+
+ 2008 Silver medal at International Physics Olympiad "Tuymaada"
+ 2008 Bronze medal at Russian National Physics Olympiad
+
