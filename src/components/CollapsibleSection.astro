@@ -6,9 +6,10 @@ interface Props {
   iconColorClass: string;
   description: string;
   open?: boolean;
+  indent?: boolean;
 }
 
-const { id, title, icon, iconColorClass, description, open = false } = Astro.props;
+const { id, title, icon, iconColorClass, description, open = false, indent = true } = Astro.props;
 ---
 
 <div class="collapsible-section" id={id}>
@@ -18,23 +19,23 @@ const { id, title, icon, iconColorClass, description, open = false } = Astro.pro
     aria-controls={`${id}-content`}
   >
     <div class="flex items-start gap-4">
-<div class={`w-10 h-10 rounded-xl ${iconColorClass} flex items-center justify-center text-xl shadow-sm shrink-0 mt-1`}>
+      <div class={`w-10 h-10 rounded-xl ${iconColorClass} flex items-center justify-center text-xl shadow-sm shrink-0 mt-1`}>
         <slot name="icon">{icon}</slot>
       </div>
       <div class="flex-grow">
         <div class="flex items-center justify-between">
-            <h2 class="text-2xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+          <h2 class="text-2xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
             {title}
-            </h2>
-             <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                class="h-6 w-6 text-slate-400 transform transition-transform duration-300 chevron" 
-                fill="none" 
-                viewBox="0 0 24 24" 
-                stroke="currentColor"
-            >
+          </h2>
+           <svg 
+              xmlns="http://www.w3.org/2000/svg" 
+              class="h-6 w-6 text-slate-400 transform transition-transform duration-300 chevron" 
+              fill="none" 
+              viewBox="0 0 24 24" 
+              stroke="currentColor"
+          >
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-            </svg>
+          </svg>
         </div>
         <div class="text-base text-slate-600 dark:text-slate-300 mt-2 font-light leading-relaxed">
           <slot name="description">{description}</slot>
@@ -48,7 +49,7 @@ const { id, title, icon, iconColorClass, description, open = false } = Astro.pro
     class={`grid transition-[grid-template-rows] duration-500 ease-in-out ${open ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}
   >
     <div class="overflow-hidden">
-      <div class="pb-6 pl-[3.5rem]">
+      <div class={`pb-6 ${indent ? 'pl-[3.5rem]' : 'pl-0'}`}>
         <slot />
       </div>
     </div>

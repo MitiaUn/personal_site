@@ -11,7 +11,7 @@ import DocumentTextIcon from '../components/icons/DocumentText.astro';
 import MicrophoneIcon from '../components/icons/Microphone.astro';
 import LightBulbIcon from '../components/icons/LightBulb.astro';
 import TrophyIcon from '../components/icons/Trophy.astro';
-import RocketIcon from '../components/icons/Rocket.astro';
+
 
 const experience = [
   {
@@ -95,49 +95,49 @@ const publications = [
     year: "2018",
     journal: "Nature",
     authors: "D. Unuchek et al.",
-    url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fncAM5EAAAAJ&citation_for_view=fncAM5EAAAAJ:u5HHmVD_uO8C"
+    url: "https://www.nature.com/articles/s41586-018-0357-y"
   },
   {
     title: "Valley-polarized exciton currents in a van der Waals heterostructure",
     year: "2019",
     journal: "Nature Nano",
     authors: "D. Unuchek et al.",
-    url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fncAM5EAAAAJ&citation_for_view=fncAM5EAAAAJ:9yKSN-GCB0IC"
+    url: "https://www.nature.com/articles/s41565-019-0559-y"
   },
   {
     title: "Polarization switching and electrical control of interlayer excitons in two-dimensional van der Waals heterostructures",
     year: "2019",
     journal: "Nature Photonics",
     authors: "A. Ciarrocchi, D. Unuchek et al.",
-    url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fncAM5EAAAAJ&citation_for_view=fncAM5EAAAAJ:d1gkVwhDpl0C"
+    url: "https://www.nature.com/articles/s41566-018-0325-y"
   },
   {
     title: "MoS2 photodetectors integrated with photonic circuits",
     year: "2019",
     journal: "Nature npj 2D materials",
     authors: "J. Gonzalez, D. Unuchek et al.",
-    url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fncAM5EAAAAJ&citation_for_view=fncAM5EAAAAJ:qa_47z2sP6IC"
+    url: "https://www.nature.com/articles/s41699-019-0096-4"
   },
   {
     title: "Optospintronics in Graphene via Proximity Coupling",
     year: "2017",
     journal: "ACS Nano",
     authors: "A. Avsar*, D. Unuchek et al.",
-    url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fncAM5EAAAAJ&citation_for_view=fncAM5EAAAAJ:u-x6o8ySG0sC"
+    url: "https://pubs.acs.org/doi/10.1021/acsnano.7b06800"
   },
   {
     title: "Room-temperature electrical control of polarization and emission angle in a cavity-integrated 2D pulsed LED",
     year: "2022",
     journal: "Nature Communications",
     authors: "J. Gonzalez, D. Unuchek et al.",
-    url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fncAM5EAAAAJ&citation_for_view=fncAM5EAAAAJ:Y0pCki6q_DkC"
+    url: "https://www.nature.com/articles/s41467-022-32292-2"
   },
   {
     title: "Layer-modulated magnetism in two-dimensional metallic PtSe2",
     year: "2019",
     journal: "Nature Nanotechnology",
     authors: "A. Avsar, A. Ciarrocchi, M. Pizzochero, D. Unuchek, O. Yazyev, A. Kis",
-    url: "https://scholar.google.com/citations?view_op=view_citation&hl=en&user=fncAM5EAAAAJ&citation_for_view=fncAM5EAAAAJ:zYLM7Y9cAGgC"
+    url: "https://www.nature.com/articles/s41565-019-0467-1"
   }
 ];
 
@@ -227,13 +227,19 @@ const awardsData = {
     { 
       year: "2020", 
       title: "Gilbert Hausmann Award",
+      url: "https://actu.epfl.ch/news/gilbert-hausmann-award-2020-dmitrii-unuchek/",
       description: '"For ground-breaking work on the realization of the first room-temperature exciton transistor and exceptional contributions to the understanding of exciton transport in two-dimensional semiconductors."'
     },
     { 
       year: "2020", 
-      title: "EDMI Thesis Distinction"
+      title: "EDMI Thesis Distinction",
+      url: "https://www.epfl.ch/education/phd/phd-awards/thesis-distinction/"
     },
-    { year: "2019", title: 'Featured on the cover of the Nature Photonics (volume 13, issue 2)' }
+    { 
+      year: "2019", 
+      title: 'Featured on the cover of the Nature Photonics (volume 13, issue 2)',
+      url: "https://www.nature.com/nphoton/volumes/13/issues/2"
+    }
   ],
   scholarships: [
     { year: "2013-15", title: 'Two years of "Paris-Saclay" master scholarship' },
@@ -252,7 +258,7 @@ const awardsData = {
 };
 
 const skills = {
-    languages: ["English", "Russian", "French"],
+    languages: ["English", "French", "Russian"],
     technical: [
         { category: "Cryogenics", items: ["Low-T UHV systems", "Dilution fridge maintenance", "Wet/dry systems with high magnetic fields"] },
         { category: "Electrical Transport", items: ["Quantum devices design/simulation", "Low-noise/low-current/low-T measurements", "Lock-in & current amplifiers", "Spintronics"] },
@@ -261,9 +267,9 @@ const skills = {
         { category: "Metrology / Characterisation", items: ["AFM, STM, SEM, FIB", "PL, Raman", "Ellipsometry"] }
     ],
     computer: [
-        { category: "Programming & Simulation", items: ["Python (SciPy, Matplotlib, Pandas, OpenCV)", "LabVIEW", "C", "Mathematica", "MATLAB"] },
-        { category: "Specialized Software", items: ["Zemax (Optical design)", "COMSOL (Multiphysics)", "Lumerical (FDTD)"] },
-        { category: "Tools", items: ["Git/GitLab", "VSCode", "Adobe Illustrator", "SolidWorks", "DesignCAD"] }
+        { category: "Programming & Tools", items: ["Python (SciPy, Matplotlib, Pandas, OpenCV)", "LabVIEW", "C", "Mathematica", "MATLAB", "Git", "VSCode", "Antigravity"] },
+        { category: "Numerical Simulations", items: ["Zemax (Optical design)", "COMSOL (Multiphysics)", "Lumerical (FDTD)", "LTSpice"] },
+        { category: "Design Tools", items: ["Adobe Illustrator", "SolidWorks", "DesignCAD", "Fusion360", "KLayout", "Nazca", "CATS", "CJOB"] }
     ]
 };
 
@@ -276,14 +282,14 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
     <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 -z-10"></div>
     <div class="max-w-4xl mx-auto text-center px-4">
       <h1 class="text-3xl md:text-4xl font-bold mb-6 tracking-tight">
-        Hi, I'm <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600">Dimitri</span>
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600">Hi, I'm Dimitri</span>
       </h1>
       <div class="text-lg md:text-xl text-slate-600 dark:text-slate-300 mb-8 leading-relaxed max-w-3xl mx-auto space-y-4 font-light">
         <p>
-          Experienced R&D leader and scientist with a PhD from EPFL, specializing in the development of next-generation electrical, optical and renewable energy products.
+          Experienced R&D leader and scientist with a PhD from EPFL, specializing in the development of next-generation optoelectronics and semicon products.
         </p>
         <p>
-          My career spans from pioneering fundamental research of quantum phenomena in 2D materials to building and managing diverse cross-disciplinary teams and driving product development from POC to industrialization.
+          My career spans from pioneering fundamental research of quantum phenomena in 2D materials to building and managing diverse cross-disciplinary teams and driving product development from POC to industrialization in the field of optics, electronics and renewable energy.
         </p>
         <p>
           I thrive at the intersection of complex problem-solving, innovations and industrialization, bridging the gap between scientific breakthroughs and scalable hardware solutions.
@@ -307,6 +313,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
       title="Experience"
       iconColorClass="bg-slate-100 dark:bg-slate-800"
       description="7 years of experience in academic research and 6 years of R&D management and product development."
+      indent={false}
     >
       <BriefcaseIcon slot="icon" class="w-6 h-6 text-slate-600 dark:text-slate-400" />
       <Timeline items={experience} inlineHeader={true} />
@@ -319,6 +326,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
       title="Education"
       iconColorClass="bg-slate-100 dark:bg-slate-800"
       description="Doctoral degree in Electrical Engineering/Nanoelectronics and Master's in Physics."
+      indent={false}
     >
       <GraduationCapIcon slot="icon" class="w-6 h-6 text-slate-600 dark:text-slate-400" />
       <Timeline items={education} inlineHeader={true} />
@@ -469,7 +477,13 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
                           <div class="flex flex-row items-center gap-4">
                               <span class="font-medium text-slate-500 dark:text-slate-500 min-w-[3rem] text-right flex-shrink-0">{a.year}</span>
                               <span class="text-slate-400">•</span>
-                              <span class="text-slate-900 dark:text-white font-medium">{a.title}</span>
+                              {a.url ? (
+                                <a href={a.url} target="_blank" rel="noopener noreferrer" class="text-slate-900 dark:text-white font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                                  {a.title}
+                                </a>
+                              ) : (
+                                <span class="text-slate-900 dark:text-white font-medium">{a.title}</span>
+                              )}
                           </div>
                           {a.description && (
                               <div class="ml-[calc(3rem+1rem+0.5rem)] mt-1 text-slate-500 dark:text-slate-400 text-sm">
@@ -534,9 +548,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
   <!-- Projects Section -->
   <section id="projects" class="mt-32">
     <h2 class="text-4xl font-bold mb-12 flex items-center gap-3 px-4 max-w-4xl mx-auto">
-       <span class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
-         <RocketIcon class="w-5 h-5 text-slate-600 dark:text-slate-400" />
-       </span>
+
        Key Projects & Innovations
     </h2>
     <ProjectCarousel />
