@@ -3,7 +3,10 @@ import ThemeToggle from './ThemeToggle.astro';
 import photo from '../assets/photo1.JPG';
 
 const navItems = [
-  { name: 'Home', href: '/' },
+  { name: 'CV', href: '/#experience' },
+  { name: 'Skills', href: '/#skills' },
+  { name: 'Publications', href: '/#publications' },
+  { name: 'Awards', href: '/#awards' },
   { name: 'Projects', href: '/#projects' },
   { name: 'Sport', href: '/sport' },
 ];
@@ -12,25 +15,27 @@ const { currentPath = '/' } = Astro.props;
 ---
 
 <!-- Desktop Sidebar -->
-<nav class="hidden sm:flex flex-col fixed left-0 top-0 h-screen w-64 glass border-r z-50 p-8 items-center">
-  <div class="flex flex-col items-center mb-12">
+<nav class="hidden sm:flex flex-col fixed left-0 top-0 h-screen w-64 glass border-r z-50 p-8 items-center overflow-y-auto no-scrollbar">
+  <div class="flex flex-col items-center mb-8 shrink-0">
     <img 
       src={photo.src} 
       alt="Profile Photo" 
       class="w-32 h-32 rounded-full border-4 border-white/20 mb-4 object-cover shadow-2xl"
     />
-    <h2 class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600">
+    <h2 class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600 text-center">
       Dimitri Unuchek
     </h2>
-    <p class="text-sm text-slate-500 dark:text-slate-400">Software Engineer & Athlete</p>
+    <p class="text-sm text-slate-500 dark:text-slate-400 text-center">R&D Leader | Physicist</p>
   </div>
 
-  <ul class="flex-1 w-full space-y-4">
+  <ul class="flex-1 w-full space-y-2">
     {navItems.map(item => (
       <li>
         <a 
           href={item.href} 
-          class={`nav-link block w-full text-lg ${currentPath === item.href ? 'active' : ''}`}
+          class={`nav-link block w-full px-4 py-2 rounded-lg transition-all duration-200 hover:bg-white/10 ${
+            currentPath === item.href ? 'active-page text-blue-600 font-bold bg-blue-50/50 dark:bg-blue-900/20' : 'text-slate-600 dark:text-slate-400'
+          }`}
         >
           {item.name}
         </a>
@@ -38,7 +43,7 @@ const { currentPath = '/' } = Astro.props;
     ))}
   </ul>
 
-  <div class="mt-auto pt-8 border-t border-white/10 w-full flex justify-center">
+  <div class="mt-8 pt-6 border-t border-white/10 w-full flex justify-center shrink-0">
     <ThemeToggle />
   </div>
 </nav>
@@ -47,18 +52,64 @@ const { currentPath = '/' } = Astro.props;
 <nav class="sm:hidden fixed top-0 left-0 w-full glass z-50 px-6 py-4 flex justify-between items-center shadow-lg">
   <div class="font-bold text-lg tracking-tight">DU</div>
   
-  <ul class="flex space-x-4">
-    {navItems.map(item => (
-      <li>
-        <a 
-          href={item.href} 
-          class={`nav-link text-sm ${currentPath === item.href ? 'active' : ''}`}
-        >
-          {item.name}
-        </a>
-      </li>
-    ))}
-  </ul>
-
-  <ThemeToggle />
+  <!-- Hamburger Menu (Simplified for brevity, can be expanded) -->
+  <div class="flex items-center gap-4">
+    <ThemeToggle />
+    <!-- Mobile Menu Button could go here -->
+  </div>
 </nav>
+
+<!-- Mobile Bottom Navigation (Optional for better mobile experience with many links) -->
+<nav class="sm:hidden fixed bottom-0 left-0 w-full glass z-50 px-6 py-4 flex overflow-x-auto gap-4 items-center shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+    {navItems.map(item => (
+      <a 
+        href={item.href} 
+        class="nav-link whitespace-nowrap text-sm text-slate-600 dark:text-slate-400"
+      >
+        {item.name}
+      </a>
+    ))}
+</nav>
+
+<script>
+  function setupActiveHighlighting() {
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-link');
+    
+    // Helper to clear active states from hash links
+    const clearActive = () => {
+      navLinks.forEach(link => {
+        if (link.getAttribute('href')?.startsWith('/#') || link.getAttribute('href')?.startsWith('#')) {
+          link.classList.remove('text-blue-600', 'font-bold', 'bg-blue-50/50', 'dark:bg-blue-900/20');
+          link.classList.add('text-slate-600', 'dark:text-slate-400');
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const id = entry.target.getAttribute('id');
+          // Only update if we are on the home page or it's a cross-page nav
+          if (window.location.pathname === '/') {
+            clearActive();
+            const activeLink = document.querySelector(`.nav-link[href*="#${id}"]`);
+            if (activeLink) {
+              activeLink.classList.remove('text-slate-600', 'dark:text-slate-400');
+              activeLink.classList.add('text-blue-600', 'font-bold', 'bg-blue-50/50', 'dark:bg-blue-900/20');
+            }
+          }
+        }
+      });
+    }, { 
+      threshold: 0.2, // Trigger when 20% of section is visible
+      rootMargin: '-10% 0px -50% 0px' // Adjust active area to top half of screen
+    });
+
+    sections.forEach(section => observer.observe(section));
+  }
+
+  // Run on load and after view transitions
+  setupActiveHighlighting();
+  document.addEventListener('astro:page-load', setupActiveHighlighting);
+</script>
