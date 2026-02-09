@@ -76,6 +76,7 @@ const { currentPath = '/' } = Astro.props;
     const navLinks = document.querySelectorAll('.nav-link');
     
     // Helper to clear active states from hash links
+    function clearActive() {
       navLinks.forEach(link => {
         const href = link.getAttribute('href');
         if (href && (href.includes('/#') || href.startsWith('#'))) {
@@ -83,7 +84,7 @@ const { currentPath = '/' } = Astro.props;
           link.classList.add('text-slate-400');
         }
       });
-    };
+    }
 
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
