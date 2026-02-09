@@ -13,9 +13,32 @@ const photos = [
   { src: "https://images.unsplash.com/photo-1551698618-1fed5d978018?q=80&w=800&auto=format&fit=crop", alt: "Skiing at sunrise" },
   { src: "https://images.unsplash.com/photo-1517177646040-d8efdfb6016e?q=80&w=800&auto=format&fit=crop", alt: "Cross country skiing" },
 ];
+
+const sportLinks = [
+  { 
+    name: 'Ironman', 
+    url: 'https://www.coachcox.co.uk/imstats/athlete/1116394/',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9v-2h2v2zm0-4H9V7h2v5z"/></svg>` // Generic info/logo
+  },
+  { 
+    name: 'ITRA', 
+    url: 'https://itra.run/RunnerSpace/Unuchek-Dimitri/5948910',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M14 6l-3.8 5.4L8 9.2 2 19h20L14 6z"/></svg>` // Mountain
+  },
+  { 
+    name: 'UTMB', 
+    url: 'https://utmb.world/runner/6642956.dimitri.unuchek',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M5 18h14v2H5v-2zm7-14l-5 8h10l-5-8z"/></svg>` // Peak
+  },
+  { 
+    name: 'Strava', 
+    url: 'https://www.strava.com/', 
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M15.387 17.944l-2.089-4.116h-3.065l5.154-8.128 5.154 8.128h-3.064l-2.09 4.116zm-5.154 5.356l-3.066-6.065h3.066l-1.93-3.032-5.93 10.932h3.93l1.93-1.835z"/></svg>`
+  },
+];
 ---
 
-<Layout title="Sports Journey | Dimitri Unuchek">
+<Layout title="Sports Journey | Dimitri Unuchek" speedDialLinks={sportLinks} speedDialLabel="Follow Me">
   <!-- Athlete Bio -->
   <section class="mb-24">
     <div class="glass-card max-w-3xl">

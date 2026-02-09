@@ -4,6 +4,14 @@ import Timeline from '../components/Timeline.astro';
 import CompactList from '../components/CompactList.astro';
 import ProjectCarousel from '../components/ProjectCarousel.astro';
 import CollapsibleSection from '../components/CollapsibleSection.astro';
+import BriefcaseIcon from '../components/icons/Briefcase.astro';
+import GraduationCapIcon from '../components/icons/GraduationCap.astro';
+import ToolsIcon from '../components/icons/Tools.astro';
+import DocumentTextIcon from '../components/icons/DocumentText.astro';
+import MicrophoneIcon from '../components/icons/Microphone.astro';
+import LightBulbIcon from '../components/icons/LightBulb.astro';
+import TrophyIcon from '../components/icons/Trophy.astro';
+import RocketIcon from '../components/icons/Rocket.astro';
 
 const experience = [
   {
@@ -297,10 +305,10 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
     <CollapsibleSection
       id="experience-section"
       title="Experience"
-      icon="💼"
-      iconColorClass="bg-blue-500/20"
+      iconColorClass="bg-slate-100 dark:bg-slate-800"
       description="7 years of experience in academic research and 6 years of R&D management and product development."
     >
+      <BriefcaseIcon slot="icon" class="w-6 h-6 text-slate-600 dark:text-slate-400" />
       <Timeline items={experience} inlineHeader={true} />
     </CollapsibleSection>
   </section>
@@ -309,10 +317,10 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
     <CollapsibleSection
       id="education-section"
       title="Education"
-      icon="🎓"
-      iconColorClass="bg-purple-500/20"
+      iconColorClass="bg-slate-100 dark:bg-slate-800"
       description="Doctoral degree in Electrical Engineering/Nanoelectronics and Master's in Physics."
     >
+      <GraduationCapIcon slot="icon" class="w-6 h-6 text-slate-600 dark:text-slate-400" />
       <Timeline items={education} inlineHeader={true} />
     </CollapsibleSection>
   </section>
@@ -322,10 +330,10 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
       <CollapsibleSection
         id="skills-section"
         title="Skills & Languages"
-        icon="🛠️"
-        iconColorClass="bg-red-500/20"
+        iconColorClass="bg-slate-100 dark:bg-slate-800"
         description="Multidisciplinary profile with extensive software and hardware skills."
       >
+        <ToolsIcon slot="icon" class="w-6 h-6 text-slate-600 dark:text-slate-400" />
         <div class="mb-10">
           <h3 class="text-xl font-semibold mb-4 text-slate-800 dark:text-slate-200">Languages</h3>
           <div class="flex flex-wrap gap-3">
@@ -381,9 +389,9 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
       <CollapsibleSection
         id="publications-section"
         title="Selected Publications"
-        icon="🔬"
-        iconColorClass="bg-green-500/20"
+        iconColorClass="bg-slate-100 dark:bg-slate-800"
       >
+        <DocumentTextIcon slot="icon" class="w-6 h-6 text-slate-600 dark:text-slate-400" />
         <span slot="description">
             Over 12 academic publications in top scientific journals. <a href="https://scholar.google.com/citations?user=fncAM5EAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline">Google Scholar</a>
         </span>
@@ -406,10 +414,10 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
       <CollapsibleSection
         id="conferences-section"
         title="Conference Presentations"
-        icon="🎤"
-        iconColorClass="bg-teal-500/20"
+        iconColorClass="bg-slate-100 dark:bg-slate-800"
         description="Multiple talks at international scientific conferences."
       >
+        <MicrophoneIcon slot="icon" class="w-6 h-6 text-slate-600 dark:text-slate-400" />
         <div class="space-y-8">
           {conferences.map((c) => (
             <div class="mx-2">
@@ -427,10 +435,10 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
       <CollapsibleSection
         id="patents-section"
         title="Patents"
-        icon="💡"
-        iconColorClass="bg-orange-500/20"
+        iconColorClass="bg-slate-100 dark:bg-slate-800"
         description="Over 10 granted and pending patent applications."
       >
+        <LightBulbIcon slot="icon" class="w-6 h-6 text-slate-600 dark:text-slate-400" />
         <div class="space-y-6">
             {patents.map((p) => (
               <div class="mx-2">
@@ -448,10 +456,10 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
       <CollapsibleSection
         id="awards-section"
         title="Prizes and Awards"
-        icon="🏆"
-        iconColorClass="bg-yellow-500/20"
+        iconColorClass="bg-slate-100 dark:bg-slate-800"
         description="Recognition for scientific achievements and academic excellence."
       >
+        <TrophyIcon slot="icon" class="w-6 h-6 text-slate-600 dark:text-slate-400" />
         <div class="space-y-10">
           <div>
               <h3 class="text-xl font-semibold mb-4 text-slate-800 dark:text-slate-200">Scientific recognition:</h3>
@@ -526,7 +534,9 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
   <!-- Projects Section -->
   <section id="projects" class="mt-32">
     <h2 class="text-4xl font-bold mb-12 flex items-center gap-3 px-4 max-w-4xl mx-auto">
-       <span class="w-8 h-8 rounded-lg bg-yellow-500/20 flex items-center justify-center">🚀</span>
+       <span class="w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+         <RocketIcon class="w-5 h-5 text-slate-600 dark:text-slate-400" />
+       </span>
        Key Projects & Innovations
     </h2>
     <ProjectCarousel />
