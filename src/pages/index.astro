@@ -13,34 +13,56 @@ import LightBulbIcon from '../components/icons/LightBulb.astro';
 import TrophyIcon from '../components/icons/Trophy.astro';
 
 
-const experience = [
+const coreExperience = [
   {
     date: "2022 - 2025",
     title: "RnD Director",
     organization: "Freshape, Switzerland",
-    description: "Lead 30-member RnD division (4 teams, 7 direct reports including HW team). Drove development of 5 products in the fields of electronics and renewable energy.",
+    description: "Head of the Optical Innovations R&D division, leading a 30-member organization (4 teams, 7 direct reports). Directed the end-to-end development of 5 product lines across semiconductor physics, optics, and renewable energy, bridging the gap between high-level strategy and technical execution.",
     highlights: [
-      "Managing a portfolio of patents and steering IP strategy to protect key innovations.",
-      "Launched career-growth initiatives and cross-team chapters to foster innovation.",
-      "Implemented OKR framework aligned to product milestones, boosting delivery quality and shortening cycle times."
+      {
+        category: "Strategic Leadership & Operations",
+        items: ["Steered the company’s IP strategy and managed an extensive patent portfolio to protect core engineering innovations.",
+        "Initiated and executed various initiatives fostering innovation, aligning product development with company goals, improving delivery quality, and maintaining investment discipline.",
+        "Implemented an OKR framework and improved performance review systems, resulting in higher delivery quality and shortened R&D cycle times.",
+        "Led full-cycle talent management from hiring and onboarding to creating individual growth plans and cross-team 'chapters' to foster a culture of innovation."
+        ]
+      },
+      {
+        category: "Technical Direction & Stakeholder Management",
+        items: [
+            "Served as the primary Technical Lead and Subject Matter Expert in Optics, Imaging and semiconductor physics, providing deep-dive technical guidance to engineering teams.",
+            "Orchestrated complex collaborations with NRE partners, suppliers, research institutions, and independent consultants to accelerate growth and ensure long-term competitiveness.",
+            "Ensured all products met rigorous industry standards, certifications, and security regulations from design to delivery.",
+            "Acted as a link between R&D, Executive Management, and Product teams to ensure operational alignment and technical feasibility."
+        ]
+      }
     ]
   },
   {
     date: "2020 - 2022",
     title: "RnD Manager",
     organization: "Freshape (former H.Glass), Switzerland",
-    description: "Built and guided cross-disciplinary team of 12 people incl. material scientists, HW and SW engineers. Drove product development from POC to industrialization.",
+    description: "Built and guided a 12-member multidisciplinary team of scientists and engineers to drive product development from POC to EVT. Took full ownership of system-level integration, balancing cutting-edge technical specifications with aggressive size constraints and industrial cost targets.",
     highlights: [
-      "Managed a 2-year, $0.5 M federal-grant collaboration with CSEM."
+      "Recruited and mentored a high-performing team of material scientists, hardware engineers (optical, mechanical, electrical), and software developers (firmware, algorithms).",
+      "Took full ownership of product evolution, delivering 5 generations of prototypes and a fully optimized system within a 24-month window.",
+      "Pioneered the development of an ultra-transparent conductive coating that outperformed current state-of-the-art industry benchmarks.",
+      "Drove seamless integration across hardware, algorithms and software stacks, implementing custom data and image processing workflows to accelerate iterative R&D cycles.",
+      "Managed a 2-year, $0.5 M federal-grant collaboration with CSEM, aligning academic research with commercial product goals.",
+      "Co-authored multiple patent filings, securing system-level innovations and protecting proprietary engineering architectures."
     ]
   },
   {
     date: "2019 - 2020",
     title: "Optical Scientist",
     organization: "H.Glass, Switzerland",
-    description: "Conceived and prototyped a novel photovoltaics product, securing budget for further dev.",
+    description: "Conceived and prototyped a novel photovoltaics product, securing budget and resources for further development.",
     highlights: [
-      "Doubled efficiency of the organic PV cell with optimization of materials and fabrication."
+      "Engineered a novel optical positioning system within six months, independently managing the optical design, mechanical CAD, and computer vision algorithm development.",
+      "Achieved 2x increase in organic PV cell efficiency by optimizing device architecture, material selection, and fabrication processes.",
+      "Accelerated internal R&D by providing advanced theoretical analysis and numerical simulations for complex thin-film coatings to other teams.",
+      "Safeguarded core innovation by drafting and filing a foundational patent application."
     ]
   },
   {
@@ -49,11 +71,92 @@ const experience = [
     organization: "EPFL, Switzerland",
     description: "Research of quantum phenomena in 2-dimensional systems.",
     highlights: [
-      "Main Achievements: Demonstration of the first excitonic transistors operational at room-temperature.",
-      "Outcomes: 12 publications in high impact journals including Nature.",
-      "Other Projects: Development of spintronic and opto-spintronic devices based on 2D materials; Development of the electrically pumped laser based on 2D materials; Integration of 2D LED/photodetector with waveguides and photonic cavities.",
-      "Key Responsibilities: Developing novel device architectures, numerical simulations, experiment design; Cleanroom microfabrication; Electrical transport and optical measurements; Designing and assembling cryogenic setups; Mentoring master and PhD students."
+      {
+        category: "Main Achievements",
+        items: ["Demonstration of the first excitonic transistors operational at room-temperature."]
+      },
+      {
+        category: "Outcomes",
+        items: [
+            "12 publications in high impact journals including Nature.",
+            "2 research awards and featuring in the Nature Photonics cover."
+        ]
+      },
+      {
+        category: "Other Projects",
+        items: [
+            "Development of spintronic and opto-spintronic devices based on 2D materials.",
+            "Development of the electrically pumped laser based on 2D materials.",
+            "Integration of 2D LED/photodetector with waveguides and photonic cavities."
+        ]
+      },
+      {
+        category: "Key Responsibilities",
+        items: [
+           "Developing novel device architectures, numerical simulations, experiment design.",
+           "Cleanroom microfabrication.",
+           "Electrical transport and optical measurements.",
+           "Designing and assembling cryogenic setups.",
+           "Mentoring master and PhD students.",
+           "Teaching 'Measuring Systems' course for EPFL master students."
+        ]
+      }
     ]
+  }
+];
+
+const extraExperience = [
+  {
+    date: "2025 - Present",
+    title: "Founder and Developer ",
+    organization: `<a href="https://mitai.unuchek.com" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 dark:hover:text-blue-400 hover:underline transition-colors">MitiAI</a> (Non-commercial Project)`,
+    description: "Conceptualized and developed a specialized, non-commercial AI research platform designed to optimize athlete performance through data-driven nutrition modeling and personalized counseling.",
+    highlights: [
+      "Architecting specialized nutrition algorithms, multimodal inputs and LLM-based advisory tools tailored for high-performance athletic requirements.",
+      "Building cross-platform iOS and Android applications to deliver personalized insights and tracking to athletes.",
+      "Maintaining the project as a non-revenue-generating venture focused on exploring the intersection of machine learning and sports science."
+    ]
+  },
+  {
+    date: "2015 - 2019",
+    title: "Teaching Assistant",
+    organization: "EPFL, Switzerland",
+    description: "Supported the education of future engineers through hands-on lab supervision and theoretical guidance for 'Measuring Systems' course for EPFL master students.",
+    highlights: [
+       "Supervising and guiding electrical engineering students.",
+       "Conducting theoretical and experimental classes.",
+       "Prototyping on NI ELVIS board and LabVIEW programming."
+    ]
+  },
+  {
+    date: "2018",
+    title: "Organizer", 
+    organization: 'Doctoral Summer School, Davos, Switzerland',
+    description: "Led the organization of an international summer school 'Optoelectronics on 2D materials', managing fundraising, logistics, and program curation.",
+    highlights: [
+       "Fundraising (CHF 40k), sponsorship search, and venue arrangement.",
+       "Speakers selection, invitation, and their travel arrangement; participants selection.",
+       "School promotion, website and school’s design development."
+    ]
+  },
+  {
+    date: "2012",
+    title: "Jury",
+    organization: "Final Round of National Physics Olympiad",
+    description: "Served as a jury member for the final round, evaluating theoretical and experimental works.",
+    highlights: [
+       "Organization of theoretical and experimental rounds.",
+       "Correcting and grading participants' works including tête-à-tête appeals."
+    ]
+  },
+  {
+     date: "2009 - 2010",
+     title: "Teacher",
+     organization: " MIPT Distance School",
+     description: "Counseled high school students and corrected physics and mathematics assignments.",
+     highlights: [
+        "Students distance learning counseling and correction of their works."
+     ]
   }
 ];
 
@@ -62,29 +165,31 @@ const education = [
     date: "2015 - 2019",
     title: "Ph.D. in Electrical Engineering",
     organization: "EPFL, Lausanne, Switzerland",
-    description: "Doctoral degree in optics and nanoelectronics of low dimensional systems.",
+    description: "Doctoral degree in optics and nanoelectronics of low dimensional systems.<br/>Recipient of two awards for outstanding thesis.",
     highlights: [
       "Doctoral school of Microsystems and Microelectronics (EDMI) at EE department.",
-      "Thesis: Optospintronics in 2D materials."
+      "Thesis: Spin-valley optoelectronics based on 2D materials."
     ]
   },
   {
     date: "2013 - 2015",
     title: "M.Sc. in Physics",
     organization: "Ecole Polytechnique (X), Paris, France",
-    description: " M1 'Physics for Optics and Nanosciences' and M2 'Nanosciences'. M1 GPA: 3.91/4; M2 GPA: 3.81/4.Ranked 1st in the class.",
+    description: "M1 'Physics for Optics and Nanosciences' and M2 'Nanosciences'.<br/>Ranked 1st in the class. GPA: 3.91/4 (M1), 3.81/4 (M2).",
     highlights: [
-      "Thesis: Synthesis and characterization of nanomaterials. "
+      "Thesis: Synthesis and characterization of nanostructured materials. ",
+      "M1 and M2 Internships \"Characterisation of nanoclusters deposited on graphene and carbon nanotubes.\" at Paris Sud University, Laboratoire Aimé Cotton."
     ]
   },
   {
     date: "2009 - 2013",
     title: "B.Sc. in Physics ",
     organization: "MIPT, Moscow, Russia",
-    description: "Physics and Technology of Nanostructures.  Diploma with high honors. GPA: 4.94/5.",
+    description: "Physics and Technology of Nanostructures.<br/>Diploma with high honors. GPA: 4.94/5.",
     highlights: [
       "Faculty of General and Applied Physics.",
-      "Thesis: ..."
+      "2013 Internships \"Crystallization of membrane proteins for structure analysis\" at Institute for Biophysics, Heinrich Heine University, Düsseldorf, Germany.",
+      "2012 Internships \"Structural analysis of beta-amyloid fibrils\" at Institute of Complex Systems, Forschungszentrum, Jülich, Germany."
     ]
   }
 ];
@@ -108,21 +213,21 @@ const publications = [
     title: "Polarization switching and electrical control of interlayer excitons in two-dimensional van der Waals heterostructures",
     year: "2019",
     journal: "Nature Photonics",
-    authors: "A. Ciarrocchi, D. Unuchek et al.",
+    authors: "A. Ciarrocchi*, D. Unuchek* et al.",
     url: "https://www.nature.com/articles/s41566-018-0325-y"
   },
   {
     title: "MoS2 photodetectors integrated with photonic circuits",
     year: "2019",
     journal: "Nature npj 2D materials",
-    authors: "J. Gonzalez, D. Unuchek et al.",
+    authors: "J. Gonzalez*, D. Unuchek* et al.",
     url: "https://www.nature.com/articles/s41699-019-0096-4"
   },
   {
     title: "Optospintronics in Graphene via Proximity Coupling",
     year: "2017",
     journal: "ACS Nano",
-    authors: "A. Avsar*, D. Unuchek et al.",
+    authors: "A. Avsar*, D. Unuchek* et al.",
     url: "https://pubs.acs.org/doi/10.1021/acsnano.7b06800"
   },
   {
@@ -143,34 +248,34 @@ const publications = [
 
 const conferences = [
   {
+    title: 'Keynote speaker at internal conferences ',
+    year: '2020-2025',
+    event: 'Freshape/H.Glass. Lausanne, Switzerland'
+  },
+  {
     title: 'Electrostatic control of exciton flux in van der Waals heterostructures',
     year: '2019',
-    event: 'American Physical Society March Meeting. Boston, USA',
-    authors: 'D. Unuchek et al.'
+    event: 'American Physical Society March Meeting. Boston, USA'
   },
   {
     title: 'Control of interlayer excitons in two-dimensional van der Waals heterostructures',
     year: '2018',
-    event: 'Flatlands Beyond Graphene. Leipzig, Germany',
-    authors: 'D. Unuchek et al.'
+    event: 'Flatlands Beyond Graphene. Leipzig, Germany'
   },
   {
     title: 'Reconfigurable Diodes Based on Vertical WSe2 Transistors with van der Waals Bonded Contacts',
     year: '2018',
-    event: 'American Physical Society March Meeting. Los Angeles, USA',
-    authors: 'D. Unuchek et al.'
+    event: 'American Physical Society March Meeting. Los Angeles, USA'
   },
   {
     title: 'Optospintronics in Graphene via Proximity Coupling',
     year: '2018',
-    event: 'GRC Two Dimensional Electronics Beyond Graphene. Easton, USA',
-    authors: 'D. Unuchek et al.'
+    event: 'GRC Two Dimensional Electronics Beyond Graphene. Easton, USA'
   },
   {
     title: 'Atomically thin electrically tunable light-emitting diodes',
     year: '2017',
-    event: 'Flatlands Beyond Graphene. Lausanne, Switzerland',
-    authors: 'D. Unuchek et al.'
+    event: 'Flatlands Beyond Graphene. Lausanne, Switzerland'
   }
 ];
 
@@ -276,7 +381,7 @@ const skills = {
 const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
-<Layout title="Dimitri Unuchek | RnD Director & Physicist">
+<Layout title="Dimitri Unuchek | RnD Leader & Physicist">
   <!-- Hero Section -->
   <section id="hero" class="flex items-start pt-0 md:pt-8 justify-center relative overflow-hidden pb-12">
     <div class="absolute inset-0 bg-gradient-to-br from-blue-500/10 to-purple-500/10 -z-10"></div>
@@ -289,7 +394,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
           Experienced R&D leader and scientist with a PhD from EPFL, specializing in the development of next-generation optoelectronics and semicon products.
         </p>
         <p>
-          My career spans from pioneering fundamental research of quantum phenomena in 2D materials to building and managing diverse cross-disciplinary teams and driving product development from POC to industrialization in the field of optics, electronics and renewable energy.
+          My career spans from pioneering fundamental research of quantum phenomena in 2D materials to building and managing diverse cross-disciplinary teams and driving product development from POC to industrialization in the field of optics, electronics, renewable energy and quantum devices.
         </p>
         <p>
           I thrive at the intersection of complex problem-solving, innovations and industrialization, bridging the gap between scientific breakthroughs and scalable hardware solutions.
@@ -298,6 +403,12 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
       <div class="flex flex-wrap gap-4 justify-center">
         <a href="#projects" class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold transition-all shadow-lg hover:shadow-blue-500/25">
           View My Work
+        </a>
+        <a href={`${base}/CV_26_EE_RE.pdf`} download class="px-8 py-3 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 rounded-full font-bold transition-all shadow-lg flex items-center gap-2 group">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:text-blue-600 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          Download my CV
         </a>
         <!-- <a href={`${base}/sport`} class="px-8 py-3 glass hover:bg-white/20 rounded-full font-bold transition-all flex items-center gap-2">
           <span>🏃‍♂️</span> Sports Endeavors  
@@ -312,11 +423,22 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
       id="experience-section"
       title="Experience"
       iconColorClass="bg-slate-100 dark:bg-slate-800"
-      description="7 years of experience in academic research and 6 years of R&D management and product development."
       indent={false}
     >
+      <span slot="description">
+        <span class="font-semibold text-slate-700 dark:text-slate-300">Core:</span> 7 years of academic research and 6 years of R&D management and product development. <br/>
+        <span class="font-semibold text-slate-700 dark:text-slate-300">Extra:</span> Extensive teaching and academic event organization.
+      </span>
       <BriefcaseIcon slot="icon" class="w-6 h-6 text-slate-600 dark:text-slate-400" />
-      <Timeline items={experience} inlineHeader={true} />
+      
+      <div class="mb-10">
+        <Timeline items={coreExperience} inlineHeader={true} />
+      </div>
+
+      <div>
+        <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-6 ml-6">Extra Experience</h3>
+        <Timeline items={extraExperience} inlineHeader={true} />
+      </div>
     </CollapsibleSection>
   </section>
 
@@ -325,9 +447,12 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
       id="education-section"
       title="Education"
       iconColorClass="bg-slate-100 dark:bg-slate-800"
-      description="Doctoral degree in Electrical Engineering/Nanoelectronics and Master's in Physics."
       indent={false}
     >
+      <span slot="description">
+        Doctoral degree in Electrical Engineering/Nanoelectronics and Master's in Physics. <br/>
+        Recipient of two thesis distinction awards.
+      </span>
       <GraduationCapIcon slot="icon" class="w-6 h-6 text-slate-600 dark:text-slate-400" />
       <Timeline items={education} inlineHeader={true} />
     </CollapsibleSection>

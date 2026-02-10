@@ -102,24 +102,45 @@ const { id, title, icon, iconColorClass, description, open = false, indent = tru
       });
     });
 
-    // Check hash for auto-expansion
-    const checkHash = () => {
-        const hash = window.location.hash.substring(1);
-        if (hash) {
-            // Find if the hash corresponds to a section wrapper that contains a collapsible section
-            // The structure is <section id="hash"> <CollapsibleSection ...> </section>
-            const sectionWrapper = document.getElementById(hash);
-            if (sectionWrapper) {
-                const collapsibleButton = sectionWrapper.querySelector('.collapsible-section button');
-                if (collapsibleButton) {
-                    expandSection(collapsibleButton);
-                }
-            }
+    // Sections that should NOT auto-expand when navigated to
+    const excludedSections = ['experience', 'projects'];
+
+    // Expand section from hash (used on initial load)
+    const expandFromHash = () => {
+      const hash = window.location.hash.substring(1);
+      if (hash && !excludedSections.includes(hash)) {
+        const sectionWrapper = document.getElementById(hash);
+        if (sectionWrapper) {
+          const btn = sectionWrapper.querySelector('.collapsible-section button');
+          if (btn) expandSection(btn);
         }
+      }
     };
-    
-    checkHash();
-    window.addEventListener('hashchange', checkHash);
+
+    // Listen for clicks on navigation links to expand the target section
+    document.querySelectorAll('a.nav-link, a[href*="#"]').forEach(link => {
+      if (link.hasAttribute('data-collapse-initialized')) return;
+      link.setAttribute('data-collapse-initialized', 'true');
+
+      link.addEventListener('click', () => {
+        const href = link.getAttribute('href') || '';
+        const hashIndex = href.indexOf('#');
+        if (hashIndex === -1) return;
+        const hash = href.substring(hashIndex + 1);
+        if (!hash || excludedSections.includes(hash)) return;
+
+        // Small delay to let the browser navigate/scroll first
+        setTimeout(() => {
+          const sectionWrapper = document.getElementById(hash);
+          if (sectionWrapper) {
+            const btn = sectionWrapper.querySelector('.collapsible-section button');
+            if (btn) expandSection(btn);
+          }
+        }, 150);
+      });
+    });
+
+    expandFromHash();
   }
 
   // Run on initial load
