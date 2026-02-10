@@ -1,6 +1,6 @@
 ---
 
-import photo from '../assets/photo1.JPG';
+import photo from '../assets/photo2.JPG';
 
 const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.replace(/\/$/, '');
 
@@ -10,7 +10,7 @@ const navItems = [
   { name: 'Publications', href: `${base}/#publications` },
   { name: 'Awards', href: `${base}/#awards` },
   { name: 'Projects', href: `${base}/#projects` },
-  { name: 'Sport', href: `${base}/sport` },
+  // { name: 'Sport', href: `${base}/sport` },
 ];
 
 const { currentPath = '/' } = Astro.props;
