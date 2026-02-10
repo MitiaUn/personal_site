@@ -1,53 +1,32 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { projects } from '../../data/projects';
 
 export function getStaticPaths() {
-  return [
-    { params: { id: 'project-1' } },
-    { params: { id: 'project-2' } },
-    { params: { id: 'project-3' } },
-  ];
+  return projects.map(project => ({
+    params: { id: project.id },
+  }));
 }
 
 const { id } = Astro.params;
+const project = projects.find(p => p.id === id);
 
-const projects = {
-  "project-1": {
-    title: "Excitonic Transistor",
-    image: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?q=80&w=800&auto=format&fit=crop",
-    stack: ["Nanotech", "Physics", "Nature", "2D Materials"],
-    description: "Research of quantum phenomena in 2-dimensional systems. Main Achievements: Demonstration of the first excitonic transistors operational at room-temperature. This groundbreaking work was published in Nature (2018) and featured on the cover of Nature Photonics (2019). It involved complex cleanroom microfabrication, low-temperature electrical transport measurements, and optical spectroscopy.",
-    links: { live: "#", source: "#" }
-  },
-  "project-2": {
-    title: "Freshape Product Suite",
-    image: "https://images.unsplash.com/photo-1581093458791-9f3c3900df4b?q=80&w=800&auto=format&fit=crop",
-    stack: ["RnD Management", "Electronics", "Green Tech", "Product Dev"],
-    description: "As RnD Director at Freshape, I lead a 30-member division driving the development of 5 products in the fields of electronics and renewable energy. I manage a portfolio of patents and steer the IP strategy. We successfully implemented an OKR framework aligned to product milestones, significantly boosting delivery quality and shortening cycle times.",
-    links: { live: "#", source: "#" }
-  },
-  "project-3": {
-    title: "Novel PV Tech",
-    image: "https://images.unsplash.com/photo-1509391366360-2e959784a276?q=80&w=800&auto=format&fit=crop",
-    stack: ["Photovoltaics", "Prototyping", "Innovation", "Material Science"],
-    description: "At H.Glass, I conceived and prototyped a novel photovoltaics product, securing the budget for its further development. By optimizing materials and fabrication processes, I was able to double the efficiency of the organic PV cell, marking a significant milestone in the company's technology roadmap.",
-    links: { live: "#", source: "#" }
-  }
-};
-
-const project = projects[id as keyof typeof projects];
+if (!project) {
+  return Astro.redirect('/404');
+}
+const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.replace(/\/$/, '');
 ---
 
 <Layout title={`${project.title} | Projects`}>
-  <div class="max-w-4xl mx-auto">
-    <a href="/#projects" class="inline-flex items-center text-blue-500 hover:text-blue-600 mb-8 font-medium transition-colors">
+  <div class="max-w-4xl mx-auto min-h-screen flex flex-col justify-center py-12">
+    <a href={`${base}/#projects`} class="inline-flex items-center text-blue-500 hover:text-blue-600 mb-8 font-medium transition-colors w-fit">
       <svg class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
       </svg>
       Back to Projects
     </a>
 
-    <div class="glass-card overflow-hidden !p-0">
+    <div class="glass-card overflow-hidden !p-0 project-card">
       <div class="aspect-video w-full overflow-hidden">
         <img 
           src={project.image} 
@@ -69,9 +48,52 @@ const project = projects[id as keyof typeof projects];
         </div>
 
         <div class="prose dark:prose-invert max-w-none text-xl leading-relaxed text-slate-600 dark:text-slate-400">
+
           <p>{project.description}</p>
         </div>
+
+        {project.links && (
+          <div class="mt-8 flex flex-wrap gap-4">
+            {project.links.paper && (
+              <a href={project.links.paper} target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold transition-all shadow-lg hover:shadow-blue-500/25">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                </svg>
+                Read Paper
+              </a>
+            )}
+            {project.links.live && (
+              <a href={project.links.live} target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold transition-all shadow-lg hover:shadow-blue-500/25">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+                View Live
+              </a>
+            )}
+            {project.links.source && (
+              <a href={project.links.source} target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-6 py-3 bg-slate-800 hover:bg-slate-900 text-white rounded-full font-bold transition-all shadow-lg hover:shadow-slate-500/25">
+                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+                View Source
+              </a>
+            )}
+          </div>
+        )}
       </div>
     </div>
   </div>
 </Layout>
+
+<script define:vars={{ base }}>
+  document.addEventListener('click', (event) => {
+    const card = document.querySelector('.project-card');
+    const isLink = event.target.closest('a');
+    const isButton = event.target.closest('button');
+    
+    // Only navigate if clicking outside the card and not on an interactive element
+    if (card && !card.contains(event.target) && !isLink && !isButton) {
+      window.location.href = `${base}/#projects`;
+    }
+  });
+</script>
