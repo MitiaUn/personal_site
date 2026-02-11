@@ -3,6 +3,7 @@ import { ClientRouter } from 'astro:transitions';
 import Navigation from '../components/Navigation.astro';
 import Footer from '../components/Footer.astro';
 import SpeedDial from '../components/SpeedDial.astro';
+import CookieBanner from '../components/CookieBanner.astro';
 import type { Link } from '../components/SpeedDial.astro';
 import '../styles/global.css';
 
@@ -58,16 +59,6 @@ const currentPath = Astro.url.pathname;
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;700&display=swap" rel="stylesheet">
-    
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-3DWQFVV4GH"></script>
-    <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-    
-      gtag('config', 'G-3DWQFVV4GH');
-    </script>
   </head>
   <body class="font-sans antialiased text-slate-100">
     <SpeedDial links={speedDialLinks} label={speedDialLabel} />
@@ -80,6 +71,7 @@ const currentPath = Astro.url.pathname;
       <Footer />
     </main>
 
+    <CookieBanner />
     <style is:global>
       :root {
         --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
@@ -90,5 +82,37 @@ const currentPath = Astro.url.pathname;
         font-family: var(--font-heading);
       }
     </style>
+
+    <!-- Google Analytics Logic -->
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+
+      // Function to load GA script
+      window.enableGoogleAnalytics = function() {
+        console.log('Enabling Google Analytics...');
+        
+        // Check if already loaded to avoid duplicates
+        if (document.getElementById('ga-script')) return;
+
+        const script = document.createElement('script');
+        script.id = 'ga-script';
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-3DWQFVV4GH';
+        
+        script.onload = () => {
+          gtag('js', new Date());
+          gtag('config', 'G-3DWQFVV4GH');
+          console.log('Google Analytics Loaded');
+        };
+        
+        document.head.appendChild(script);
+      };
+
+      // Check for existing consent on load
+      if (localStorage.getItem('cookie-consent') === 'accepted') {
+        window.enableGoogleAnalytics();
+      }
+    </script>
   </body>
 </html>

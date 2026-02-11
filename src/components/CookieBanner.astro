@@ -1,0 +1,68 @@
+---
+---
+
+<div id="cookie-banner" class="fixed bottom-0 left-0 w-full bg-slate-900/90 backdrop-blur-md border-t border-white/10 p-4 z-50 transform translate-y-full transition-transform duration-300 flex justify-between items-center gap-4 shadow-2xl hidden">
+  <div class="text-sm text-slate-300 max-w-2xl">
+    <p>
+      We use cookies to analyze traffic and improve your experience. 
+      By clicking "Agree", you consent to our use of cookies giving you the best experience.
+    </p>
+  </div>
+  <div class="flex items-center gap-3 shrink-0">
+    <button id="cookie-agree" class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors">
+      Agree
+    </button>
+    <button id="cookie-close" class="p-2 hover:bg-white/10 rounded-full transition-colors text-slate-400 hover:text-white" aria-label="Close">
+      <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<script>
+  // Elements
+  const banner = document.getElementById('cookie-banner');
+  const agreeBtn = document.getElementById('cookie-agree');
+  const closeBtn = document.getElementById('cookie-close');
+
+  // Check storage
+  const consent = localStorage.getItem('cookie-consent');
+
+  // Show banner if no choice made yet
+  if (!consent) {
+    if (banner) {
+        banner.classList.remove('hidden');
+        // Small delay to allow transition
+        setTimeout(() => {
+            banner.classList.remove('translate-y-full');
+        }, 100);
+    }
+  }
+
+  // Agree Action
+  agreeBtn?.addEventListener('click', () => {
+    localStorage.setItem('cookie-consent', 'accepted');
+    hideBanner();
+    // Enable GA
+    if (typeof window.enableGoogleAnalytics === 'function') {
+      window.enableGoogleAnalytics();
+    }
+  });
+
+  // Close Action (Decline/Dismiss)
+  closeBtn?.addEventListener('click', () => {
+    localStorage.setItem('cookie-consent', 'declined'); // Or just 'dismissed' if we want to ask again later, but usually declined is better
+    hideBanner();
+  });
+
+  function hideBanner() {
+    if (banner) {
+        banner.classList.add('translate-y-full');
+        setTimeout(() => {
+            banner.classList.add('hidden');
+        }, 300);
+    }
+  }
+</script>
