@@ -75,7 +75,8 @@ const { items, inlineHeader = false } = Astro.props;
 
       container.addEventListener('click', (e) => {
         // Prevent triggering if clicking on a link (if any links were added later)
-        if ((e.target as HTMLElement).tagName === 'A') return;
+        // Prevent triggering if clicking on a link
+        if ((e.target as HTMLElement).closest('a')) return;
 
         const button = container.querySelector('.toggle-highlights');
         const wrapper = container.querySelector('.highlights-wrapper');

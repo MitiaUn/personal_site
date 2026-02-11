@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 import Timeline from '../components/Timeline.astro';
 import CompactList from '../components/CompactList.astro';
-import ProjectCarousel from '../components/ProjectCarousel.astro';
+import ProjectList from '../components/ProjectList.astro';
 import CollapsibleSection from '../components/CollapsibleSection.astro';
 import BriefcaseIcon from '../components/icons/Briefcase.astro';
 import GraduationCapIcon from '../components/icons/GraduationCap.astro';
@@ -11,6 +11,7 @@ import DocumentTextIcon from '../components/icons/DocumentText.astro';
 import MicrophoneIcon from '../components/icons/Microphone.astro';
 import LightBulbIcon from '../components/icons/LightBulb.astro';
 import TrophyIcon from '../components/icons/Trophy.astro';
+import ExternalLinkIcon from '../components/icons/ExternalLink.astro';
 
 
 const coreExperience = [
@@ -109,12 +110,15 @@ const extraExperience = [
   {
     date: "2025 - Present",
     title: "Founder and Developer ",
-    organization: `<a href="https://mitai.unuchek.com" target="_blank" rel="noopener noreferrer" class="hover:text-blue-600 dark:hover:text-blue-400 hover:underline transition-colors">MitiAI</a> (Non-commercial Project)`,
+    organization: `<a href="https://mitai.unuchek.com" target="_blank" rel="noopener noreferrer" class="group hover:text-blue-600 dark:hover:text-blue-400 hover:underline transition-colors inline-flex items-center gap-1">MitiAI<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg></a> (Non-commercial Project)`,
     description: "Conceptualized and developed a specialized, non-commercial AI research platform designed to optimize athlete performance through data-driven nutrition modeling and personalized counseling.",
     highlights: [
-      "Architecting specialized nutrition algorithms, multimodal inputs and LLM-based advisory tools tailored for high-performance athletic requirements.",
-      "Building cross-platform iOS and Android applications to deliver personalized insights and tracking to athletes.",
-      "Maintaining the project as a non-revenue-generating venture focused on exploring the intersection of machine learning and sports science."
+      "Architected specialized nutrition algorithms tailored for high-performance athletic requirements.",
+      "Integrated multimodal inputs and LLM-based advisory tools for data-driven nutrition coaching.",
+      "Built cross-platform iOS and Android applications to deliver personalized insights and tracking to athletes.",
+      "Delivered personalized insights and nutrition counseling via a streamlined user interface.",
+      "Maintaining the project as a non-revenue-generating venture.",
+      "Exploring the intersection of machine learning and sports science."
     ]
   },
   {
@@ -168,7 +172,7 @@ const education = [
     description: "Doctoral degree in optics and nanoelectronics of low dimensional systems.<br/>Recipient of two awards for outstanding thesis.",
     highlights: [
       "Doctoral school of Microsystems and Microelectronics (EDMI) at EE department.",
-      "Thesis: Spin-valley optoelectronics based on 2D materials."
+      "Thesis: <a href='https://infoscience.epfl.ch/entities/publication/06489255-5aa9-4b60-b7a0-54e393c714dc' target='_blank' rel='noopener noreferrer' class='group text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 hover:underline inline-flex items-center gap-1'>Spin-valley optoelectronics based on 2D materials.<svg xmlns='http://www.w3.org/2000/svg' class='w-4 h-4 text-slate-400 group-hover:text-blue-800 dark:group-hover:text-blue-300 transition-colors' fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2'><path stroke-linecap='round' stroke-linejoin='round' d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14' /></svg></a>"
     ]
   },
   {
@@ -283,47 +287,56 @@ const patents = [
     {
         title: "Multilayer Electronic Device and Method for Producing the Same",
         status: "Granted",
-        ref: "US 17/926,750"
+        ref: "US 17/926,750",
+        url: "https://patentscope.wipo.int/search/en/detail.jsf?docId=EP346692045"
     },
     {
         title: "Process of signing documents",
         status: "Granted",
-        ref: "EP4152184.A1"
+        ref: "EP4152184.A1",
+        url: "https://patentscope.wipo.int/search/en/detail.jsf?docId=WO2023041989"
     },
     {
         title: "Dispersive optical device, dispersive optical system comprising the same",
         status: "Published",
-        ref: "WO2022208130A1"
+        ref: "WO2022208130A1",
+        url: "https://patentscope.wipo.int/search/en/detail.jsf?docId=WO2022208130"
     },
     {
         title: "Sunlight steering apparatus and solar energy harvesting system comprising the same",
         status: "Published",
-        ref: "WO2023031655A1"
+        ref: "WO2023031655A1",
+        url: "https://patentscope.wipo.int/search/en/detail.jsf?docId=WO2023031655"
     },
     {
         title: "Light collecting assembly",
         status: "Published",
-        ref: "WO2023175034A1"
+        ref: "WO2023175034A1",
+        url: "https://patentscope.wipo.int/search/en/detail.jsf?docId=WO2023175034"
     },
     {
         title: "Optical system for a position determination device",
         status: "Published",
-        ref: "WO2023175034A1"
+        ref: "WO2024003638A1",
+        url: "https://patentscope.wipo.int/search/en/detail.jsf?docId=WO2024003638"
     },
     {
         title: "Method of detecting and processing spatially-distributed two-dimensional markers",
         status: "Published",
-        ref: "WO2024184765A1"
+        ref: "WO2024184765A1",
+        url: "https://patentscope.wipo.int/search/en/detail.jsf?docId=WO2024184765"
+    },
+    {
+        title: "METHOD OF ADJUSTING A FOCUSING DISTANCE OF AN OPTICAL SENSING SYSTEM",
+        status: "Published",
+        ref: "WO2025186755A1",
+        url: "https://patentscope.wipo.int/search/en/detail.jsf?docId=WO2025186755"
     },
     {
         title: "Excitonic device and operating methods thereof",
         status: "Published",
-        ref: "WO2019229653A1"
-    },
-    {
-        title: "Not yet published",
-        status: "Pending",
-        ref: "EP24162349.5, EP24161016.1, EP24161026.0"
+        ref: "WO2019229653A1",
+        url: "https://patentscope.wipo.int/search/en/detail.jsf?docId=WO2019229653"
     }
 ];
 
@@ -436,7 +449,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
       </div>
 
       <div>
-        <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-6 ml-6">Extra Experience</h3>
+        <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-6 ml-6">Extracurricular</h3>
         <Timeline items={extraExperience} inlineHeader={true} />
       </div>
     </CollapsibleSection>
@@ -532,7 +545,10 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
           {publications.map((s) => (
             <div class="group mx-2">
               <a href={s.url} target="_blank" rel="noopener noreferrer" class="block group-hover:text-blue-600 transition-colors duration-200">
-                 <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1 group-hover:text-blue-500">{s.title}</h3>
+                 <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1 group-hover:text-blue-500">
+                   {s.title}
+                   <ExternalLinkIcon class="inline-block w-4 h-4 ml-2 text-slate-400 group-hover:text-blue-500 transition-colors align-baseline" />
+                 </h3>
               </a>
               <div class="text-base text-slate-600 dark:text-slate-400">
                 <span class="font-medium text-slate-800 dark:text-slate-300">{s.year}</span> <span class="mx-2">•</span> <span class="italic text-slate-700 dark:text-slate-300">{s.journal}</span> <span class="mx-2">•</span> {s.authors}
@@ -574,8 +590,17 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
         <LightBulbIcon slot="icon" class="w-6 h-6 text-slate-600 dark:text-slate-400" />
         <div class="space-y-6">
             {patents.map((p) => (
-              <div class="mx-2">
-                  <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">{p.title}</h3>
+              <div class="mx-2 group">
+                  {p.url ? (
+                    <a href={p.url} target="_blank" rel="noopener noreferrer" class="block group-hover:text-blue-600 transition-colors duration-200">
+                      <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1 group-hover:text-blue-500">
+                        {p.title}
+                        <ExternalLinkIcon class="inline-block w-4 h-4 ml-2 text-slate-400 group-hover:text-blue-500 transition-colors align-baseline" />
+                      </h3>
+                    </a>
+                  ) : (
+                    <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">{p.title}</h3>
+                  )}
                   <div class="text-base text-slate-600 dark:text-slate-400">
                       {p.status} <span class="mx-2 text-slate-300">•</span> {p.ref}
                   </div>
@@ -603,8 +628,9 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
                               <span class="font-medium text-slate-500 dark:text-slate-500 min-w-[3rem] text-right flex-shrink-0">{a.year}</span>
                               <span class="text-slate-400">•</span>
                               {a.url ? (
-                                <a href={a.url} target="_blank" rel="noopener noreferrer" class="text-slate-900 dark:text-white font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                                <a href={a.url} target="_blank" rel="noopener noreferrer" class="text-slate-900 dark:text-white font-medium hover:text-blue-600 dark:hover:text-blue-400 transition-colors group/link">
                                   {a.title}
+                                  <ExternalLinkIcon class="inline-block w-3 h-3 ml-1 text-slate-400 group-hover/link:text-blue-400 transition-colors align-baseline" />
                                 </a>
                               ) : (
                                 <span class="text-slate-900 dark:text-white font-medium">{a.title}</span>
@@ -675,7 +701,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
     <h2 class="text-4xl font-bold mb-12 flex items-center gap-3 px-4 max-w-4xl mx-auto">
        Key Projects & Innovations
     </h2>
-    <ProjectCarousel />
+    <ProjectList />
     <div class="max-w-4xl mx-auto px-4 mt-8 text-center">
       <p class="text-slate-500 dark:text-slate-400 text-sm italic">
         * A few other exciting projects are under NDA.
