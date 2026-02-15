@@ -4,7 +4,10 @@ import photo from '../assets/photo6.jpg';
 
 const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.replace(/\/$/, '');
 
-const navItems = [
+const { currentPath = '/' } = Astro.props;
+const isSportPage = currentPath.includes('/sport');
+
+const mainNavItems = [
   { name: 'CV', href: `${base}/#experience`, type: 'main', action: 'collapse-all', download: true },
   { name: 'Experience', href: `${base}/#experience`, type: 'sub' },
   { name: 'Education', href: `${base}/#education`, type: 'sub' },
@@ -15,6 +18,14 @@ const navItems = [
   { name: 'Awards', href: `${base}/#awards`, type: 'sub' },
   { name: 'Projects', href: `${base}/#projects`, type: 'main' },
 ];
+
+const sportNavItems = [
+  { name: 'CV', href: `${base}/`, type: 'main' },
+  { name: 'Results', href: `#results`, type: 'main' },
+  { name: 'Highlights', href: `#highlights`, type: 'main' },
+];
+
+const navItems = isSportPage ? sportNavItems : mainNavItems;
 
 const contactLinks = [
   { 
@@ -44,21 +55,24 @@ const contactLinks = [
   },
 ];
 
-const { currentPath = '/' } = Astro.props;
 ---
 
 <!-- Desktop Sidebar -->
 <nav class="hidden sm:flex flex-col fixed left-0 top-0 h-screen w-64 glass border-r z-50 p-8 items-center overflow-y-auto no-scrollbar">
   <a href={`${base}/#hero`} class="flex flex-col items-center mb-8 shrink-0 hover:opacity-80 transition-opacity" data-action="collapse-all">
     <img 
-      src={photo.src} 
+      src={isSportPage ? `${base}/pics_sport/main.jpg` : photo.src} 
       alt="Profile Photo" 
       class="w-32 h-32 rounded-full border-4 border-white/20 mb-4 object-cover shadow-2xl"
     />
-    <h2 class="text-xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600 text-center">
-      Dr Dimitri Unuchek
+    <h2 class={`text-xl font-bold bg-clip-text text-transparent text-center ${
+      isSportPage ? 'bg-gradient-to-r from-orange-500 to-red-500' : 'bg-gradient-to-r from-blue-400 to-purple-600'
+    }`}>
+      {isSportPage ? 'Dimitri Unuchek' : 'Dr Dimitri Unuchek'}
     </h2>
-    <p class="text-sm text-slate-400 text-center">R&D Leader | Physicist</p>
+    <p class="text-sm text-slate-400 text-center">
+      {isSportPage ? 'Endurance Athlete' : 'R&D Leader | Physicist'}
+    </p>
   </a>
 
   <ul class="flex-1 w-full space-y-1">
@@ -94,18 +108,26 @@ const { currentPath = '/' } = Astro.props;
 <!-- Mobile Bottom Navigation -->
 <nav class="sm:hidden fixed bottom-0 left-0 w-full glass z-50 px-4 py-3 flex justify-between items-center shadow-[0_-4px_20px_rgba(0,0,0,0.3)] border-t border-white/10">
     <!-- DU Logo -->
-    <a href={`${base}/#hero`} class="font-bold text-xl bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600 truncate mr-2" data-action="collapse-all">
+    <a href={`${base}/`} class={`font-bold text-xl bg-clip-text text-transparent truncate mr-2 ${
+      isSportPage ? 'bg-gradient-to-r from-orange-500 to-red-500' : 'bg-gradient-to-r from-blue-400 to-purple-600'
+    }`} data-action="collapse-all">
         DU
     </a>
 
     <!-- Navigation Links Container -->
     <div class="flex items-center gap-5 text-sm font-medium relative">
-        <a href={`${base}/#experience`} class="text-slate-300 hover:text-white transition-colors">
-            CV
-        </a>
-        <a href={`${base}/#projects`} class="text-slate-300 hover:text-white transition-colors">
-            Projects
-        </a>
+        {isSportPage ? (
+          <>
+            <a href={`${base}/`} class="text-slate-300 hover:text-white transition-colors">CV</a>
+            <a href="#results" class="text-slate-300 hover:text-white transition-colors">Results</a>
+            <a href="#highlights" class="text-slate-300 hover:text-white transition-colors">Highlights</a>
+          </>
+        ) : (
+          <>
+            <a href={`${base}/#experience`} class="text-slate-300 hover:text-white transition-colors">CV</a>
+            <a href={`${base}/#projects`} class="text-slate-300 hover:text-white transition-colors">Projects</a>
+          </>
+        )}
         
         <!-- Vertical Speed Dial Container -->
         <div class="relative">

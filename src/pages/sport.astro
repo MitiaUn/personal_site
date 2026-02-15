@@ -7,11 +7,87 @@ const results = [
   { sport: "Endurance", event: "Other Events", location: "Various", distance: "Various", result: "Finisher", highlight: "Consistent Performance" },
 ];
 
-const photos = [
-  { src: "https://images.unsplash.com/photo-1530549387074-d7d130e55f05?q=80&w=800&auto=format&fit=crop", alt: "Triathlon finish line" },
-  { src: "https://images.unsplash.com/photo-1551632432-c73581c61966?q=80&w=800&auto=format&fit=crop", alt: "Trail running in the Alps" },
-  { src: "https://images.unsplash.com/photo-1551698618-1fed5d978018?q=80&w=800&auto=format&fit=crop", alt: "Skiing at sunrise" },
-  { src: "https://images.unsplash.com/photo-1517177646040-d8efdfb6016e?q=80&w=800&auto=format&fit=crop", alt: "Cross country skiing" },
+import ExternalLinkIcon from '../components/icons/ExternalLink.astro';
+
+const highlights = [
+  {
+    title: "Challenge San Remo",
+    year: "2025",
+    summary: "Podium finish (3rd M30-34) and Championship Qualification.",
+    description: "My most successful result to date on the middle distance triathlon race (1.9km swim, 90km bike, 21.1km run). Despite a bike accident the day before preventing me from using my race bike, I pushed to the limit on the run course, posting the fastest run split of the day. I finished in 4h33', crossing the line 8th overall and securing a podium spot as the 3rd fastest in the M30-34 age group, qualifying for the 2026 Challenge World Championship.",
+    media: [
+        { type: 'image', src: '/pics_sport/SanRemo1.jpg' },
+        { type: 'video', src: '/pics_sport/SanRemo_video.MOV', poster: '/pics_sport/SanRemo1.jpg' }
+    ],
+    tags: ["Triathlon", "Qualification"],
+    links: [
+        { label: "Results", url: "https://my.raceresult.com/361042/" },
+        { label: "Certificate", url: "/pics_sport/Sanremo_certificate.pdf" }
+    ]
+  },
+  {
+    title: "XTERRA Trail Run World Championship",
+    year: "2025",
+    summary: "Silver Medal (M30-34) at the World Cup in Wales.",
+    description: "Trail running World Cup organized by XTERRA in Wales, UK, extending over 21km with 1200m elevation gain, passing by Snowdon, the highest summit in Wales. Despite the rain and mud, I enjoyed every kilometer, finishing 4th overall and 2nd in the M30-34 age group, earning a silver medal for the XTERRA World Cup 2025. The race was held under exceptional heatwave conditions, forcing organizers to eventually halt the event and launch rescue operation.",
+    media: [
+        { type: 'image', src: '/pics_sport/Xterra1.JPG' },
+        { type: 'image', src: '/pics_sport/Xterra2.jpg' }, 
+        { type: 'image', src: '/pics_sport/Xterra3.jpg' },
+        { type: 'image', src: '/pics_sport/Xterra4.jpg' },
+        { type: 'image', src: '/pics_sport/Xterra5.jpg' }
+    ],
+    tags: ["Trail Run", "World Cup"],
+    links: [
+        { label: "Results", url: "https://rankings.xterraplanet.com/results/d506fea2-b291-4b2f-8299-0c2acd8ed0c8?race=867efd97-4b7d-49e9-9daf-6f35466b0de7&gender=M" },
+        { label: "Media Coverage", url: "https://xterraplanet.com/announcements/xterra-trail-run-world-championship-safety-first-community-always" }
+    ]
+  },
+  {
+    title: "Matterhorn Summit",
+    year: "2024",
+    summary: "Speed climbing under 2h30'.",
+    description: "Speed ascent of the iconic Matterhorn via the Hörnli ridge (Swiss route, 1200m+, AD+ difficulty). While the average climbing time is 4-5 hours, I reached the summit in 2h26', marking the 3rd fastest time on this route according to Strava segment. This rapid ascent allowed me to enjoy a fantastic sunrise from the summit and avoid the crowds on the narrow passages, returning to Zermatt well before an approaching storm.",
+    media: [
+        { type: 'image', src: '/pics_sport/Matterhorn0.png' },
+        { type: 'image', src: '/pics_sport/Matterhorn3.jpeg' },
+        { type: 'image', src: '/pics_sport/Matterhorn4.jpeg' },
+        { type: 'image', src: '/pics_sport/Matterhorn5.jpeg' },
+    ],
+    tags: ["Alpinism", "Leaderboard"],
+    links: [
+        { label: "Strava Segment", url: "https://www.strava.com/segments/18516139" }
+    ]
+  },
+  {
+    title: "XTERRA Trail Vallée de Joux",
+    year: "2024",
+    summary: "2nd place (M30-34) and World Cup Qualification.",
+    description: "XTERRA-branded trail race in the French-speaking part of Switzerland, covering 22km and 800m of elevation gain, passing by Mont Tendre, the highest summit of the Swiss Jura mountains. Despite rainy and muddy conditions, I finished 10th overall and 2nd in my age group (M30-34), qualifying for the 2025 World Championship.",
+    media: [
+        { type: 'image', src: '/pics_sport/Joux1.jpg' },
+        { type: 'image', src: '/pics_sport/Joux2.jpg' },
+    ],
+    tags: ["Trail Run", "Qualification"],
+    links: [
+        { label: "Results", url: "https://rankings.xterraplanet.com/results/6ec8079e-cc1e-42bb-abf2-56e2d5d7d9cc?race=0aed6635-bed6-46a3-9cf6-b32c0b018919" }
+    ]
+  },
+  {
+    title: "Ironman 70.3 Emilia Romagna",
+    year: "2024",
+    summary: "Personal Best (4h18') on the half Ironman distance.",
+    description: "My personal best on the half Ironman distance (1.9km swim, 90km bike, 21.1km run). With ideal race conditions, it was a lightning-fast course. I finished in 4h18', ranking 11th in my division and narrowly missing qualification for the Ironman World Championship.",
+    media: [
+        { type: 'image', src: '/pics_sport/Emilia1.jpg' },
+        { type: 'image', src: '/pics_sport/Emilia2.jpg' },
+    ],
+    tags: ["Triathlon", "PB"],
+    links: [
+        { label: "Results", url: "https://www.ironman.com/races/im703-emilia-romagna/results" },
+        { label: "Certificate", url: "/pics_sport/EmiliaRomania_certificate.pdf" }
+    ]
+  },
 ];
 
 const sportLinks = [
@@ -35,29 +111,162 @@ const sportLinks = [
     url: 'https://www.strava.com/', 
     icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M15.387 17.944l-2.089-4.116h-3.065l5.154-8.128 5.154 8.128h-3.064l-2.09 4.116zm-5.154 5.356l-3.066-6.065h3.066l-1.93-3.032-5.93 10.932h3.93l1.93-1.835z"/></svg>`
   },
+  {
+    name: 'XTERRA',
+    url: 'https://rankings.xterraplanet.com/athletes/60ad1c68-30d7-4d97-b0b3-5195e0385515',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>`
+  },
 ];
 ---
 
-<Layout title="Sports Journey | Dimitri Unuchek" speedDialLinks={sportLinks} speedDialLabel="Follow Me">
-  <!-- Athlete Bio -->
-  <section class="mb-24">
-    <div class="glass-card max-w-3xl">
-      <h1 class="text-4xl md:text-5xl font-bold mb-6 text-gradient bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-red-600">
-        Endurance & Mountains
+<Layout title="Sports Journey | Dimitri Unuchek" description="Dimitri Unuchek - Endurance Athlete" speedDialLinks={sportLinks} speedDialLabel="Follow Me">
+  <!-- Hero Section -->
+  <section id="hero" class="flex items-start pt-0 md:pt-8 justify-center relative overflow-hidden pb-12">
+    <div class="absolute inset-x-0 top-0 bottom-12 bg-gradient-to-br from-orange-500/10 to-red-500/10 -z-10 rounded-b-3xl"></div>
+    <div class="max-w-4xl mx-auto text-center px-4">
+      <h1 class="text-3xl md:text-4xl font-bold mb-6 tracking-tight">
+        <span class="sport-gradient">Endurance & Mountains</span>
       </h1>
-      <p class="text-xl md:text-2xl text-slate-600 dark:text-slate-400 leading-relaxed">
-        I am a competitive level amateur athlete active in triathlon and alpinism. 
-        Pushing the limits with a Personal Best of 4h18' in Ironman 70.3 and a sprint up the Matterhorn in 2h26'. 
-        Sport is my way to explore human potential and the beauty of high altitudes.
-      </p>
+      <div class="text-lg md:text-xl text-slate-600 dark:text-slate-300 mb-8 leading-relaxed max-w-3xl mx-auto space-y-4 font-light">
+        <p>
+          I am an amateur athlete competing in triathlon, trail running, cross-country skiing, ski mountaineering, and alpinism, occasionally finding my way onto the podium. Currently, I am expanding my horizons by training for a paragliding license.
+        </p>
+        <p>
+          Sport allows me to test my limits and push boundaries, while exploring the breathtaking beauty of high altitudes.
+        </p>
+      </div>
     </div>
   </section>
 
-  <!-- Hall of Fame -->
-  <section class="mb-32">
+   <!-- Highlights Section (Moved above Results) -->
+   <section id="highlights" class="max-w-4xl mx-auto px-4 mb-16">
+    <div class="mb-10">
+      <h2 class="text-3xl font-bold flex items-center gap-3 mb-2">
+        <span class="w-8 h-8 rounded-lg bg-orange-500/20 flex items-center justify-center">⚡</span>
+        Highlights
+      </h2>
+      <p class="text-slate-500 dark:text-slate-400 text-sm ml-11">
+        Click on cards to see more details, see <a href="#results" class="text-orange-500 hover:underline">extanded results below</a>
+      </p>
+    </div>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pb-12">
+      {highlights.map(item => (
+        <div class="group">
+          <!-- Added tabindex and role for accessibility/interactivity -->
+          <div 
+            class="glass-card h-full flex flex-col overflow-hidden !p-0 transition-all duration-300 hover:-translate-y-1 cursor-pointer highlight-card"
+            tabindex="0"
+          >
+            <!-- Media Carousel -->
+            <div class="aspect-video relative overflow-hidden group/media">
+               <div class="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide h-full media-track">
+                  {item.media.map((media, index) => (
+                    <div class="min-w-full h-full snap-center relative">
+                        {media.type === 'video' ? (
+                            <video 
+                              src={media.src} 
+                              poster={media.poster}
+                              controls 
+                              muted
+                              class="w-full h-full object-cover"
+                              playsinline
+                            />
+                        ) : (
+                             <img 
+                                src={media.src} 
+                                alt={`${item.title} - ${index + 1}`} 
+                                class="w-full h-full object-cover"
+                              />
+                        )}
+                        {/* Overlay gradient only on the first item to make title readable */}
+                        {index === 0 && (
+                             <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-60 pointer-events-none"></div>
+                        )}
+                    </div>
+                  ))}
+               </div>
+              
+              {/* Year Badge */}
+              <div class="absolute top-4 left-4 bg-orange-500/90 text-white text-xs font-bold px-2 py-1 rounded-md shadow-lg backdrop-blur-sm pointer-events-none z-10">
+                {item.year}
+              </div>
+
+              {/* Title Overlay */}
+              <div class="absolute bottom-4 left-4 pointer-events-none z-10 title-overlay transition-opacity duration-300 w-full pr-8">
+                <h3 class="text-lg font-bold text-white truncate drop-shadow-md">{item.title}</h3>
+              </div>
+              
+              {/* Gallery Navigation Buttons (Visible when expanded & multiple items) */}
+              {item.media.length > 1 && (
+                <>
+                  <button class="nav-btn prev absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/30 text-white/70 hover:bg-black/50 hover:text-white backdrop-blur-sm transition-all opacity-0 pointer-events-none" aria-label="Previous photo">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                    </svg>
+                  </button>
+                  <button class="nav-btn next absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/30 text-white/70 hover:bg-black/50 hover:text-white backdrop-blur-sm transition-all opacity-0 pointer-events-none" aria-label="Next photo">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                    </svg>
+                  </button>
+                </>
+              )}
+            </div>
+
+            <div class="p-6 flex-1 flex flex-col">
+              
+              {/* Summary (Visible by default) */}
+              <div class="summary-content">
+                  <p class="text-slate-800 dark:text-slate-200 font-medium mb-3">{item.summary}</p>
+              </div>
+
+               {/* Tags (Now always visible) */}
+               <div class="flex flex-wrap gap-2 mb-4">
+                {item.tags.map(tag => (
+                  <span class="text-[9px] uppercase tracking-wider px-1.5 py-0.5 bg-orange-500/10 rounded-md border border-orange-500/20 text-orange-400/80">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              {/* Details (Hidden by default, animated) */}
+              <div class="details-wrapper">
+                <div class="overflow-hidden">
+                  <div class="details-content">
+                      <p class="text-slate-600 dark:text-slate-400 mb-4 text-sm leading-relaxed">{item.description}</p>
+                      
+                      {/* Links */}
+                      {item.links && item.links.length > 0 && (
+                        <div class="flex flex-wrap gap-3 mt-auto pt-4 border-t border-white/5">
+                            {item.links.map(link => (
+                                <a 
+                                    href={link.url} 
+                                    target="_blank" 
+                                    rel="noopener noreferrer" 
+                                    class="text-xs font-semibold uppercase tracking-wider text-orange-500 hover:text-orange-400 flex items-center gap-1 transition-colors z-10 relative"
+                                >
+                                    {link.label}
+                                    <ExternalLinkIcon class="w-3 h-3" />
+                                </a>
+                            ))}
+                        </div>
+                      )}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Results Section (Renamed from Hall of Fame) -->
+  <section id="results" class="max-w-4xl mx-auto px-4 mb-24">
     <h2 class="text-3xl font-bold mb-10 flex items-center gap-3">
-      <span class="w-8 h-8 rounded-lg bg-yellow-500/20 flex items-center justify-center">🏆</span>
-      Hall of Fame
+      <span class="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center">🏆</span>
+      Results
     </h2>
     <div class="glass overflow-hidden rounded-2xl shadow-xl">
       <div class="overflow-x-auto">
@@ -79,7 +288,7 @@ const sportLinks = [
                 <td class="px-6 py-4">{row.event}</td>
                 <td class="px-6 py-4 text-slate-500">{row.location}</td>
                 <td class="px-6 py-4 text-slate-500">{row.distance}</td>
-                <td class="px-6 py-4 font-mono font-bold text-blue-500">{row.result}</td>
+                <td class="px-6 py-4 font-mono font-bold text-orange-400">{row.result}</td>
                 <td class="px-6 py-4 italic text-slate-400 text-sm">{row.highlight}</td>
               </tr>
             ))}
@@ -88,68 +297,151 @@ const sportLinks = [
       </div>
     </div>
   </section>
-
-  <!-- Sports Gallery -->
-  <section>
-    <h2 class="text-3xl font-bold mb-10 flex items-center gap-3">
-      <span class="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center">📷</span>
-      Gallery
-    </h2>
-    <div class="swiper sport-gallery w-full py-8">
-      <div class="swiper-wrapper">
-        {photos.map(photo => (
-          <div class="swiper-slide w-full md:w-[600px] aspect-video">
-            <div class="glass-card !p-0 overflow-hidden h-full">
-              <img src={photo.src} alt={photo.alt} class="w-full h-full object-cover" />
-            </div>
-          </div>
-        ))}
-      </div>
-      <div class="swiper-button-next !text-orange-500"></div>
-      <div class="swiper-button-prev !text-orange-500"></div>
-      <div class="swiper-pagination"></div>
-    </div>
-  </section>
 </Layout>
 
-<script>
-  import Swiper from 'swiper';
-  import { Navigation, Pagination, EffectCoverflow } from 'swiper/modules';
-  import 'swiper/css';
-  import 'swiper/css/navigation';
-  import 'swiper/css/pagination';
-  import 'swiper/css/effect-coverflow';
+<style is:global>
+  /* Sporty background override for the sport page */
+  body.sport-page {
+    background-image:
+      radial-gradient(at 0% 0%, hsla(20, 16%, 7%, 1) 0, transparent 50%),
+      radial-gradient(at 50% 0%, hsla(25, 60%, 20%, 1) 0, transparent 50%),
+      radial-gradient(at 100% 0%, hsla(15, 70%, 18%, 1) 0, transparent 50%);
+  }
+</style>
 
-  function initSportSwiper() {
-    new Swiper('.sport-gallery', {
-      modules: [Navigation, Pagination, EffectCoverflow],
-      effect: 'coverflow',
-      grabCursor: true,
-      centeredSlides: true,
-      slidesPerView: 'auto',
-      coverflowEffect: {
-        rotate: 50,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
-        slideShadows: true,
-      },
-      pagination: {
-        el: '.swiper-pagination',
-      },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
-      },
+<style>
+  .sport-gradient {
+    background: linear-gradient(135deg, #f97316, #ef4444);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* Smooth expansion animation */
+  .details-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .highlight-card[data-expanded="true"] .details-wrapper {
+    grid-template-rows: 1fr;
+  }
+  
+  /* Scrollbar hiding */
+  .scrollbar-hide::-webkit-scrollbar {
+      display: none;
+  }
+  
+  .scrollbar-hide {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+  }
+  
+  /* Media track behavior */
+  .media-track {
+      pointer-events: none; /* Disable scrolling when collapsed */
+  }
+  
+  .highlight-card[data-expanded="true"] .media-track {
+      pointer-events: auto; /* Enable scrolling when expanded */
+  }
+
+  /* Nav Buttons */
+  .highlight-card[data-expanded="true"] .nav-btn {
+      opacity: 1;
+      pointer-events: auto;
+  }
+  
+  /* Hide Title Overlay when scrolling? Or just keep it. */
+</style>
+
+<script>
+  function initSportPage() {
+    document.body.classList.add('sport-page');
+    
+    // Setup highlight cards interactivity
+    const cards = document.querySelectorAll('.highlight-card');
+    cards.forEach(card => {
+        // Prevent double initialization
+        if (card.hasAttribute('data-initialized')) return;
+        card.setAttribute('data-initialized', 'true');
+
+        // Nav Buttons Logic
+        const prevBtn = card.querySelector('.nav-btn.prev');
+        const nextBtn = card.querySelector('.nav-btn.next');
+        const mediaTrack = card.querySelector('.media-track');
+
+        if (prevBtn && nextBtn && mediaTrack) {
+            const scrollAmount = () => card.clientWidth; // Scroll one width
+
+            prevBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent card toggle
+                
+                // Infinite Loop Logic: Left
+                if (mediaTrack.scrollLeft <= 5) {
+                    mediaTrack.scrollTo({ left: mediaTrack.scrollWidth, behavior: 'smooth' });
+                } else {
+                    mediaTrack.scrollBy({ left: -scrollAmount(), behavior: 'smooth' });
+                }
+            });
+
+            nextBtn.addEventListener('click', (e) => {
+                e.stopPropagation(); // Prevent card toggle
+
+                // Infinite Loop Logic: Right
+                // Check if we are close to the end (allow 5px buffer)
+                const maxScroll = mediaTrack.scrollWidth - mediaTrack.clientWidth;
+                if (mediaTrack.scrollLeft >= maxScroll - 5) {
+                     mediaTrack.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    mediaTrack.scrollBy({ left: scrollAmount(), behavior: 'smooth' });
+                }
+            });
+        }
+
+        card.addEventListener('click', (e) => {
+            // Don't toggle if clicking a link/button inside OR interacting with video controls
+            const target = e.target as HTMLElement;
+            if (target.closest('a') || target.closest('button') || target.tagName === 'VIDEO' || target.closest('.media-track')) {
+                // Allow interactions with media track only if already expanded
+                 if (card.getAttribute('data-expanded') === 'true' && (target.tagName === 'VIDEO' || target.closest('.media-track'))) {
+                     return;
+                 }
+                 if (target.closest('a') || target.closest('button')) return;
+            }
+            
+            const isExpanded = card.getAttribute('data-expanded') === 'true';
+            card.setAttribute('data-expanded', String(!isExpanded));
+        });
+
+        // Add keyboard support
+        card.addEventListener('keydown', (e) => {
+            if ((e as KeyboardEvent).key === 'Enter' || (e as KeyboardEvent).key === ' ') {
+                (e as KeyboardEvent).preventDefault();
+                card.click();
+            }
+        });
     });
   }
 
-  initSportSwiper();
-  document.addEventListener('astro:after-swap', initSportSwiper);
-</script>
-
-<style>
-  .text-gradient {
-    -webkit-text-fill-color: transparent;
+  function cleanupSportPage() {
+    document.body.classList.remove('sport-page');
   }
-</style>
+
+  // Apply on load
+  initSportPage();
+
+  // Re-apply after view transitions
+  document.addEventListener('astro:page-load', () => {
+    // Check if we're on the sport page
+    if (window.location.pathname.includes('/sport')) {
+      initSportPage();
+    } else {
+      cleanupSportPage();
+    }
+  });
+
+  // Clean up before navigating away
+  document.addEventListener('astro:before-swap', cleanupSportPage);
+</script>
