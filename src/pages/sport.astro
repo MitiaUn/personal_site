@@ -6,9 +6,22 @@ const rawBase = import.meta.env.BASE_URL;
 const base = rawBase === '/' ? '' : (rawBase.endsWith('/') ? rawBase.slice(0, -1) : rawBase);
 
 const results = [
-  { sport: "Triathlon", event: "Ironman 70.3", location: "International", distance: "113 km", result: "04:18:00", highlight: "Personal Best" },
-  { sport: "Alpinism", event: "Matterhorn Summit", location: "Zermatt, Switzerland", distance: "Climb", result: "02:26:00", highlight: "Rapid Ascent" },
-  { sport: "Endurance", event: "Other Events", location: "Various", distance: "Various", result: "Finisher", highlight: "Consistent Performance" },
+  { year: "2026", sport: "Triathlon", event: "Challenge The Championship", location: "Slovakia", distance: "113km", time: "-", result: "Coming soon" },
+  { year: "2026", sport: "Triathlon", event: "Triathlon Evian", location: "France", distance: "226km 4000m+", time: "-", result: "Coming soon" },
+  { year: "2026", sport: "Trail Run", event: "UTMB Chianti Ultra Trail", location: "Italy", distance: "50km", time: "-", result: "Coming soon" },
+  { year: "2025", sport: "Triathlon", event: "Challenge San Remo", location: "Italy", distance: "113km 1500m+", time: "4h33'", result: "3rd M30-34", link: "https://my.raceresult.com/361042/" },
+  { year: "2025", sport: "Triathlon", event: "Triathlon de Lausanne", location: "Switzerland", distance: "51.5km 400m+", time: "2h17'", result: "PB Olympic", link: "https://www.datasport.com/live/ranking/?racenr=27506#1_6F4044" },
+  { year: "2025", sport: "Skimo", event: "Patrouille des Aiguilles Rouges", location: "Switzerland", distance: "20km 2600m+", time: "5h03'", result: "My first patrouille", link: "https://sptiming.ch/par-25/" },
+  { year: "2025", sport: "Skimo", event: "La Trace des Grands", location: "France", distance: "14km 2000m+", time: "3h36'", result: "My first SkiMo race", link: "https://my.raceresult.com/328968/#3_C380B5" },
+  { year: "2025", sport: "Trail Run", event: "Défis des Chalets", location: "Switzerland", distance: "24km 1600m+", time: "2h22'", result: "5th Overall", link: "https://www.mso.swiss/events/2324-les-defis-des-chalets-trail-d'agaune/results" },
+  { year: "2025", sport: "Trail Run", event: "XTERRA World Championship", location: "UK", distance: "21km 1200m+", time: "2h06'", result: "4th Overall, 2nd M30-34", link: "https://rankings.xterraplanet.com/results/d506fea2-b291-4b2f-8299-0c2acd8ed0c8?race=867efd97-4b7d-49e9-9daf-6f35466b0de7&gender=M" },
+  { year: "2024", sport: "XC Ski", event: "La Transjurassienne", location: "France", distance: "50km 1000m+", time: "2h09'", result: "18th M18-34", link: "https://my.raceresult.com/380926/#1_888596" },
+  { year: "2024", sport: "XC Ski", event: "Gommerlauf International", location: "Switzerland", distance: "42km", time: "1h45'", result: "PB Marathon", link: "https://www.datasport.com/live/ranking/?racenr=26704#3_318177" },
+  { year: "2024", sport: "Trail Run", event: "XTERRA Vallée de Joux", location: "Switzerland", distance: "22km 800m+", time: "1h49'", result: "10th Overall, 2nd M30-34", link: "https://rankings.xterraplanet.com/results/6ec8079e-cc1e-42bb-abf2-56e2d5d7d9cc?race=0aed6635-bed6-46a3-9cf6-b32c0b018919" },
+  { year: "2024", sport: "Triathlon", event: "Ironman 70.3 Emilia-Romagna", location: "Italy", distance: "113km", time: "4h18'", result: "11th M30-34, PB 70.3", link: "https://www.ironman.com/races/im703-emilia-romagna/results" },
+  { year: "2024", sport: "Run", event: "Lausanne Half Marathon", location: "Switzerland", distance: "21.1km", time: "1h15'", result: "32nd Overall, PB 21k", link: "https://www.datasport.com/live/ranking/?racenr=26110#2_66B6DA" },
+  { year: "2021", sport: "Run", event: "Lausanne Marathon", location: "Switzerland", distance: "42.2km", time: "3h42'", result: "First Marathon" },
+  { year: "-", sport: "Alpinism", event: "4000m Summits", location: "Alps & Andes", distance: "Various", time: "-", result: "10+ Summits" },
 ];
 
 
@@ -118,6 +131,11 @@ const sportLinks = [
     name: 'XTERRA',
     url: 'https://rankings.xterraplanet.com/athletes/60ad1c68-30d7-4d97-b0b3-5195e0385515',
     icon: `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>`
+  },
+  {
+    name: 'Email',
+    url: 'mailto:d.s.unuchek@gmail.com',
+    icon: `<svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>`
   },
 ];
 ---
@@ -265,34 +283,45 @@ const sportLinks = [
     </div>
   </section>
 
-  <!-- Results Section (Renamed from Hall of Fame) -->
+  <!-- Key Results Section (Renamed from Results) -->
   <section id="results" class="max-w-4xl mx-auto px-4 mb-24">
     <h2 class="text-3xl font-bold mb-10 flex items-center gap-3">
       <span class="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center">🏆</span>
-      Results
+      Key Results
     </h2>
     <div class="glass overflow-hidden rounded-2xl shadow-xl">
       <div class="overflow-x-auto">
-        <table class="w-full text-left">
-          <thead class="bg-white/5 border-b border-white/10 text-sm uppercase tracking-wider text-slate-500">
+        <table class="w-full text-left text-sm">
+          <thead class="bg-white/5 border-b border-white/10 uppercase tracking-wider text-slate-500 text-xs">
             <tr>
-              <th class="px-6 py-4">Sport</th>
-              <th class="px-6 py-4">Event</th>
-              <th class="px-6 py-4">Location</th>
-              <th class="px-6 py-4">Distance</th>
-              <th class="px-6 py-4">Result</th>
-              <th class="px-6 py-4">Highlight</th>
+              <th class="px-4 py-3 font-semibold">Year</th>
+              <th class="px-4 py-3 font-semibold">Sport</th>
+              <th class="px-4 py-3 font-semibold">Event</th>
+              <th class="px-4 py-3 font-semibold hidden md:table-cell">Location</th>
+              <th class="px-4 py-3 font-semibold">Distance</th>
+              <th class="px-4 py-3 font-semibold">Time</th>
+              <th class="px-4 py-3 font-semibold">Result</th>
             </tr>
           </thead>
-          <tbody class="divide-y divide-white/5">
+          <tbody class="divide-y divide-white/5 text-slate-300">
             {results.map(row => (
               <tr class="hover:bg-white/5 transition-colors">
-                <td class="px-6 py-4 font-medium">{row.sport}</td>
-                <td class="px-6 py-4">{row.event}</td>
-                <td class="px-6 py-4 text-slate-500">{row.location}</td>
-                <td class="px-6 py-4 text-slate-500">{row.distance}</td>
-                <td class="px-6 py-4 font-mono font-bold text-orange-400">{row.result}</td>
-                <td class="px-6 py-4 italic text-slate-400 text-sm">{row.highlight}</td>
+                <td class="px-4 py-3 text-slate-400 font-mono text-xs">{row.year}</td>
+                <td class="px-4 py-3 font-medium text-orange-400">{row.sport}</td>
+                <td class="px-4 py-3 text-slate-200">{row.event}</td>
+                <td class="px-4 py-3 text-slate-500 hidden md:table-cell text-xs">{row.location}</td>
+                <td class="px-4 py-3 text-slate-400 whitespace-nowrap text-xs">{row.distance}</td>
+                <td class="px-4 py-3 font-mono font-bold text-orange-200">
+                  {row.link ? (
+                    <a href={row.link} target="_blank" rel="noopener noreferrer" class="hover:text-orange-400 transition-colors border-b border-transparent hover:border-orange-400/50 flex items-center gap-1 w-fit group/link">
+                      {row.time}
+                      <ExternalLinkIcon class="w-3 h-3 opacity-50 group-hover/link:opacity-100 transition-opacity" />
+                    </a>
+                  ) : (
+                    row.time
+                  )}
+                </td>
+                <td class="px-4 py-3 text-slate-400 text-xs">{row.result}</td>
               </tr>
             ))}
           </tbody>
