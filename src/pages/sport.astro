@@ -7,6 +7,8 @@ const results = [
   { sport: "Endurance", event: "Other Events", location: "Various", distance: "Various", result: "Finisher", highlight: "Consistent Performance" },
 ];
 
+const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.replace(/\/$/, '');
+
 import ExternalLinkIcon from '../components/icons/ExternalLink.astro';
 
 const highlights = [
@@ -16,26 +18,26 @@ const highlights = [
     summary: "Podium finish (3rd M30-34) and Championship Qualification.",
     description: "My most successful result to date on the middle distance triathlon race (1.9km swim, 90km bike, 21.1km run). Despite a bike accident the day before preventing me from using my race bike, I pushed to the limit on the run course, posting the fastest run split of the day. I finished in 4h33', crossing the line 8th overall and securing a podium spot as the 3rd fastest in the M30-34 age group, qualifying for the 2026 Challenge World Championship.",
     media: [
-        { type: 'image', src: '/pics_sport/SanRemo1.jpg' },
-        { type: 'video', src: '/pics_sport/SanRemo_video.MOV', poster: '/pics_sport/SanRemo1.jpg' }
+        { type: 'image', src: `${base}/pics_sport/SanRemo1.jpg` },
+        { type: 'video', src: `${base}/pics_sport/SanRemo_video.MOV`, poster: `${base}/pics_sport/SanRemo1.jpg` }
     ],
     tags: ["Triathlon", "Qualification"],
     links: [
         { label: "Results", url: "https://my.raceresult.com/361042/" },
-        { label: "Certificate", url: "/pics_sport/Sanremo_certificate.pdf" }
+        { label: "Certificate", url: `${base}/pics_sport/Sanremo_certificate.pdf` }
     ]
   },
   {
     title: "XTERRA Trail Run World Championship",
-    year: "2025",
+    year: "2024",
     summary: "Silver Medal (M30-34) at the World Cup in Wales.",
     description: "Trail running World Cup organized by XTERRA in Wales, UK, extending over 21km with 1200m elevation gain, passing by Snowdon, the highest summit in Wales. Despite the rain and mud, I enjoyed every kilometer, finishing 4th overall and 2nd in the M30-34 age group, earning a silver medal for the XTERRA World Cup 2025. The race was held under exceptional heatwave conditions, forcing organizers to eventually halt the event and launch rescue operation.",
     media: [
-        { type: 'image', src: '/pics_sport/Xterra1.JPG' },
-        { type: 'image', src: '/pics_sport/Xterra2.jpg' }, 
-        { type: 'image', src: '/pics_sport/Xterra3.jpg' },
-        { type: 'image', src: '/pics_sport/Xterra4.jpg' },
-        { type: 'image', src: '/pics_sport/Xterra5.jpg' }
+        { type: 'image', src: `${base}/pics_sport/Xterra1.JPG` },
+        { type: 'image', src: `${base}/pics_sport/Xterra2.jpg` }, 
+        { type: 'image', src: `${base}/pics_sport/Xterra3.jpg` },
+        { type: 'image', src: `${base}/pics_sport/Xterra4.jpg` },
+        { type: 'image', src: `${base}/pics_sport/Xterra5.jpg` }
     ],
     tags: ["Trail Run", "World Cup"],
     links: [
@@ -49,10 +51,10 @@ const highlights = [
     summary: "Speed climbing under 2h30'.",
     description: "Speed ascent of the iconic Matterhorn via the Hörnli ridge (Swiss route, 1200m+, AD+ difficulty). While the average climbing time is 4-5 hours, I reached the summit in 2h26', marking the 3rd fastest time on this route according to Strava segment. This rapid ascent allowed me to enjoy a fantastic sunrise from the summit and avoid the crowds on the narrow passages, returning to Zermatt well before an approaching storm.",
     media: [
-        { type: 'image', src: '/pics_sport/Matterhorn0.png' },
-        { type: 'image', src: '/pics_sport/Matterhorn3.jpeg' },
-        { type: 'image', src: '/pics_sport/Matterhorn4.jpeg' },
-        { type: 'image', src: '/pics_sport/Matterhorn5.jpeg' },
+        { type: 'image', src: `${base}/pics_sport/Matterhorn0.png` },
+        { type: 'image', src: `${base}/pics_sport/Matterhorn3.jpeg` },
+        { type: 'image', src: `${base}/pics_sport/Matterhorn4.jpeg` },
+        { type: 'image', src: `${base}/pics_sport/Matterhorn5.jpeg` },
     ],
     tags: ["Alpinism", "Leaderboard"],
     links: [
@@ -65,8 +67,8 @@ const highlights = [
     summary: "2nd place (M30-34) and World Cup Qualification.",
     description: "XTERRA-branded trail race in the French-speaking part of Switzerland, covering 22km and 800m of elevation gain, passing by Mont Tendre, the highest summit of the Swiss Jura mountains. Despite rainy and muddy conditions, I finished 10th overall and 2nd in my age group (M30-34), qualifying for the 2025 World Championship.",
     media: [
-        { type: 'image', src: '/pics_sport/Joux1.jpg' },
-        { type: 'image', src: '/pics_sport/Joux2.jpg' },
+        { type: 'image', src: `${base}/pics_sport/Joux1.jpg` },
+        { type: 'image', src: `${base}/pics_sport/Joux2.jpg` },
     ],
     tags: ["Trail Run", "Qualification"],
     links: [
@@ -79,13 +81,13 @@ const highlights = [
     summary: "Personal Best (4h18') on the half Ironman distance.",
     description: "My personal best on the half Ironman distance (1.9km swim, 90km bike, 21.1km run). With ideal race conditions, it was a lightning-fast course. I finished in 4h18', ranking 11th in my division and narrowly missing qualification for the Ironman World Championship.",
     media: [
-        { type: 'image', src: '/pics_sport/Emilia1.jpg' },
-        { type: 'image', src: '/pics_sport/Emilia2.jpg' },
+        { type: 'image', src: `${base}/pics_sport/Emilia1.jpg` },
+        { type: 'image', src: `${base}/pics_sport/Emilia2.jpg` },
     ],
     tags: ["Triathlon", "PB"],
     links: [
         { label: "Results", url: "https://www.ironman.com/races/im703-emilia-romagna/results" },
-        { label: "Certificate", url: "/pics_sport/EmiliaRomania_certificate.pdf" }
+        { label: "Certificate", url: `${base}/pics_sport/EmiliaRomania_certificate.pdf` }
     ]
   },
 ];
