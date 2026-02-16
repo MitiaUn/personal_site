@@ -29,8 +29,8 @@ const highlights = [
   {
     title: "Challenge San Remo",
     year: "2025",
-    summary: "Podium finish (3rd M30-34) and Championship Qualification.",
-    description: "My most successful result to date on the middle distance triathlon race (1.9km swim, 90km bike, 21.1km run). Despite a bike accident the day before preventing me from using my race bike, I pushed to the limit on the run course, posting the fastest run split of the day. I finished in 4h33', crossing the line 8th overall and securing a podium spot as the 3rd fastest in the M30-34 age group, qualifying for the 2026 Challenge World Championship.",
+    summary: "Podium finish and Championship qualification.",
+    description: "My most successful result to date on the middle distance triathlon race (1.9km swim, 80km 1500m+ bike, 21.1km run). Despite a car accident the day before preventing me from using my race bike, I pushed to the limit on the run course covering half marathon distance within 1h10', posting the fastest run split of the race. I finished in 4h33', crossing the line 8th overall and securing a podium spot as the 3rd fastest in the M30-34 age group, qualifying for the 2026 Challenge World Championship.",
     media: [
         { type: 'image', src: `${base}/pics_sport/SanRemo1.jpg` },
         { type: 'video', src: `${base}/pics_sport/SanRemo_video.MOV`, poster: `${base}/pics_sport/SanRemo1.jpg` }
@@ -44,8 +44,8 @@ const highlights = [
   {
     title: "XTERRA Trail Run World Championship",
     year: "2025",
-    summary: "Silver Medal (M30-34) at the World Cup in Wales.",
-    description: "Trail running World Cup organized by XTERRA in Wales, UK, extending over 21km with 1200m elevation gain, passing by Snowdon, the highest summit in Wales. Despite the rain and mud, I enjoyed every kilometer, finishing 4th overall and 2nd in the M30-34 age group, earning a silver medal for the XTERRA World Cup 2025. The race was held under exceptional heatwave conditions, forcing organizers to eventually halt the event and launch rescue operation.",
+    summary: "Silver medal at the World Cup in Wales.",
+    description: "Trail running World Cup organized by XTERRA in Wales, UK, extending over 21km with 1200m elevation gain, passing by Snowdon, the highest summit in Wales. I finished 4th overall and 2nd in the M30-34 age group, earning a silver medal for the XTERRA World Cup 2025. The race was held under exceptional heatwave conditions, forcing organizers to eventually halt the event and launch rescue operation.",
     media: [
         { type: 'image', src: `${base}/pics_sport/Xterra1.JPG` },
         { type: 'image', src: `${base}/pics_sport/Xterra2.jpg` }, 
@@ -60,7 +60,7 @@ const highlights = [
     ]
   },
   {
-    title: "Matterhorn Summit",
+    title: "Matterhorn Summit 4478m",
     year: "2024",
     summary: "Speed climbing under 2h30'.",
     description: "Speed ascent of the iconic Matterhorn via the Hörnli ridge (Swiss route, 1200m+, AD+ difficulty). While the average climbing time is 4-5 hours, I reached the summit in 2h26', marking the 3rd fastest time on this route according to Strava segment. This rapid ascent allowed me to enjoy a fantastic sunrise from the summit and avoid the crowds on the narrow passages, returning to Zermatt well before an approaching storm.",
@@ -78,8 +78,8 @@ const highlights = [
   {
     title: "XTERRA Trail Vallée de Joux",
     year: "2024",
-    summary: "2nd place (M30-34) and World Cup Qualification.",
-    description: "XTERRA-branded trail race in the French-speaking part of Switzerland, covering 22km and 800m of elevation gain, passing by Mont Tendre, the highest summit of the Swiss Jura mountains. Despite rainy and muddy conditions, I finished 10th overall and 2nd in my age group (M30-34), qualifying for the 2025 World Championship.",
+    summary: "Podium finish and World Cup qualification.",
+    description: "XTERRA-branded trail running race in the French-speaking part of Switzerland, covering 22km and 800m of elevation gain, passing by Mont Tendre, the highest summit of the Swiss Jura mountains. I enjoyed every kilometer, finishing 10th overall and 2nd in my age group (M30-34), qualifying for the 2025 World Championship.",
     media: [
         { type: 'image', src: `${base}/pics_sport/Joux1.jpg` },
         { type: 'image', src: `${base}/pics_sport/Joux2.jpg` },
@@ -92,8 +92,8 @@ const highlights = [
   {
     title: "Ironman 70.3 Emilia Romagna",
     year: "2024",
-    summary: "Personal Best (4h18') on the half Ironman distance.",
-    description: "My personal best on the half Ironman distance (1.9km swim, 90km bike, 21.1km run). With ideal race conditions, it was a lightning-fast course. I finished in 4h18', ranking 11th in my division and narrowly missing qualification for the Ironman World Championship.",
+    summary: "Personal Record (4h18') at Ironman 70.3.",
+    description: "My best performance on the half Ironman distance (1.9km swim, 90km bike, 21.1km run). With ideal race conditions, it was a lightning-fast course. I finished in 4h18', ranking 11th in my division and narrowly missing qualification for the Ironman World Championship.",
     media: [
         { type: 'image', src: `${base}/pics_sport/Emilia1.jpg` },
         { type: 'image', src: `${base}/pics_sport/Emilia2.jpg` },
@@ -143,7 +143,7 @@ const sportLinks = [
 <Layout title="Sports Journey | Dimitri Unuchek" description="Dimitri Unuchek - Endurance Athlete" speedDialLinks={sportLinks} speedDialLabel="Follow Me">
   <!-- Hero Section -->
   <section id="hero" class="flex items-start pt-0 md:pt-8 justify-center relative overflow-hidden pb-12">
-    <div class="absolute inset-x-0 top-0 bottom-12 bg-gradient-to-br from-orange-500/10 to-red-500/10 -z-10 rounded-b-3xl"></div>
+    <div class="absolute inset-x-0 top-0 bottom-12 bg-gradient-to-br from-orange-500/10 to-red-500/10 -z-10 rounded-3xl"></div>
     <div class="max-w-4xl mx-auto text-center px-4">
       <h1 class="text-3xl md:text-4xl font-bold mb-6 tracking-tight">
         <span class="sport-gradient">Endurance & Mountains</span>
@@ -383,6 +383,13 @@ const sportLinks = [
   .highlight-card[data-expanded="true"] .nav-btn {
       opacity: 1;
       pointer-events: auto;
+  }
+
+  /* Override hover effect to match hero gradient */
+  .highlight-card:hover {
+      background-image: linear-gradient(to bottom right, rgba(249, 115, 22, 0.15), rgba(239, 68, 68, 0.15));
+      border-color: rgba(249, 115, 22, 0.3);
+      background-color: rgba(0, 0, 0, 0.6); /* Slightly darker base for better contrast */
   }
   
   /* Hide Title Overlay when scrolling? Or just keep it. */

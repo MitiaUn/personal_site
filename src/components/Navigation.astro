@@ -8,15 +8,24 @@ const { currentPath = '/' } = Astro.props;
 const isSportPage = currentPath.includes('/sport');
 
 const mainNavItems = [
-  { name: 'CV', href: `${base}/#experience`, type: 'main', action: 'collapse-all', download: true },
-  { name: 'Experience', href: `${base}/#experience`, type: 'sub' },
-  { name: 'Education', href: `${base}/#education`, type: 'sub' },
-  { name: 'Skills', href: `${base}/#skills`, type: 'sub' },
-  { name: 'Publications', href: `${base}/#publications`, type: 'sub' },
-  { name: 'Conferences', href: `${base}/#conferences`, type: 'sub' },
-  { name: 'Patents', href: `${base}/#patents`, type: 'sub' },
-  { name: 'Awards', href: `${base}/#awards`, type: 'sub' },
+  { 
+    name: 'CV', 
+    href: `${base}/#experience`, 
+    type: 'group', 
+    action: 'toggle-cv', 
+    download: true,
+    subItems: [
+      { name: 'Experience', href: `${base}/#experience` },
+      { name: 'Education', href: `${base}/#education` },
+      { name: 'Skills', href: `${base}/#skills` },
+      { name: 'Publications', href: `${base}/#publications` },
+      { name: 'Conferences', href: `${base}/#conferences` },
+      { name: 'Patents', href: `${base}/#patents` },
+      { name: 'Awards', href: `${base}/#awards` },
+    ]
+  },
   { name: 'Projects', href: `${base}/#projects`, type: 'main' },
+  { name: 'Hobby', href: `${base}/sport`, type: 'main' },
 ];
 
 const sportNavItems = [
@@ -101,29 +110,34 @@ const mobileLabel = isSportPage ? 'Follow Me' : 'Get in Touch';
     }`}>
       {isSportPage ? 'Dimitri Unuchek' : 'Dr Dimitri Unuchek'}
     </h2>
-    <p class="text-sm text-slate-400 text-center mb-1">
+    <p class="text-sm text-slate-400 text-center">
       {isSportPage ? 'Endurance Athlete' : 'R&D Leader | Physicist'}
     </p>
-    <p class="text-xs text-slate-500 flex items-center gap-1 mt-1">
+    <p class="text-xs text-slate-400 flex items-center gap-1 mt-1">
       <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
       Lausanne, Switzerland
     </p>
   </a>
 
-  <ul class="flex-1 w-full space-y-1">
+  <ul class="flex-1 w-full space-y-0.5">
     {navItems.map(item => (
       <li>
         <div class="flex items-center justify-between w-full group">
             <a 
             href={item.href} 
             data-action={item.action}
-            class={`nav-link block flex-grow py-2 rounded-lg transition-all duration-200 hover:bg-white/10 ${
-                item.type === 'main' ? 'text-base font-semibold px-4' : 'text-sm pl-8 pr-4'
+            class={`nav-link block flex-grow py-0.5 rounded-lg transition-all duration-200 hover:bg-white/10 ${
+                item.type === 'main' || item.type === 'group' ? 'text-base font-semibold px-4 mt-1 mb-0.5' : 'text-xs pl-8 pr-4 flex items-center before:content-["•"] before:mr-2 before:text-slate-500'
             } ${
                 currentPath === item.href ? 'active-page text-blue-600 font-bold bg-blue-900/20' : 'text-slate-400'
             }`}
             >
             {item.name}
+            {item.type === 'group' && (
+               <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline-block ml-auto transform transition-transform duration-200" id="cv-toggle-icon" viewBox="0 0 20 20" fill="currentColor">
+                  <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
+               </svg>
+            )}
             </a>
             {item.download && (
                 <a href={`${base}/CV_26_EE_RE.pdf`} download title="Download CV" class="p-2 text-slate-400 hover:text-blue-600 transition-colors mr-1">
@@ -133,6 +147,22 @@ const mobileLabel = isSportPage ? 'Follow Me' : 'Get in Touch';
                 </a>
             )}
         </div>
+        {item.subItems && (
+            <ul id="cv-submenu" class="hidden space-y-0.5 mt-0.5">
+                {item.subItems.map(sub => (
+                    <li>
+                        <a 
+                            href={sub.href} 
+                            class={`nav-link block flex-grow py-0.5 rounded-lg transition-all duration-200 hover:bg-white/10 text-xs pl-8 pr-4 flex items-center before:content-["•"] before:mr-2 before:text-slate-500 ${
+                                currentPath === sub.href ? 'active-page text-blue-600 font-bold bg-blue-900/20' : 'text-slate-400'
+                            }`}
+                        >
+                            {sub.name}
+                        </a>
+                    </li>
+                ))}
+            </ul>
+        )}
       </li>
     ))}
   </ul>
@@ -195,7 +225,12 @@ const mobileLabel = isSportPage ? 'Follow Me' : 'Get in Touch';
 </nav>
 
 <script>
-  function setupActiveHighlighting() {
+  function setupNavigation() {
+    // Guard: prevent duplicate initialization
+    const navEl = document.querySelector('nav.hidden');
+    if (!navEl || navEl.hasAttribute('data-nav-initialized')) return;
+    navEl.setAttribute('data-nav-initialized', 'true');
+
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-link');
     
@@ -210,6 +245,7 @@ const mobileLabel = isSportPage ? 'Follow Me' : 'Get in Touch';
       });
     }
 
+    // IntersectionObserver for scroll-based highlighting only
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -230,6 +266,68 @@ const mobileLabel = isSportPage ? 'Follow Me' : 'Get in Touch';
     });
 
     sections.forEach(section => observer.observe(section));
+
+    // --- CV Submenu Toggle Logic ---
+    const cvToggle = document.querySelector('[data-action="toggle-cv"]');
+    const cvSubmenu = document.getElementById('cv-submenu');
+    const cvIcon = document.getElementById('cv-toggle-icon');
+
+    if (cvToggle && cvSubmenu) {
+        cvToggle.addEventListener('click', (e) => {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            const isCurrentlyHidden = cvSubmenu.classList.contains('hidden');
+
+            if (isCurrentlyHidden) {
+                // OPENING: show subtitles, collapse all sections, scroll to CV
+                cvSubmenu.classList.remove('hidden');
+                cvIcon?.classList.add('rotate-180');
+                document.dispatchEvent(new CustomEvent('collapse-all-sections'));
+                const experienceSection = document.getElementById('experience');
+                if (experienceSection) {
+                    experienceSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            } else {
+                // CLOSING: hide subtitles, collapse all sections
+                cvSubmenu.classList.add('hidden');
+                cvIcon?.classList.remove('rotate-180');
+                document.dispatchEvent(new CustomEvent('collapse-all-sections'));
+            }
+        });
+    }
+
+    // --- Subtitle click: collapse all, then expand only the target ---
+    if (cvSubmenu) {
+        cvSubmenu.querySelectorAll('a.nav-link').forEach(subLink => {
+            subLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                const href = subLink.getAttribute('href') || '';
+                const hashIndex = href.indexOf('#');
+                if (hashIndex === -1) return;
+                const hash = href.substring(hashIndex + 1);
+                if (!hash) return;
+
+                // Collapse all CV sections first
+                document.dispatchEvent(new CustomEvent('collapse-all-sections'));
+
+                // Then expand only the target section after collapse animation finishes (500ms)
+                setTimeout(() => {
+                    const targetSection = document.getElementById(hash);
+                    if (targetSection) {
+                        targetSection.scrollIntoView({ behavior: 'smooth' });
+                        const btn = targetSection.querySelector('.collapsible-section button');
+                        if (btn) {
+                            const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+                            if (!isExpanded) {
+                                btn.click();
+                            }
+                        }
+                    }
+                }, 550);
+            });
+        });
+    }
   }
 
   function setupMobileMenu() {
@@ -237,6 +335,8 @@ const mobileLabel = isSportPage ? 'Follow Me' : 'Get in Touch';
     const speedDial = document.getElementById('mobile-speed-dial');
     
     if (!toggleBtn || !speedDial) return;
+    if (toggleBtn.hasAttribute('data-mobile-initialized')) return;
+    toggleBtn.setAttribute('data-mobile-initialized', 'true');
 
     let isOpen = false;
 
@@ -268,10 +368,10 @@ const mobileLabel = isSportPage ? 'Follow Me' : 'Get in Touch';
   }
 
   // Run on load and after view transitions
-  setupActiveHighlighting();
+  setupNavigation();
   setupMobileMenu();
   document.addEventListener('astro:page-load', () => {
-    setupActiveHighlighting();
+    setupNavigation();
     setupMobileMenu();
   });
 </script>

@@ -7,7 +7,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
   {projects.map(project => (
     <div class="w-full h-full">
       <a href={`${base}/projects/${project.id}`} class="block group h-full">
-        <div class="glass-card h-full flex flex-col overflow-hidden !p-0 transition-transform duration-300 hover:-translate-y-1">
+        <div class="glass-card project-card h-full flex flex-col overflow-hidden !p-0 transition-transform duration-300 hover:-translate-y-1">
           <div class="aspect-video relative overflow-hidden">
             <img 
               src={project.image} 
@@ -35,3 +35,11 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
     </div>
   ))}
 </div>
+
+<style>
+  .project-card:hover {
+      background-image: linear-gradient(to bottom right, rgba(59, 130, 246, 0.15), rgba(147, 51, 234, 0.15));
+      border-color: rgba(59, 130, 246, 0.3);
+      background-color: rgba(0, 0, 0, 0.6);
+  }
+</style>

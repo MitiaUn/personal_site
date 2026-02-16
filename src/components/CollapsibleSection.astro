@@ -146,9 +146,12 @@ const { id, title, icon, iconColorClass, description, open = false, indent = tru
         // Check for special collapse action
         if (link.getAttribute('data-action') === 'collapse-all') {
             document.dispatchEvent(new CustomEvent('collapse-all-sections'));
-            // If it's a hash link to top/hero, let default happen or scroll manually
             return; 
         }
+
+        // Skip links handled by Navigation.astro's CV toggle logic
+        if (link.getAttribute('data-action') === 'toggle-cv') return;
+        if (link.closest('#cv-submenu')) return;
 
         const hashIndex = href.indexOf('#');
         if (hashIndex === -1) return;
