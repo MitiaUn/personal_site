@@ -12,14 +12,14 @@ interface Props {
 const { id, title, icon, iconColorClass, description, open = false, indent = true } = Astro.props;
 ---
 
-<div class="collapsible-section" id={id}>
+<div class="collapsible-section rounded-2xl p-6 transition-all duration-300 hover:bg-gradient-to-br hover:from-blue-500/10 hover:to-purple-500/10 hover:shadow-lg dark:hover:bg-white/5 border border-transparent hover:border-blue-500/20" id={id}>
   <button 
-    class="w-full text-left py-4 focus:outline-none highlight-none group"
+    class="w-full text-left focus:outline-none highlight-none group"
     aria-expanded={open}
     aria-controls={`${id}-content`}
   >
     <div class="flex items-start gap-4">
-      <div class={`w-10 h-10 rounded-xl ${iconColorClass} flex items-center justify-center text-xl shadow-sm shrink-0 mt-1`}>
+      <div class={`w-10 h-10 rounded-xl ${iconColorClass} flex items-center justify-center text-xl shadow-sm shrink-0 mt-1 transition-transform group-hover:scale-110 duration-300`}>
         <slot name="icon">{icon}</slot>
       </div>
       <div class="flex-grow">
@@ -29,7 +29,7 @@ const { id, title, icon, iconColorClass, description, open = false, indent = tru
           </h2>
            <svg 
               xmlns="http://www.w3.org/2000/svg" 
-              class="h-6 w-6 text-slate-400 transform transition-transform duration-300 chevron" 
+              class="h-6 w-6 text-slate-400 transform transition-transform duration-300 chevron group-hover:text-blue-500" 
               fill="none" 
               viewBox="0 0 24 24" 
               stroke="currentColor"
@@ -37,7 +37,7 @@ const { id, title, icon, iconColorClass, description, open = false, indent = tru
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
           </svg>
         </div>
-        <div class="text-base text-slate-600 dark:text-slate-300 mt-2 font-light leading-relaxed">
+        <div class="text-sm text-slate-600 dark:text-slate-300 mt-2 font-light leading-relaxed group-hover:text-slate-700 dark:group-hover:text-slate-200 transition-colors">
           <slot name="description">{description}</slot>
         </div>
       </div>

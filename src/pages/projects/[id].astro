@@ -26,8 +26,8 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
       Back to Projects
     </a>
 
-    <div class="glass-card overflow-hidden !p-0 project-card">
-      <div class="aspect-video w-full overflow-hidden">
+    <div class="glass-card !p-0 project-card">
+      <div class="aspect-video w-full overflow-hidden rounded-t-3xl">
         <img 
           src={project.image} 
           alt={project.title} 
@@ -37,7 +37,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
       </div>
       
       <div class="p-8 md:p-12">
-        <h1 class="text-4xl font-bold mb-6" transition:name={`title-${id}`}>{project.title}</h1>
+        <h1 class="text-3xl font-bold mb-6" transition:name={`title-${id}`}>{project.title}</h1>
         
         <div class="flex flex-wrap gap-3 mb-8 text-sm">
           {project.stack.map(tech => (
@@ -47,21 +47,90 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
           ))}
         </div>
 
-        <div class="prose dark:prose-invert max-w-none text-xl leading-relaxed text-slate-600 dark:text-slate-400">
+        <div class="prose dark:prose-invert max-w-none text-base leading-relaxed text-slate-600 dark:text-slate-400">
 
-          <p>{project.description}</p>
+          <p set:html={project.description} />
         </div>
 
         {project.links && (
           <div class="mt-8 flex flex-wrap gap-4">
-            {project.links.paper && (
-              <a href={project.links.paper} target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold transition-all shadow-lg hover:shadow-blue-500/25">
+            {(project.links.paper || (project.links.papers && project.links.papers.length === 1)) && (
+              <a href={project.links.paper || project.links.papers[0].url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold transition-all shadow-lg hover:shadow-blue-500/25">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                 </svg>
                 Read Paper
               </a>
             )}
+
+            {project.links.papers && project.links.papers.length > 1 && (
+              <div class="relative group dropdown-container">
+                <button class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold transition-all shadow-lg hover:shadow-blue-500/25 dropdown-trigger">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+                  </svg>
+                  Read Papers
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div class="absolute left-0 mt-2 w-72 rounded-xl shadow-xl bg-white dark:bg-slate-800 ring-1 ring-black ring-opacity-5 focus:outline-none opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-hidden text-left">
+                  <div class="py-1">
+                    {project.links.papers.map(paper => (
+                      <a href={paper.url} target="_blank" rel="noopener noreferrer" class="block px-4 py-3 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                        {paper.title}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+            {project.links.posters && project.links.posters.length === 1 && (
+              <a href={project.links.posters[0].url} target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold transition-all shadow-lg hover:shadow-blue-500/25">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                View Poster
+              </a>
+            )}
+            
+            {project.links.posters && project.links.posters.length > 1 && (
+              <div class="relative group dropdown-container">
+                <button class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold transition-all shadow-lg hover:shadow-blue-500/25 dropdown-trigger">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  View Posters
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+                <div class="absolute left-0 mt-2 w-56 rounded-xl shadow-xl bg-white dark:bg-slate-800 ring-1 ring-black ring-opacity-5 focus:outline-none opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50 overflow-hidden text-left">
+                  <div class="py-1">
+                    {project.links.posters.map(poster => (
+                      <a href={poster.url} target="_blank" rel="noopener noreferrer" class="block px-4 py-3 text-sm text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                        {poster.title}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {project.links.media && (
+               <div class="relative">
+                <button id="media-toggle" class="inline-flex items-center px-6 py-3 bg-purple-600 hover:bg-purple-700 text-white rounded-full font-bold transition-all shadow-lg hover:shadow-purple-500/25">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                  </svg>
+                  Media Coverage
+                  <svg id="media-chevron" xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-2 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </button>
+              </div>
+            )}
+
             {project.links.live && (
               <a href={project.links.live} target="_blank" rel="noopener noreferrer" class="inline-flex items-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold transition-all shadow-lg hover:shadow-blue-500/25">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -80,20 +149,78 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
             )}
           </div>
         )}
+
+        {project.links?.media && (
+          <div id="media-list" class="mt-8 grid grid-cols-1 md:grid-cols-2 gap-4 overflow-hidden transition-all duration-500 max-h-0 opacity-0">
+             <h3 class="col-span-1 md:col-span-2 text-xl font-bold text-slate-800 dark:text-white mb-2">Media Mentions</h3>
+             {project.links.media.map(item => (
+                <a href={item.url} target="_blank" rel="noopener noreferrer" class="flex items-center p-4 bg-white/50 dark:bg-slate-800/50 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-purple-500 dark:hover:border-purple-500 hover:shadow-md transition-all group">
+                   <span class="w-8 h-8 rounded-full bg-purple-100 dark:bg-purple-900/50 flex items-center justify-center mr-3 text-purple-600 dark:text-purple-400 group-hover:scale-110 transition-transform">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                      </svg>
+                   </span>
+                   <span class="font-medium text-slate-700 dark:text-slate-300 group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">{item.title}</span>
+                   <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 ml-auto text-slate-400 opacity-0 group-hover:opacity-100 transition-opacity" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                   </svg>
+                </a>
+             ))}
+          </div>
+        )}
+
       </div>
     </div>
   </div>
 </Layout>
 
 <script define:vars={{ base }}>
-  document.addEventListener('click', (event) => {
-    const card = document.querySelector('.project-card');
-    const isLink = event.target.closest('a');
-    const isButton = event.target.closest('button');
-    
-    // Only navigate if clicking outside the card and not on an interactive element
-    if (card && !card.contains(event.target) && !isLink && !isButton) {
-      window.location.href = `${base}/#projects`;
-    }
+  document.addEventListener('astro:page-load', () => {
+      // Handles clicking outside the project card to close
+      const card = document.querySelector('.project-card');
+      const container = document.querySelector('.min-h-screen'); // More reliable click target
+      
+      if (container) {
+          container.addEventListener('click', (event) => {
+               const isLink = event.target.closest('a');
+               const isButton = event.target.closest('button');
+               const isCardContent = event.target.closest('.project-card');
+               
+               // Only navigate if clicking outside the card content area
+               if (!isCardContent && !isLink && !isButton) {
+                 window.location.href = `${base}/#projects`;
+               }
+          });
+      }
+
+      // Media toggle logic
+      const mediaToggle = document.getElementById('media-toggle');
+      const mediaList = document.getElementById('media-list');
+      const mediaChevron = document.getElementById('media-chevron');
+
+      if (mediaToggle && mediaList && mediaChevron) {
+         mediaToggle.addEventListener('click', (e) => {
+             e.stopPropagation(); // Prevent closing the card
+             const isExpanded = mediaList.style.maxHeight && mediaList.style.maxHeight !== '0px';
+             
+             if (isExpanded) {
+                 mediaList.style.maxHeight = '0px';
+                 mediaList.style.opacity = '0';
+                 mediaChevron.style.transform = 'rotate(0deg)';
+             } else {
+                 mediaList.style.maxHeight = mediaList.scrollHeight + 'px';
+                 mediaList.style.opacity = '1';
+                 mediaChevron.style.transform = 'rotate(180deg)';
+             }
+         });
+      }
   });
 </script>
+
+<style>
+  .project-card:hover {
+      background-image: linear-gradient(to bottom right, rgba(59, 130, 246, 0.15), rgba(147, 51, 234, 0.15));
+      border-color: rgba(59, 130, 246, 0.3);
+      background-color: rgba(0, 0, 0, 0.6);
+  }
+</style>
