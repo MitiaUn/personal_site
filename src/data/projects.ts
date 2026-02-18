@@ -22,9 +22,9 @@ export const projects: Project[] = [
     {
         id: "waveguide-photodetectors",
         title: "Chip-Integrated Photonics",
-        teaser: "Scalable 2D photodetector integration for next-gen photonic circuits",
+        teaser: "Scalable integration of 2D photodetector for next-gen photonic circuits",
         image: `${base}/excitons.jpg`,
-        stack: ["Integrated Photonics", "PIC", "Optoelectronics", "2D Semiconductors", "Microfabrication", "Quantum Devices"],
+        stack: ["Integrated Photonics", "PIC", "Optoelectronics", "2D Semiconductors", "Microfabrication", "Photodetectors"],
         description: `To overcome the physical limitations of vertical light absorption in atomically thin materials, we engineered a device architecture that integrates monolayer MoS<sub>2</sub> directly onto SiN waveguides. This work was a collaborative effort, conducted as a joint project with a Master's student whom I mentored and supervised throughout the research process. By utilizing the evanescent field of light traveling through the waveguide, we achieved a dramatic increase in the overlapping area between the light and the semiconductor, leading to significantly enhanced photoresponsivity compared to traditional vertical illumination. This approach holds promise in optical interconnects for chip-to-chip optical communication and intra-chip electrical computation, providing a scalable path for 2D materials in practical optoelectronic circuits.<br/><br/>The project involved a comprehensive "from A to Z" development cycle:<br/><strong>Design & Simulation:</strong> We optimized SiN waveguide dimensions and diffraction gratings using numerical modeling (FDTD, Lumerical) to match the bandgap of MoS<sub>2</sub>.<br/><strong>Advanced Microfabrication:</strong> We employed LPCVD for SiN growth and dry etching for photonic structures, followed by KOH wet etching to smoothen sidewalls for high-quality flake transfer.<br/><strong>Performance Optimization:</strong> We integrated a graphene local gate and hexagonal boron nitride (h-BN) dielectric to achieve low-voltage operation and high-speed switching below 1 ms.`,
         links: {
             paper: "https://www.nature.com/articles/s41699-019-0096-4",
@@ -48,7 +48,7 @@ export const projects: Project[] = [
         title: "Excitonic Transistor",
         teaser: "First demonstration of room-temperature excitonic transistor for next-gen optical interconnects and computing.",
         image: `${base}/IMG_6621_DxO.JPG`,
-        stack: ["Excitonic Circuits", "Valleytronics", "2D Heterostructures", "Interlayer Excitons", "Optospintronics"],
+        stack: ["Excitonic Circuits", "Valleytronics", "Photonics", "2D Semiconductors", "Optical Interconnects"],
         description: `We developed the first excitonic transistors capable of operating at room temperature by exploiting the unique properties of 2D van der Waals heterostructures. By utilizing a MoS<sub>2</sub>-WSe<sub>2</sub> stack, we created long-lived interlayer excitons with a permanent out-of-plane dipole moment. This architecture allowed us to demonstrate an effective excitonic switch where the flux of these neutral quasiparticles is controlled via an external electric field. We achieved an ON/OFF ratio exceeding 100 at room temperature, limited only by the measurement noise floor. Building on this platform, we also realized comprehensive electrical control over the valley-state of interlayer excitons. By resolving separate interlayer transitions with opposite helicities, we successfully demonstrated a gate-tunable polarization switch. This device can alternate between polarization-inverting and polarization-preserving regimes, providing a critical building block for encoding information in the valley degree of freedom—a field known as valleytronics. This research bridges the gap between traditional electronics and purely optical systems, offering a path toward integrated excitonic circuits that combine the high speed of optics with the scalability of solid-state devices.<br/><br/><h3 class="text-lg font-bold text-slate-900 dark:text-white mt-3 mb-1">Project Technical Profile</h3><strong>Core Skills:</strong> Quantum Device Design, vdW Heterostructure Fabrication, Low-T/UHV Cryogenics, Valley-Polarized Spectroscopy.<br/><strong>Key Achievement:</strong> Demonstrated room-temperature exciton flux control (Nature, 2018) and the first gate-tunable valley polarization switch (Nature Photonics, 2019).`,
         links: {
             papers: [
@@ -95,8 +95,18 @@ export const projects: Project[] = [
         stack: ["Spintronics", "Quantum Devices", "Graphene", "Spin-Valley Locking", "Optical Spin Injection"],
         description: `We demonstrated the possibility of direct, nondestructive optical spin injection into graphene by utilizing the unique spin-valley physics of 2D semiconducting monolayers. Our approach used circularly polarized light to selectively address the carrier valley degree of freedom in a monolayer WSe<sub>2</sub> crystal. Due to the broken inversion symmetry and strong spin-orbit coupling, this process leads to a non-equilibrium spin concentration that tunnels into an adjacent graphene layer.<br/><br/>This work established a new functional regime for optospintronic devices, where spin information is generated optically and transported over long distances—up to 3.5 &mu;m—within the graphene channel. It also provides a scalable framework for 2D spintronic logic gates. This enables the seamless integration of optical communication with spin-based memory and computation, potentially leading to hybrid opto-electronic-spintronic processors that are immune to typical electronic interference and heat dissipation issues.<br/><br/><h3 class="text-lg font-bold text-slate-900 dark:text-white mt-3 mb-1">Project Technical Profile</h3><strong>Core Skills:</strong> Spintronics, Optospintronics, Nonlocal Spin Transport, vdW Heterostructure Assembly.<br/><strong>Key Achievement:</strong> First demonstration of optical spin injection in graphene via proximity coupling with a 2D semiconductor.`,
         links: {
-            paper: "https://pubs.acs.org/doi/10.1021/acsnano.7b06800",
-            posters: [{ title: "Optospintronics Poster", url: `${base}/Posters/Optospintronics.pdf` }]
+            papers: [
+                { title: "ACS Nano (2017): Room-temperature electrical control...", url: "https://pubs.acs.org/doi/10.1021/acsnano.7b06800" },
+                { title: "Nature Nano (2019): Layer-modulated magnetism...", url: "https://www.nature.com/articles/s41565-019-0467-1" }
+            ],
+            posters: [{ title: "Optospintronics Poster", url: `${base}/Posters/Optospintronics.pdf` }],
+            media: [
+                { title: "EPFL News", url: "https://actu.epfl.ch/news/the-quantum-waltz-of-electrons-hints-at-the-next-3/" },
+                { title: "EPFL News", url: "https://actu.epfl.ch/news/a-new-2d-magnet-draws-future-devices-closer/" },
+                { title: "ScienceDaily", url: "https://www.sciencedaily.com/releases/2019/06/190617110546.htm" },
+                { title: "Phys.org", url: "https://phys.org/news/2019-06-d-magnet-future-devices-closer.html" },
+                { title: "AZoNano", url: "https://www.azom.com/news.aspx?newsID=51440" }
+            ]
         }
     },
     {
