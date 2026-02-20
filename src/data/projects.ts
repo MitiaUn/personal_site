@@ -110,27 +110,27 @@ export const projects: Project[] = [
         }
     },
     {
-        id: "transparent-photovoltaics",
-        title: "Transparent Organic PV",
-        teaser: "Optimized device architecture exceeding 15% transparency.",
-        image: `${base}/OPV.jpg`,
-        stack: ["PV", "Microfabrication", "Optoelectronics", "Semiconductors", "Renewable Energy"],
-        description: "Developed transparent organic photovoltaics with optimized device architecture, materials, and fabrication processes. Achieved over 15% transparency with conversion efficiency above 3%, exceeding available reports at the time."
+        id: "transparent-electrodes",
+        title: "Ultra-Transparent Electrodes",
+        teaser: "Achieving industry-leading performance of conductive coating for next-gen optoelectronics.",
+        image: `${base}/TCE.png`,
+        stack: ["Thin Films", "Microfabrication", "Optics", "Materials", "R&D Leadership"],
+        description: `To overcome the limitations of Indium Tin Oxide (ITO), I led a team of three scientists and external collaborators to develop a novel class of ultra-transparent conductive electrodes. We utilized a Dielectric-Metal-Dielectric (DMD) architecture, theoretically proposed in the 1970s, and enhanced it with modern microfabrication and material optimization. The design features an ultra-thin silver layer encapsulated between optically matching oxide layers.<br/><br/>Our technical breakthrough involved stabilizing the silver layer with a sputtered seed layer, followed by a sol-gel coated top oxide to ensure scalability and cost-efficiency without sacrificing performance. This was achieved through iterative analytical calculations and numerical simulations paired with thorough material optimization to perfectly encapsulate an ultra-thin silver layer between optically matching oxide layers. This approach yielded unbeatable results: <span class="tooltip-trigger" tabindex="0">91% AVT<span class="tooltip-text">Average Visible light Transparency</span></span> and <span class="tooltip-trigger" tabindex="0">6 Ω/sq<span class="tooltip-text">Sheet Resistance</span></span>, significantly outperforming commercial alternatives (<span class="tooltip-trigger" tabindex="0">82% AVT<span class="tooltip-text">Average Visible light Transparency</span></span> and <span class="tooltip-trigger" tabindex="0">7 Ω/sq<span class="tooltip-text">Sheet Resistance</span></span>).<br/><br/>To further industrialize this technology, I've extended our research through a CHF 0.5M Innosuisse-supported collaboration with CSEM, focusing on long-term environmental stability for renewable energy applications.`
     },
     {
-        id: "transparent-electrodes",
-        title: "Ultra-transparent Electrodes",
-        teaser: "High-performance transparent conductive electrodes.",
-        image: `${base}/TCE.png`,
-        stack: ["Thin Films", "Microfabrication", "Optics"],
-        description: "Created transparent conductive electrodes based on an ultrathin layer of silver encapsulated between ITO and matching TiO2 layers. Achieved transparency above 90% and sheet resistance below 3 ohm/sq, exceeding commercially available state-of-the-art options."
+        id: "transparent-photovoltaics",
+        title: "Transparent Organic PV",
+        teaser: "Re-inventing OPV device architecture for record-breaking transparency and efficiency.",
+        image: `${base}/OPV.jpg`,
+        stack: ["Organic PV", "Microfabrication", "Optoelectronics", "Semiconductors", "Renewable Energy", "R&D Leadership"],
+        description: `Following the outstanding results achieved with our ultra-transparent electrodes, I was granted additional resources and a larger team of five specialists to lead integration of our custom electrodes into functional solar devices. We innovated on the inverted <span class="tooltip-trigger" tabindex="0">OPV<span class="tooltip-text">Organic PhotoVoltaics</span></span> geometry, where the electrodes were specifically engineered to match the electron transport layer. Supported by vigorous analytical calculations and numerical simulations, we designed an architecture where the cell is an integral part of the electrode itself. This streamlined approach allowed us to reduce the total layer count, significantly simplifying fabrication and reducing underlying manufacturing costs while maintaining the electrode's exceptional properties, ultimately boosting transparency to a remarkable <span class="tooltip-trigger" tabindex="0">33% AVT<span class="tooltip-text">Average Visible Transmittance</span></span>.<br/><br/>In parallel, we further enhanced cell performance and environmental stability by optimizing both material chemistry and the fabrication process. By refining deposition techniques, we successfully avoided damage to the underlying active layers during counter electrode application. These strategic optimizations doubled the cell's efficiency, reaching a <span class="tooltip-trigger" tabindex="0">4% PCE<span class="tooltip-text">Power Conversion Efficiency</span></span>. This is a result that stood among the top academic reports globally at the time.`
     },
     {
         id: "concentrated-photovoltaics",
         title: "Concentrated Photovoltaics",
-        teaser: "Ultracompact active sun-tracking device.",
+        teaser: "Delivering a fixed position flat-panel system with high sun concentration and autonomous sun tracking.",
         image: `${base}/CPV.png`,
-        stack: ["PV", "Optical Design", "Semiconductors", "Embedded Systems", "Renewable Energy"],
-        description: "Designed a planar and ultracompact active sun-tracking device with integrated III-V PV. Through innovative optical design, coherent algorithms, and embedded firmware, achieved optical efficiency exceeding 80% and conversion efficiency exceeding 35%."
+        stack: ["PV", "Optical Design", "Semiconductors", "Embedded Systems", "Renewable Energy", "Edge AI", "R&D Leadership"],
+        description: `To address the mechanical complexity and footprint of traditional solar trackers, we developed a novel approach to <span class="tooltip-trigger" tabindex="0">CPV<span class="tooltip-text">Concentrated Photovoltaics</span></span>. I built a specialized multidisciplinary R&D team from the ground up to realize a static, flat-panel system that remains stationary while an innovative internal optical system rectifies sunlight direction regardless of the sun's orientation. This architecture utilizes high-efficiency III-V cells with convertion efficiency of 40%and achieves a concentration factor of ~150x without any external moving parts.<br/><br/>The project required the end-to-end development of several proprietary subsystems to overcome market limitations:<br/><strong>Custom Precision Sensing:</strong> Due to the lack of low-cost, high-precision alternatives, we designed a custom sun-position sensor based on a quadrant photodetector, achieving an accuracy of 0.5°.<br/><strong>Edge AI & Embedded Systems:</strong> We developed custom embedded hardware (PCBs) and integrated ultra-light edge neural networks (CNNs) to process tracking algorithms in real-time with minimal power consumption.<br/><strong>System-Level Engineering:</strong> The project involved intensive optical design, and its integration into the mechatronic steering systems, ensuring lght collection efficiency at 80%; as well as the creation of user-facing software for ROI and power generation simulations.<br/><br/><h3 class="text-lg font-bold text-slate-900 dark:text-white mt-3 mb-1">Prospective Impact</h3>By developing our own proprietary subsystems, such as the sun sensor and edge AI, we eliminated dependencies on expensive external components while maximizing performance. This approach makes high-efficiency CPV a reality for space-constrained urban environments and fixed-mount applications where traditional tracking is impossible, bridging the gap between advanced III-V semiconductor physics and practical, scalable renewable energy.`
     }
 ];

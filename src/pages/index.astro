@@ -110,7 +110,7 @@ const extraExperience = [
   {
     date: "2025 - Present",
     title: "Founder and Developer ",
-    organization: `<a href="https://mitai.unuchek.com" target="_blank" rel="noopener noreferrer" class="group hover:text-blue-600 dark:hover:text-blue-400 hover:underline transition-colors inline-flex items-center gap-1">MitiAI<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg></a> (Non-commercial Project)`,
+    organization: `<a href="https://mitai.unuchek.com" target="_blank" rel="noopener noreferrer" class="group text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 hover:underline transition-colors inline-flex items-center gap-1">MitiAI<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg></a> (Non-commercial Project)`,
     description: "Conceptualized and developed a specialized, non-commercial AI research platform designed to optimize athlete performance through data-driven nutrition modeling and personalized counseling.",
     highlights: [
       "Architected specialized nutrition algorithms tailored for high-performance athletic requirements.",
@@ -136,7 +136,7 @@ const extraExperience = [
     date: "2018",
     title: "Organizer", 
     organization: 'Doctoral Summer School, Davos, Switzerland',
-    description: "Led the organization of an international summer school 'Optoelectronics on 2D materials', managing fundraising, logistics, and program curation.",
+    description: `Led the organization of an international summer school '<a href="https://archiveweb.epfl.ch/2doptoelectronics2018.epfl.ch/" target="_blank" rel="noopener noreferrer" class="group text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 hover:underline">Optoelectronics on 2D materials<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline align-text-bottom ml-0.5 text-slate-400 group-hover:text-blue-800 dark:group-hover:text-blue-300 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg></a>', managing fundraising, logistics, and program curation.`,
     highlights: [
        "Fundraising (CHF 40k), sponsorship search, and venue arrangement.",
        "Speakers selection, invitation, and their travel arrangement; participants selection.",
@@ -242,7 +242,7 @@ const publications = [
     title: "Room-temperature electrical control of polarization and emission angle in a cavity-integrated 2D pulsed LED",
     year: "2022",
     journal: "Nature Communications",
-    authors: "J. Gonzalez, D. Unuchek et al.",
+    authors: "J. Gonzalez, D. Unuchek, et al.",
     url: "https://www.nature.com/articles/s41467-022-32292-2"
   },
   {
@@ -563,7 +563,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
       >
         <DocumentTextIcon slot="icon" class="w-6 h-6 text-slate-600 dark:text-slate-400" />
         <span slot="description">
-            Over 12 academic publications in top scientific journals. <a href="https://scholar.google.com/citations?user=fncAM5EAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="text-blue-600 dark:text-blue-400 hover:underline">Google Scholar</a>
+            Over 10 academic publications in top scientific journals. See all in <a href="https://scholar.google.com/citations?user=fncAM5EAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="group text-blue-600 dark:text-blue-400 hover:underline">Google Scholar<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline align-text-bottom ml-0.5 text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg></a> <br />Here are selected publications with first or equal* authorship:
         </span>
         <div class="space-y-8">
           {publications.map((s) => (
@@ -600,6 +600,46 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
               </div>
             </div>
           ))}
+        </div>
+
+        <!-- Talks Photo Carousel -->
+        <div class="talks-carousel relative mt-10 rounded-2xl overflow-hidden" id="talks-carousel">
+          <div class="carousel-track flex transition-transform duration-500 ease-in-out">
+            {[
+              `${base}/pics_talks/DSCF6533.jpg`,
+              `${base}/pics_talks/IMG_3062.jpeg`,
+              `${base}/pics_talks/IMG_3066.jpeg`,
+              `${base}/pics_talks/IMG_4358.JPG`,
+              `${base}/pics_talks/IMG_8825.jpg`,
+            ].map((src, i) => (
+              <div class="carousel-slide min-w-full flex items-center justify-center">
+                <img 
+                  src={src} 
+                  alt={`Conference talk photo ${i + 1}`} 
+                  class="w-full h-auto max-h-[500px] object-contain rounded-2xl"
+                />
+              </div>
+            ))}
+          </div>
+          <button class="carousel-prev absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/40 text-white/70 hover:bg-black/60 hover:text-white backdrop-blur-sm transition-all" aria-label="Previous photo">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button class="carousel-next absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/40 text-white/70 hover:bg-black/60 hover:text-white backdrop-blur-sm transition-all" aria-label="Next photo">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+          <div class="carousel-dots flex justify-center gap-2 mt-4">
+            {[0, 1, 2, 3, 4].map((i) => (
+              <button 
+                class={`w-2 h-2 rounded-full transition-all duration-300 ${i === 0 ? 'bg-blue-500 w-4' : 'bg-slate-500/50 hover:bg-slate-400/70'}`}
+                data-slide={i}
+                aria-label={`Go to photo ${i + 1}`}
+              />
+            ))}
+          </div>
         </div>
       </CollapsibleSection>
     </section>
@@ -739,3 +779,48 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
     -webkit-text-fill-color: transparent;
   }
 </style>
+
+<script>
+  function setupTalksCarousel() {
+    const carousel = document.getElementById('talks-carousel');
+    if (!carousel) return;
+
+    const track = carousel.querySelector('.carousel-track');
+    const slides = carousel.querySelectorAll('.carousel-slide');
+    const prevBtn = carousel.querySelector('.carousel-prev');
+    const nextBtn = carousel.querySelector('.carousel-next');
+    const dots = carousel.querySelectorAll('.carousel-dots button');
+    let current = 0;
+    const total = slides.length;
+
+    function goTo(index) {
+      current = (index + total) % total;
+      track.style.transform = `translateX(-${current * 100}%)`;
+      dots.forEach((dot, i) => {
+        dot.className = i === current
+          ? 'w-4 h-2 rounded-full bg-blue-500 transition-all duration-300'
+          : 'w-2 h-2 rounded-full bg-slate-500/50 hover:bg-slate-400/70 transition-all duration-300';
+      });
+    }
+
+    prevBtn?.addEventListener('click', (e) => { e.stopPropagation(); goTo(current - 1); });
+    nextBtn?.addEventListener('click', (e) => { e.stopPropagation(); goTo(current + 1); });
+    dots.forEach(dot => {
+      dot.addEventListener('click', (e) => {
+        e.stopPropagation();
+        goTo(parseInt(dot.dataset.slide));
+      });
+    });
+
+    // Swipe support
+    let startX = 0;
+    carousel.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; });
+    carousel.addEventListener('touchend', (e) => {
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) goTo(current + (diff > 0 ? 1 : -1));
+    });
+  }
+
+  setupTalksCarousel();
+  document.addEventListener('astro:page-load', setupTalksCarousel);
+</script>

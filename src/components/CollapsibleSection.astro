@@ -13,7 +13,7 @@ interface Props {
 const { id, title, icon, iconColorClass, description, open = false, indent = true, hintText } = Astro.props;
 ---
 
-<div class="collapsible-section rounded-2xl p-6 transition-all duration-300 hover:bg-gradient-to-br hover:from-blue-500/10 hover:to-purple-500/10 hover:shadow-lg dark:hover:bg-white/5 border border-transparent hover:border-blue-500/20" id={id}>
+<div class="collapsible-section rounded-2xl p-6 transition-[border-color,box-shadow] duration-300 hover:shadow-lg border border-transparent hover:border-blue-500/10" id={id}>
   <button 
     class="w-full text-left focus:outline-none highlight-none group"
     aria-expanded={open}
@@ -210,3 +210,10 @@ const { id, title, icon, iconColorClass, description, open = false, indent = tru
   // Re-run on view transitions if enabled
   document.addEventListener('astro:page-load', setupCollapsible);
 </script>
+
+<style>
+  .collapsible-section:hover {
+    background-image: linear-gradient(to bottom right, rgba(59, 130, 246, 0.08), rgba(147, 51, 234, 0.08));
+    background-color: rgba(0, 0, 0, 0.75);
+  }
+</style>
