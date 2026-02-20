@@ -19,7 +19,7 @@ const coreExperience = [
     date: "2022 - 2025",
     title: "RnD Director",
     organization: "Freshape, Switzerland",
-    description: "Head of the Optical Innovations R&D division, leading a 30-member organization (4 teams, 7 direct reports). Directed the end-to-end development of 5 product lines across semiconductor physics, optics, and renewable energy, bridging the gap between high-level strategy and technical execution.",
+    description: "Head of the Optical Innovations R&D division, leading a 30-member organization (5 teams, 7 direct reports). Directed the end-to-end development of 5 product lines across semiconductor physics, optics, and renewable energy, bridging the gap between high-level strategy and technical execution.",
     highlights: [
       {
         category: "Strategic Leadership & Operations",
@@ -46,9 +46,9 @@ const coreExperience = [
     organization: "Freshape (former H.Glass), Switzerland",
     description: "Built and guided a 12-member multidisciplinary team of scientists and engineers to drive product development from POC to EVT. Took full ownership of system-level integration, balancing cutting-edge technical specifications with aggressive size constraints and industrial cost targets.",
     highlights: [
-      "Recruited and mentored a high-performing team of material scientists, hardware engineers (optical, mechanical, electrical), and software developers (firmware, algorithms).",
+      "Recruited and mentored a high-performing team of scientists (optics, material, chemistry, semiconductor physics), hardware engineers (optical, mechanical, electrical), and software developers (firmware, algorithms).",
       "Took full ownership of product evolution, delivering 5 generations of prototypes and a fully optimized system within a 24-month window.",
-      "Pioneered the development of an ultra-transparent conductive coating that outperformed current state-of-the-art industry benchmarks.",
+      "Led the development of an ultra-transparent conductive coating that outperformed current state-of-the-art industry benchmarks.",
       "Drove seamless integration across hardware, algorithms and software stacks, implementing custom data and image processing workflows to accelerate iterative R&D cycles.",
       "Managed a 2-year, $0.5 M federal-grant collaboration with CSEM, aligning academic research with commercial product goals.",
       "Co-authored multiple patent filings, securing system-level innovations and protecting proprietary engineering architectures."
@@ -169,31 +169,35 @@ const education = [
     date: "2015 - 2019",
     title: "Ph.D. in Electrical Engineering",
     organization: "EPFL, Lausanne, Switzerland",
-    description: "Doctoral degree in optics and nanoelectronics of low dimensional systems.<br/>Recipient of two awards for outstanding thesis.",
-    highlights: [
+    description: "Doctoral degree in optics and nanoelectronics of low dimensional systems.",
+    bullets: [
+      "Thesis: <a href='https://infoscience.epfl.ch/entities/publication/06489255-5aa9-4b60-b7a0-54e393c714dc' target='_blank' rel='noopener noreferrer' class='group text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 hover:underline inline-flex items-center gap-1'>Spin-valley optoelectronics based on 2D materials.<svg xmlns='http://www.w3.org/2000/svg' class='w-4 h-4 text-slate-400 group-hover:text-blue-800 dark:group-hover:text-blue-300 transition-colors' fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2'><path stroke-linecap='round' stroke-linejoin='round' d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14' /></svg></a>",
       "Doctoral school of Microsystems and Microelectronics (EDMI) at EE department.",
-      "Thesis: <a href='https://infoscience.epfl.ch/entities/publication/06489255-5aa9-4b60-b7a0-54e393c714dc' target='_blank' rel='noopener noreferrer' class='group text-blue-600 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-300 hover:underline inline-flex items-center gap-1'>Spin-valley optoelectronics based on 2D materials.<svg xmlns='http://www.w3.org/2000/svg' class='w-4 h-4 text-slate-400 group-hover:text-blue-800 dark:group-hover:text-blue-300 transition-colors' fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2'><path stroke-linecap='round' stroke-linejoin='round' d='M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14' /></svg></a>"
+      "Recipient of two awards for outstanding thesis."
     ]
   },
   {
     date: "2013 - 2015",
     title: "M.Sc. in Physics",
     organization: "Ecole Polytechnique (X), Paris, France",
-    description: "M1 'Physics for Optics and Nanosciences' and M2 'Nanosciences'.<br/>Ranked 1st in the class. GPA: 3.91/4 (M1), 3.81/4 (M2).",
-    highlights: [
-      "Thesis: Synthesis and characterization of nanostructured materials. ",
+    description: "M1 'Physics for Optics and Nanosciences' and M2 'Nanosciences'.",
+    bullets: [
+      "Thesis: Synthesis and characterization of nanostructured materials.",
+      "Ranked 1st in the class. GPA: 3.91/4 (M1), 3.81/4 (M2).",
       "M1 and M2 Internships \"Characterisation of nanoclusters deposited on graphene and carbon nanotubes.\" at Paris Sud University, Laboratoire Aimé Cotton."
     ]
   },
   {
     date: "2009 - 2013",
-    title: "B.Sc. in Physics ",
+    title: "B.Sc. in Physics",
     organization: "MIPT, Moscow, Russia",
-    description: "Physics and Technology of Nanostructures.<br/>Diploma with high honors. GPA: 4.94/5.",
-    highlights: [
+    description: "Physics and Technology of Nanostructures.",
+    bullets: [
+      "Diploma with high honors. GPA: 4.94/5.",
       "Faculty of General and Applied Physics.",
-      "2013 Internships \"Crystallization of membrane proteins for structure analysis\" at Institute for Biophysics, Heinrich Heine University, Düsseldorf, Germany.",
-      "2012 Internships \"Structural analysis of beta-amyloid fibrils\" at Institute of Complex Systems, Forschungszentrum, Jülich, Germany."
+      
+      "2013 Internship \"Crystallization of membrane proteins for structure analysis\" at Institute for Biophysics, Heinrich Heine University, Düsseldorf, Germany.",
+      "2012 Internship \"Structural analysis of beta-amyloid fibrils\" at Institute of Complex Systems, Forschungszentrum, Jülich, Germany."
     ]
   }
 ];
@@ -404,10 +408,10 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
       </h1>
       <div class="text-lg md:text-xl text-slate-600 dark:text-slate-300 mb-8 leading-relaxed max-w-3xl mx-auto space-y-4 font-light">
         <p>
-          Experienced R&D leader and scientist with a PhD from EPFL, specializing in the development of next-generation optoelectronics and semicon products.
+          I am an R&D leader and scientist with a PhD from EPFL, specializing in the development of next-generation optoelectronics and semiconductor products.
         </p>
         <p>
-          My career spans from pioneering fundamental research of quantum phenomena in 2D materials to building and managing diverse cross-disciplinary teams and driving product development from POC to industrialization in the field of optics, electronics, renewable energy and quantum devices.
+          With 6 years in industrial R&D management and 7 years of academic research, my career spans from pioneering fundamental research of quantum phenomena in 2D materials to building and managing diverse cross-disciplinary teams and driving product development from POC to industrialization in the field of optics, electronics, renewable energy and quantum devices.
         </p>
         <p>
           I thrive at the intersection of complex problem-solving, innovations and industrialization, bridging the gap between scientific breakthroughs and scalable hardware solutions.
@@ -437,6 +441,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
       title="Experience"
       iconColorClass="bg-slate-100 dark:bg-slate-800"
       indent={false}
+      hintText="Click on any section to see more details"
     >
       <span slot="description">
         <span class="font-semibold text-slate-700 dark:text-slate-300">Core:</span> 7 years of academic research and 6 years of R&D management and product development. <br/>
@@ -445,12 +450,12 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
       <BriefcaseIcon slot="icon" class="w-6 h-6 text-slate-600 dark:text-slate-400" />
       
       <div class="mb-10">
-        <Timeline items={coreExperience} inlineHeader={true} />
+        <Timeline items={coreExperience} inlineHeader={true} showRoleHint={true} />
       </div>
 
       <div>
         <h3 class="text-xs font-bold text-slate-400 uppercase tracking-wider mb-6 ml-6">Extracurricular</h3>
-        <Timeline items={extraExperience} inlineHeader={true} />
+        <Timeline items={extraExperience} inlineHeader={true} showRoleHint={true} />
       </div>
     </CollapsibleSection>
   </section>
@@ -467,7 +472,26 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
         Recipient of two thesis distinction awards.
       </span>
       <GraduationCapIcon slot="icon" class="w-6 h-6 text-slate-600 dark:text-slate-400" />
-      <Timeline items={education} inlineHeader={true} />
+      <div class="relative border-l border-slate-200 dark:border-slate-800 ml-5 space-y-8">
+        {education.map((item) => (
+          <div class="ml-6">
+            <div class="absolute w-3 h-3 bg-slate-300 dark:bg-slate-700 rounded-full mt-1.5 -left-1.5 border border-white dark:border-slate-900"></div>
+            <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2 mb-2">
+              <div class="text-slate-500 dark:text-slate-400 text-base font-medium min-w-fit">{item.date}</div>
+              <div class="text-slate-900 dark:text-white font-semibold text-xl"> <span class="text-slate-400 mx-2">•</span> {item.title}</div>
+              <div class="text-slate-600 dark:text-slate-400 text-lg">at <span set:html={item.organization} /></div>
+            </div>
+            <p class="mt-2 text-base font-normal text-slate-500 dark:text-slate-400 max-w-2xl" set:html={item.description} />
+            {item.bullets && item.bullets.length > 0 && (
+              <ul class="mt-2 space-y-1 list-disc list-inside text-sm text-slate-500 dark:text-slate-400">
+                {item.bullets.map(bullet => (
+                  <li><span set:html={bullet} /></li>
+                ))}
+              </ul>
+            )}
+          </div>
+        ))}
+      </div>
     </CollapsibleSection>
   </section>
 

@@ -7,9 +7,10 @@ interface Props {
   description: string;
   open?: boolean;
   indent?: boolean;
+  hintText?: string;
 }
 
-const { id, title, icon, iconColorClass, description, open = false, indent = true } = Astro.props;
+const { id, title, icon, iconColorClass, description, open = false, indent = true, hintText } = Astro.props;
 ---
 
 <div class="collapsible-section rounded-2xl p-6 transition-all duration-300 hover:bg-gradient-to-br hover:from-blue-500/10 hover:to-purple-500/10 hover:shadow-lg dark:hover:bg-white/5 border border-transparent hover:border-blue-500/20" id={id}>
@@ -40,13 +41,16 @@ const { id, title, icon, iconColorClass, description, open = false, indent = tru
         <div class="text-sm text-slate-600 dark:text-slate-300 mt-2 font-light leading-relaxed group-hover:text-slate-700 dark:group-hover:text-slate-200 transition-colors">
           <slot name="description">{description}</slot>
         </div>
+        {hintText && (
+          <p class="hint-text text-sm text-slate-400 dark:text-slate-500 italic mt-2 transition-opacity duration-300" style={open ? 'opacity: 0; height: 0; overflow: hidden;' : ''}>{hintText}</p>
+        )}
       </div>
     </div>
   </button>
   
   <div 
     id={`${id}-content`}
-    class={`grid transition-[grid-template-rows] duration-500 ease-in-out ${open ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}
+    class={`grid transition-[grid-template-rows] duration-500 ease-in-out mt-4 ${open ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}
   >
     <div class="overflow-hidden">
       <div class={`pb-6 ${indent ? 'pl-[3.5rem]' : 'pl-0'}`}>
@@ -67,10 +71,16 @@ const { id, title, icon, iconColorClass, description, open = false, indent = tru
          button.setAttribute('aria-expanded', 'true');
          const content = button.nextElementSibling;
          const chevron = button.querySelector('.chevron');
+         const hintText = button.querySelector('.hint-text');
          if (content && chevron) {
             content.classList.remove('grid-rows-[0fr]');
             content.classList.add('grid-rows-[1fr]');
             chevron.style.transform = 'rotate(180deg)';
+         }
+         if (hintText) {
+            hintText.style.opacity = '0';
+            hintText.style.height = '0';
+            hintText.style.overflow = 'hidden';
          }
       }
     };
@@ -85,6 +95,7 @@ const { id, title, icon, iconColorClass, description, open = false, indent = tru
          
         // Toggle
         button.setAttribute('aria-expanded', (!isExpanded).toString());
+        const hintText = button.querySelector('.hint-text');
         const content = button.nextElementSibling;
         const chevron = button.querySelector('.chevron');
         
@@ -93,10 +104,20 @@ const { id, title, icon, iconColorClass, description, open = false, indent = tru
              content.classList.remove('grid-rows-[1fr]');
              content.classList.add('grid-rows-[0fr]');
              chevron.style.transform = 'rotate(0deg)';
+             if (hintText) {
+               hintText.style.opacity = '1';
+               hintText.style.height = '';
+               hintText.style.overflow = '';
+             }
            } else {
              content.classList.remove('grid-rows-[0fr]');
              content.classList.add('grid-rows-[1fr]');
              chevron.style.transform = 'rotate(180deg)';
+             if (hintText) {
+               hintText.style.opacity = '0';
+               hintText.style.height = '0';
+               hintText.style.overflow = 'hidden';
+             }
            }
         }
       });
@@ -114,10 +135,16 @@ const { id, title, icon, iconColorClass, description, open = false, indent = tru
           button.setAttribute('aria-expanded', 'false');
           const content = button.nextElementSibling;
           const chevron = button.querySelector('.chevron');
+          const hintText = button.querySelector('.hint-text');
           if (content && chevron) {
              content.classList.remove('grid-rows-[1fr]');
              content.classList.add('grid-rows-[0fr]');
              chevron.style.transform = 'rotate(0deg)';
+             if (hintText) {
+               hintText.style.opacity = '1';
+               hintText.style.height = '';
+               hintText.style.overflow = '';
+             }
           }
         }
       });

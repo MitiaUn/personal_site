@@ -1,5 +1,5 @@
 ---
-const { items, inlineHeader = false } = Astro.props;
+const { items, inlineHeader = false, showRoleHint = false } = Astro.props;
 ---
 
 <div class={`relative border-l border-slate-200 dark:border-slate-800 ml-5 ${inlineHeader ? 'space-y-8' : ''}`}>
@@ -30,6 +30,9 @@ const { items, inlineHeader = false } = Astro.props;
         </>
       )}
       <p class="mt-2 text-base font-normal text-slate-500 dark:text-slate-400 max-w-2xl" set:html={item.description} />
+      {showRoleHint && item.highlights && item.highlights.length > 0 && (
+        <p class="role-hint text-xs text-slate-400 dark:text-slate-500 italic mt-1 transition-opacity duration-300">Click on the role to see more details</p>
+      )}
 {item.highlights && item.highlights.length > 0 && (
         <div class="mt-3 grid grid-rows-[0fr] transition-[grid-template-rows] duration-300 ease-out highlights-wrapper">
           <div class="overflow-hidden">
@@ -74,13 +77,13 @@ const { items, inlineHeader = false } = Astro.props;
       container.setAttribute('data-initialized', 'true');
 
       container.addEventListener('click', (e) => {
-        // Prevent triggering if clicking on a link (if any links were added later)
         // Prevent triggering if clicking on a link
         if ((e.target as HTMLElement).closest('a')) return;
 
         const button = container.querySelector('.toggle-highlights');
         const wrapper = container.querySelector('.highlights-wrapper');
         const icon = container.querySelector('svg');
+        const roleHint = container.querySelector('.role-hint');
         
         if (wrapper && button) {
           const isExpanded = wrapper.classList.contains('grid-rows-[1fr]');
@@ -90,11 +93,19 @@ const { items, inlineHeader = false } = Astro.props;
             wrapper.classList.add('grid-rows-[0fr]');
             if (icon) icon.style.transform = 'rotate(0deg)';
             button.setAttribute('aria-expanded', 'false');
+            if (roleHint) {
+              roleHint.style.opacity = '1';
+              roleHint.style.height = '';
+            }
           } else {
             wrapper.classList.remove('grid-rows-[0fr]');
             wrapper.classList.add('grid-rows-[1fr]');
             if (icon) icon.style.transform = 'rotate(180deg)';
             button.setAttribute('aria-expanded', 'true');
+            if (roleHint) {
+              roleHint.style.opacity = '0';
+              roleHint.style.height = '0';
+            }
           }
         }
       });
