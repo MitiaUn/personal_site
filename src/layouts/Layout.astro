@@ -10,6 +10,8 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
+  ogTitle?: string;
+  ogDescription?: string;
   speedDialLinks?: Link[];
   speedDialLabel?: string;
 }
@@ -42,7 +44,8 @@ const defaultContactLinks: Link[] = [
   },
 ];
 
-const { title, description = "Dimitri Unuchek - RnD Leader & Physicist", speedDialLinks = defaultContactLinks, speedDialLabel = "Get in Touch" } = Astro.props;
+const { title, description = "Dimitri Unuchek - RnD Leader & Physicist", ogTitle = "Dimitri Unuchek", ogDescription = description, speedDialLinks = defaultContactLinks, speedDialLabel = "Get in Touch" } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://unuchek.com');
 const currentPath = Astro.url.pathname;
 ---
 
@@ -55,6 +58,10 @@ const currentPath = Astro.url.pathname;
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <meta name="description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={ogTitle} />
+    <meta property="og:description" content={ogDescription} />
+    <meta property="og:url" content={canonicalURL.href} />
     <ClientRouter />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
