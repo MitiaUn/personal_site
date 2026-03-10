@@ -176,9 +176,28 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
 
 <script define:vars={{ base }}>
   document.addEventListener('astro:page-load', () => {
+      // Helper: navigate back using history (triggers reverse view transition)
+      // Falls back to standard navigation if there's no history (direct URL access)
+      function goBackToProjects() {
+          if (window.history.length > 1) {
+              window.history.back();
+          } else {
+              window.location.href = `${base}/#projects`;
+          }
+      }
+
+      // Intercept "Back to Projects" link to use history.back()
+      const backLink = document.querySelector('a[href$="/#projects"]');
+      if (backLink) {
+          backLink.addEventListener('click', (e) => {
+              e.preventDefault();
+              goBackToProjects();
+          });
+      }
+
       // Handles clicking outside the project card to close
       const card = document.querySelector('.project-card');
-      const container = document.querySelector('.min-h-screen'); // More reliable click target
+      const container = document.querySelector('.min-h-screen');
       
       if (container) {
           container.addEventListener('click', (event) => {
@@ -188,7 +207,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
                
                // Only navigate if clicking outside the card content area
                if (!isCardContent && !isLink && !isButton) {
-                 window.location.href = `${base}/#projects`;
+                 goBackToProjects();
                }
           });
       }

@@ -19,7 +19,7 @@ const mainNavItems = [
       { name: 'Education', href: `${base}/#education` },
       { name: 'Skills', href: `${base}/#skills` },
       { name: 'Publications', href: `${base}/#publications` },
-      { name: 'Conferences', href: `${base}/#conferences` },
+      { name: 'Talks', href: `${base}/#conferences` },
       { name: 'Patents', href: `${base}/#patents` },
       { name: 'Awards', href: `${base}/#awards` },
     ]
@@ -140,7 +140,7 @@ const mobileLabel = isSportPage ? 'Follow Me' : 'Get in Touch';
             )}
             </a>
             {item.download && (
-                <a href={`${base}/CV_26_EE_RE.pdf`} download title="Download CV" class="p-2 text-slate-400 hover:text-blue-600 transition-colors mr-1">
+                <a href={`${base}/CV_Feb2026 - EE - photo.pdf`} download title="Download CV" class="p-2 text-slate-400 hover:text-blue-600 transition-colors mr-1">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                     </svg>
@@ -189,8 +189,9 @@ const mobileLabel = isSportPage ? 'Follow Me' : 'Get in Touch';
           </>
         ) : (
           <>
-            <a href={`${base}/#experience`} class="text-slate-300 hover:text-white transition-colors">CV</a>
+            <a href={`${base}/#experience`} data-action="toggle-cv-mobile" class="text-slate-300 hover:text-white transition-colors">CV</a>
             <a href={`${base}/#projects`} class="text-slate-300 hover:text-white transition-colors">Projects</a>
+            <a href={`${base}/sport`} class="text-slate-300 hover:text-white transition-colors">Hobby</a>
           </>
         )}
         
@@ -223,6 +224,19 @@ const mobileLabel = isSportPage ? 'Follow Me' : 'Get in Touch';
         </div>
     </div>
 </nav>
+
+<!-- Mobile CV Sub-Navigation -->
+<div id="mobile-cv-subnav" class="sm:hidden fixed bottom-[56px] left-0 w-full z-40 bg-slate-900/95 backdrop-blur-md border-t border-white/10 px-3 py-2 hidden">
+    <div class="flex flex-wrap justify-center gap-1.5">
+        <a href={`${base}/#experience`} data-cv-section="experience" class="mobile-cv-sub-link px-3 py-1.5 text-xs font-medium text-slate-300 hover:text-white bg-white/5 hover:bg-white/15 rounded-full transition-all border border-white/10">Experience</a>
+        <a href={`${base}/#education`} data-cv-section="education" class="mobile-cv-sub-link px-3 py-1.5 text-xs font-medium text-slate-300 hover:text-white bg-white/5 hover:bg-white/15 rounded-full transition-all border border-white/10">Education</a>
+        <a href={`${base}/#skills`} data-cv-section="skills" class="mobile-cv-sub-link px-3 py-1.5 text-xs font-medium text-slate-300 hover:text-white bg-white/5 hover:bg-white/15 rounded-full transition-all border border-white/10">Skills</a>
+        <a href={`${base}/#publications`} data-cv-section="publications" class="mobile-cv-sub-link px-3 py-1.5 text-xs font-medium text-slate-300 hover:text-white bg-white/5 hover:bg-white/15 rounded-full transition-all border border-white/10">Publications</a>
+        <a href={`${base}/#conferences`} data-cv-section="conferences" class="mobile-cv-sub-link px-3 py-1.5 text-xs font-medium text-slate-300 hover:text-white bg-white/5 hover:bg-white/15 rounded-full transition-all border border-white/10">Talks</a>
+        <a href={`${base}/#patents`} data-cv-section="patents" class="mobile-cv-sub-link px-3 py-1.5 text-xs font-medium text-slate-300 hover:text-white bg-white/5 hover:bg-white/15 rounded-full transition-all border border-white/10">Patents</a>
+        <a href={`${base}/#awards`} data-cv-section="awards" class="mobile-cv-sub-link px-3 py-1.5 text-xs font-medium text-slate-300 hover:text-white bg-white/5 hover:bg-white/15 rounded-full transition-all border border-white/10">Awards</a>
+    </div>
+</div>
 
 <script>
   function setupNavigation() {
@@ -367,11 +381,84 @@ const mobileLabel = isSportPage ? 'Follow Me' : 'Get in Touch';
     });
   }
 
+  function setupMobileCVToggle() {
+    const mobileCVToggle = document.querySelector('[data-action="toggle-cv-mobile"]');
+    const mobileSubnav = document.getElementById('mobile-cv-subnav');
+    
+    if (!mobileCVToggle || !mobileSubnav) return;
+    if (mobileCVToggle.hasAttribute('data-mobile-cv-initialized')) return;
+    mobileCVToggle.setAttribute('data-mobile-cv-initialized', 'true');
+
+    let cvActive = false;
+
+    mobileCVToggle.addEventListener('click', (e) => {
+      e.preventDefault();
+      e.stopImmediatePropagation();
+      cvActive = !cvActive;
+
+      if (cvActive) {
+        // Show sub-nav, collapse all sections, scroll to CV
+        mobileSubnav.classList.remove('hidden');
+        mobileCVToggle.classList.add('text-white', 'font-bold');
+        mobileCVToggle.classList.remove('text-slate-300');
+        document.dispatchEvent(new CustomEvent('collapse-all-sections'));
+        const experienceSection = document.getElementById('experience');
+        if (experienceSection) {
+          experienceSection.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        // Hide sub-nav, collapse all sections
+        mobileSubnav.classList.add('hidden');
+        mobileCVToggle.classList.remove('text-white', 'font-bold');
+        mobileCVToggle.classList.add('text-slate-300');
+        document.dispatchEvent(new CustomEvent('collapse-all-sections'));
+      }
+    });
+
+    // Sub-nav link click handlers
+    mobileSubnav.querySelectorAll('.mobile-cv-sub-link').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        const sectionId = link.getAttribute('data-cv-section');
+        if (!sectionId) return;
+
+        // Collapse all CV sections first
+        document.dispatchEvent(new CustomEvent('collapse-all-sections'));
+
+        // Then expand the target section after collapse animation
+        setTimeout(() => {
+          const targetSection = document.getElementById(sectionId);
+          if (targetSection) {
+            targetSection.scrollIntoView({ behavior: 'smooth' });
+            const btn = targetSection.querySelector('.collapsible-section button');
+            if (btn) {
+              const isExpanded = btn.getAttribute('aria-expanded') === 'true';
+              if (!isExpanded) {
+                btn.click();
+              }
+            }
+          }
+        }, 550);
+
+        // Highlight active sub-link
+        mobileSubnav.querySelectorAll('.mobile-cv-sub-link').forEach(l => {
+          l.classList.remove('bg-blue-600/30', 'text-white', 'border-blue-500/30');
+          l.classList.add('bg-white/5', 'text-slate-300', 'border-white/10');
+        });
+        link.classList.remove('bg-white/5', 'text-slate-300', 'border-white/10');
+        link.classList.add('bg-blue-600/30', 'text-white', 'border-blue-500/30');
+      });
+    });
+  }
+
   // Run on load and after view transitions
   setupNavigation();
   setupMobileMenu();
+  setupMobileCVToggle();
   document.addEventListener('astro:page-load', () => {
     setupNavigation();
     setupMobileMenu();
+    setupMobileCVToggle();
   });
 </script>

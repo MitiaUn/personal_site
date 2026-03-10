@@ -12,6 +12,7 @@ import MicrophoneIcon from '../components/icons/Microphone.astro';
 import LightBulbIcon from '../components/icons/LightBulb.astro';
 import TrophyIcon from '../components/icons/Trophy.astro';
 import ExternalLinkIcon from '../components/icons/ExternalLink.astro';
+import profilePhoto from '../assets/photo6_transparent.png';
 
 
 const coreExperience = [
@@ -380,7 +381,7 @@ const awardsData = {
 };
 
 const skills = {
-    languages: ["English", "French", "Russian"],
+    languages: ["English (C2)", "French (C1)", "German (A2)", "Spanish (A2)", "Russian (C2)"],
     technical: [
         { category: "Cryogenics", items: ["Low-T UHV systems", "Dilution fridge maintenance", "Wet/dry systems with high magnetic fields"] },
         { category: "Electrical Transport", items: ["Quantum devices design/simulation", "Low-noise/low-current/low-T measurements", "Lock-in & current amplifiers", "Spintronics"] },
@@ -399,11 +400,51 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
 ---
 
 <Layout title="Dimitri Unuchek | RnD Leader & Physicist" ogTitle="Dimitri Unuchek, PhD - R&D Leader & Physicist" ogDescription="Photonics, Optoelectronics, Quantum Devices">
+  <!-- Mobile Profile Header -->
+  <div class="sm:hidden relative -mx-2 -mt-20 mb-4 w-[calc(100%+1rem)] h-[55vh] min-h-[400px] overflow-hidden pointer-events-none">
+    <!-- Background Image with dual opacity masks -->
+    <div class="absolute inset-0" style="mask-image: linear-gradient(to bottom, black 60%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 60%, transparent 100%);">
+      <img 
+        src={profilePhoto.src} 
+        alt="Dimitri Unuchek" 
+        class="w-full h-[110%] max-w-none object-contain object-[center_40%] translate-x-[15%] -translate-y-[5%] -scale-x-100 opacity-70 brightness-[0.6] contrast-[1.1]"
+        style="mask-image: radial-gradient(ellipse 90% 90% at 60% 40%, black 50%, transparent 80%); -webkit-mask-image: radial-gradient(ellipse 90% 90% at 60% 40%, black 50%, transparent 80%);"
+      />
+    </div>
+    <!-- Top Gradient Overlay purely for text readability -->
+    <div class="absolute inset-x-0 top-0 h-[40%] bg-gradient-to-b from-black/60 to-transparent pointer-events-none"></div>
+    
+    <!-- Content (Title & Info) at the top -->
+    <div class="absolute top-0 left-0 w-full pt-20 px-8 text-left z-10">
+      <h2 class="text-[2.5rem] font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600 mb-2 leading-tight tracking-tight drop-shadow-md">
+        Dr Dimitri Unuchek
+      </h2>
+      <p class="text-xl text-slate-400 font-medium mb-3 drop-shadow">R&D Leader <span class="text-slate-600">|</span> Physicist</p>
+      <p class="text-sm text-slate-400 flex items-center justify-start gap-1.5 opacity-90 drop-shadow">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+        Lausanne, Switzerland
+      </p>
+    </div>
+  </div>
+
+  <!-- Mobile Buttons (above hero) -->
+  <div class="sm:hidden flex flex-wrap gap-3 justify-center mb-6 px-4">
+    <a href="#projects" class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold transition-all shadow-lg hover:shadow-blue-500/25">
+      My Work
+    </a>
+    <a href={`${base}/CV_Feb2026 - EE - photo.pdf`} download class="px-8 py-3 bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 rounded-full font-bold transition-all shadow-lg flex items-center gap-2 group">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:text-blue-600 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+      </svg>
+      My CV
+    </a>
+  </div>
+
   <!-- Hero Section -->
-  <section id="hero" class="flex items-start pt-0 md:pt-8 justify-center relative overflow-hidden pb-12">
+  <section id="hero" class="flex items-start pt-6 md:pt-8 justify-center relative overflow-hidden pb-12">
     <div class="absolute inset-x-0 top-0 bottom-12 bg-gradient-to-br from-blue-500/10 to-purple-500/10 -z-10 rounded-3xl"></div>
     <div class="max-w-4xl mx-auto text-center px-4">
-      <h1 class="text-3xl md:text-4xl font-bold mb-6 tracking-tight">
+      <h1 class="hidden sm:block text-3xl md:text-4xl font-bold mb-6 tracking-tight">
         <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600">Hi, I'm Dimitri</span>
       </h1>
       <div class="text-lg md:text-xl text-slate-600 dark:text-slate-300 mb-8 leading-relaxed max-w-3xl mx-auto space-y-4 font-light">
@@ -417,11 +458,11 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
           I thrive at the intersection of complex problem-solving, innovations and industrialization, bridging the gap between scientific breakthroughs and scalable hardware solutions.
         </p>
       </div>
-      <div class="flex flex-wrap gap-4 justify-center mb-8">
+      <div class="hidden sm:flex flex-wrap gap-4 justify-center mb-8">
         <a href="#projects" class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold transition-all shadow-lg hover:shadow-blue-500/25">
           View My Work
         </a>
-        <a href={`${base}/CV_26_EE_RE.pdf`} download class="px-8 py-3 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 rounded-full font-bold transition-all shadow-lg flex items-center gap-2 group">
+        <a href={`${base}/CV_Feb2026 - EE - photo.pdf`} download class="px-8 py-3 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 rounded-full font-bold transition-all shadow-lg flex items-center gap-2 group">
           <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:text-blue-600 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
           </svg>
@@ -435,7 +476,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
   </section>
 
   <!-- CV Section -->
-  <section id="experience" class="max-w-4xl mx-auto px-4 mt-8">
+  <section id="experience" class="max-w-4xl mx-auto px-1 sm:px-4 mt-8">
     <CollapsibleSection
       id="experience-section"
       title="Experience"
@@ -460,7 +501,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
     </CollapsibleSection>
   </section>
 
-  <section id="education" class="max-w-4xl mx-auto px-4 mt-6">
+  <section id="education" class="max-w-4xl mx-auto px-1 sm:px-4 mt-6">
     <CollapsibleSection
       id="education-section"
       title="Education"
@@ -469,14 +510,14 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
     >
       <span slot="description">
         Doctoral degree in Electrical Engineering/Nanoelectronics and Master's in Physics. <br/>
-        Recipient of two thesis distinction awards.
+        Recipient of two research awards.
       </span>
       <GraduationCapIcon slot="icon" class="w-6 h-6 text-slate-600 dark:text-slate-400" />
-      <div class="relative border-l border-slate-200 dark:border-slate-800 ml-5 space-y-8">
+      <div class="relative border-l border-slate-200 dark:border-slate-800 ml-0 sm:ml-5 space-y-8">
         {education.map((item) => (
-          <div class="ml-6">
+          <div class="ml-2 sm:ml-6">
             <div class="absolute w-3 h-3 bg-slate-300 dark:bg-slate-700 rounded-full mt-1.5 -left-1.5 border border-white dark:border-slate-900"></div>
-            <div class="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-2 mb-2">
+            <div class="flex flex-row flex-wrap items-baseline gap-0 sm:gap-2 mb-2">
               <div class="text-slate-500 dark:text-slate-400 text-base font-medium min-w-fit">{item.date}</div>
               <div class="text-slate-900 dark:text-white font-semibold text-xl"> <span class="text-slate-400 mx-2">•</span> {item.title}</div>
               <div class="text-slate-600 dark:text-slate-400 text-lg">at <span set:html={item.organization} /></div>
@@ -496,7 +537,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
   </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="max-w-4xl mx-auto px-4 mt-6">
+    <section id="skills" class="max-w-4xl mx-auto px-1 sm:px-4 mt-6">
       <CollapsibleSection
         id="skills-section"
         title="Skills & Languages"
@@ -508,8 +549,15 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
           <h3 class="text-xl font-semibold mb-4 text-slate-800 dark:text-slate-200">Languages</h3>
           <div class="flex flex-wrap gap-3">
             {skills.languages.map(lang => (
-              <span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-sm font-medium text-slate-700 dark:text-slate-300">
+              <span class="px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-full text-sm font-medium text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
                 {lang}
+                {lang.startsWith('French') && (
+                  <a href={`${base}/TCF_Unuchek_2022.pdf`} download title="Download TCF Certificate" class="text-slate-400 hover:text-blue-600 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+                    </svg>
+                  </a>
+                )}
               </span>
             ))}
           </div>
@@ -555,7 +603,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
       </CollapsibleSection>
     </section>
     
-    <section id="publications" class="max-w-4xl mx-auto px-4 mt-6">
+    <section id="publications" class="max-w-4xl mx-auto px-1 sm:px-4 mt-6">
       <CollapsibleSection
         id="publications-section"
         title="Selected Publications"
@@ -563,8 +611,9 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
       >
         <DocumentTextIcon slot="icon" class="w-6 h-6 text-slate-600 dark:text-slate-400" />
         <span slot="description">
-            Over 10 academic publications in top scientific journals. See all in <a href="https://scholar.google.com/citations?user=fncAM5EAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="group text-blue-600 dark:text-blue-400 hover:underline">Google Scholar<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline align-text-bottom ml-0.5 text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg></a> <br />Here are selected publications with first or equal* authorship:
+            Over 10 academic publications in top scientific journals (2300+ citations, h-index 10). See all in <a href="https://scholar.google.com/citations?user=fncAM5EAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="group text-blue-600 dark:text-blue-400 hover:underline">Google Scholar<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline align-text-bottom ml-0.5 text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg></a>
         </span>
+        <div class="mb-6 text-sm text-slate-500 dark:text-slate-400 font-medium">Here are selected publications with first or equal* authorship:</div>
         <div class="space-y-8">
           {publications.map((s) => (
             <div class="group mx-2">
@@ -583,7 +632,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
       </CollapsibleSection>
     </section>
 
-    <section id="conferences" class="max-w-4xl mx-auto px-4 mt-6">
+    <section id="conferences" class="max-w-4xl mx-auto px-1 sm:px-4 mt-6">
       <CollapsibleSection
         id="conferences-section"
         title="Conference Presentations"
@@ -591,65 +640,79 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
         description="Multiple talks at international scientific conferences."
       >
         <MicrophoneIcon slot="icon" class="w-6 h-6 text-slate-600 dark:text-slate-400" />
+
+        <!-- Talks Photo Carousel (thumbnails) -->
+        <div class="talks-carousel relative mb-10" id="talks-carousel">
+          <div class="carousel-viewport overflow-hidden rounded-2xl">
+            <div class="carousel-track flex gap-3 transition-transform duration-500 ease-in-out">
+              {[
+                `${base}/pics_talks/DSCF6533.jpg`,
+                `${base}/pics_talks/IMG_3062.jpeg`,
+                `${base}/pics_talks/IMG_4358.JPG`,
+                `${base}/pics_talks/IMG_8825.jpg`,
+                `${base}/pics_talks/IMG_3066.jpeg`,
+              ].map((src, i) => (
+                <div class="carousel-thumb flex-shrink-0 cursor-pointer rounded-xl overflow-hidden border-2 border-transparent hover:border-blue-500/60 transition-all duration-200" data-index={i}>
+                  <img 
+                    src={src} 
+                    alt={`Conference talk photo ${i + 1}`} 
+                    class="h-36 sm:h-44 w-auto object-cover rounded-xl hover:scale-105 transition-transform duration-300"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+          <button class="carousel-prev absolute left-0 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/40 text-white/70 hover:bg-black/60 hover:text-white backdrop-blur-sm transition-all z-10" aria-label="Previous photos">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button class="carousel-next absolute right-0 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/40 text-white/70 hover:bg-black/60 hover:text-white backdrop-blur-sm transition-all z-10" aria-label="Next photos">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Lightbox Overlay -->
+        <div id="talks-lightbox" class="fixed inset-0 z-[9999] bg-black/90 backdrop-blur-md hidden items-center justify-center" style="display:none;">
+          <button id="lightbox-close" class="absolute top-6 right-6 text-white/70 hover:text-white p-2 rounded-full bg-white/10 hover:bg-white/20 transition-all z-10" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+          <button id="lightbox-prev" class="absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 text-white/70 hover:bg-white/20 hover:text-white transition-all z-10" aria-label="Previous">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+            </svg>
+          </button>
+          <button id="lightbox-next" class="absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 text-white/70 hover:bg-white/20 hover:text-white transition-all z-10" aria-label="Next">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+          <img id="lightbox-img" src="" alt="Enlarged conference photo" class="max-w-[90vw] max-h-[85vh] object-contain rounded-2xl shadow-2xl" />
+        </div>
+
         <div class="space-y-8">
           {conferences.map((c) => (
             <div class="mx-2">
               <h3 class="text-lg font-bold text-slate-900 dark:text-white mb-1">{c.title}</h3>
               <div class="text-base text-slate-600 dark:text-slate-400">
-                <span class="font-medium text-slate-800 dark:text-slate-300">{c.year}</span> <span class="mx-2">•</span> <span class="italic text-slate-700 dark:text-slate-300">{c.event}</span> <span class="mx-2">•</span> {c.authors}
+                <span class="font-medium text-slate-800 dark:text-slate-300">{c.year}</span> <span class="mx-2">•</span> <span class="italic text-slate-700 dark:text-slate-300">{c.event}</span>
               </div>
             </div>
           ))}
         </div>
-
-        <!-- Talks Photo Carousel -->
-        <div class="talks-carousel relative mt-10 rounded-2xl overflow-hidden" id="talks-carousel">
-          <div class="carousel-track flex transition-transform duration-500 ease-in-out">
-            {[
-              `${base}/pics_talks/DSCF6533.jpg`,
-              `${base}/pics_talks/IMG_3062.jpeg`,
-              `${base}/pics_talks/IMG_3066.jpeg`,
-              `${base}/pics_talks/IMG_4358.JPG`,
-              `${base}/pics_talks/IMG_8825.jpg`,
-            ].map((src, i) => (
-              <div class="carousel-slide min-w-full flex items-center justify-center">
-                <img 
-                  src={src} 
-                  alt={`Conference talk photo ${i + 1}`} 
-                  class="w-full h-auto max-h-[500px] object-contain rounded-2xl"
-                />
-              </div>
-            ))}
-          </div>
-          <button class="carousel-prev absolute left-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/40 text-white/70 hover:bg-black/60 hover:text-white backdrop-blur-sm transition-all" aria-label="Previous photo">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-          <button class="carousel-next absolute right-3 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/40 text-white/70 hover:bg-black/60 hover:text-white backdrop-blur-sm transition-all" aria-label="Next photo">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-          <div class="carousel-dots flex justify-center gap-2 mt-4">
-            {[0, 1, 2, 3, 4].map((i) => (
-              <button 
-                class={`w-2 h-2 rounded-full transition-all duration-300 ${i === 0 ? 'bg-blue-500 w-4' : 'bg-slate-500/50 hover:bg-slate-400/70'}`}
-                data-slide={i}
-                aria-label={`Go to photo ${i + 1}`}
-              />
-            ))}
-          </div>
-        </div>
       </CollapsibleSection>
     </section>
 
-    <section id="patents" class="max-w-4xl mx-auto px-4 mt-6">
+    <section id="patents" class="max-w-4xl mx-auto px-1 sm:px-4 mt-6">
       <CollapsibleSection
         id="patents-section"
         title="Patents"
         iconColorClass="bg-slate-100 dark:bg-slate-800"
-        description="Over 10 granted and pending patent applications."
+        description="Co-authored multiple inventions and patent applications."
       >
         <LightBulbIcon slot="icon" class="w-6 h-6 text-slate-600 dark:text-slate-400" />
         <div class="space-y-6">
@@ -674,7 +737,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
       </CollapsibleSection>
     </section>
 
-    <section id="awards" class="max-w-4xl mx-auto px-4 mt-6">
+    <section id="awards" class="max-w-4xl mx-auto px-1 sm:px-4 mt-6">
       <CollapsibleSection
         id="awards-section"
         title="Prizes and Awards"
@@ -784,40 +847,110 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
   function setupTalksCarousel() {
     const carousel = document.getElementById('talks-carousel');
     if (!carousel) return;
+    if (carousel.hasAttribute('data-carousel-initialized')) return;
+    carousel.setAttribute('data-carousel-initialized', 'true');
 
+    const viewport = carousel.querySelector('.carousel-viewport');
     const track = carousel.querySelector('.carousel-track');
-    const slides = carousel.querySelectorAll('.carousel-slide');
+    const thumbs = carousel.querySelectorAll('.carousel-thumb');
     const prevBtn = carousel.querySelector('.carousel-prev');
     const nextBtn = carousel.querySelector('.carousel-next');
-    const dots = carousel.querySelectorAll('.carousel-dots button');
-    let current = 0;
-    const total = slides.length;
+    const scrollStep = 200;
 
-    function goTo(index) {
-      current = (index + total) % total;
-      track.style.transform = `translateX(-${current * 100}%)`;
-      dots.forEach((dot, i) => {
-        dot.className = i === current
-          ? 'w-4 h-2 rounded-full bg-blue-500 transition-all duration-300'
-          : 'w-2 h-2 rounded-full bg-slate-500/50 hover:bg-slate-400/70 transition-all duration-300';
-      });
+    function updateArrows() {
+      if (!viewport) return;
+      const atStart = viewport.scrollLeft <= 5;
+      const atEnd = viewport.scrollLeft + viewport.clientWidth >= viewport.scrollWidth - 5;
+      if (prevBtn) prevBtn.style.opacity = atStart ? '0' : '1';
+      if (prevBtn) prevBtn.style.pointerEvents = atStart ? 'none' : 'auto';
+      if (nextBtn) nextBtn.style.opacity = atEnd ? '0' : '1';
+      if (nextBtn) nextBtn.style.pointerEvents = atEnd ? 'none' : 'auto';
     }
 
-    prevBtn?.addEventListener('click', (e) => { e.stopPropagation(); goTo(current - 1); });
-    nextBtn?.addEventListener('click', (e) => { e.stopPropagation(); goTo(current + 1); });
-    dots.forEach(dot => {
-      dot.addEventListener('click', (e) => {
-        e.stopPropagation();
-        goTo(parseInt(dot.dataset.slide));
+    viewport?.addEventListener('scroll', updateArrows);
+    updateArrows();
+
+    prevBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      viewport?.scrollBy({ left: -scrollStep, behavior: 'smooth' });
+    });
+    nextBtn?.addEventListener('click', (e) => {
+      e.stopPropagation();
+      viewport?.scrollBy({ left: scrollStep, behavior: 'smooth' });
+    });
+
+    // Swipe support on viewport
+    let startX = 0;
+    viewport?.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, { passive: true });
+    viewport?.addEventListener('touchend', (e) => {
+      const diff = startX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) {
+        viewport?.scrollBy({ left: diff > 0 ? scrollStep : -scrollStep, behavior: 'smooth' });
+      }
+    });
+
+    // Lightbox
+    const lightbox = document.getElementById('talks-lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxClose = document.getElementById('lightbox-close');
+    const lightboxPrev = document.getElementById('lightbox-prev');
+    const lightboxNext = document.getElementById('lightbox-next');
+    const srcs = Array.from(thumbs).map(t => t.querySelector('img')?.src || '');
+    let currentLightbox = 0;
+
+    function openLightbox(index) {
+      currentLightbox = index;
+      if (lightboxImg) lightboxImg.src = srcs[index];
+      if (lightbox) {
+        lightbox.style.display = 'flex';
+        lightbox.classList.remove('hidden');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeLightbox() {
+      if (lightbox) {
+        lightbox.style.display = 'none';
+        lightbox.classList.add('hidden');
+        document.body.style.overflow = '';
+      }
+    }
+
+    function lightboxGoTo(index) {
+      currentLightbox = ((index % srcs.length) + srcs.length) % srcs.length;
+      if (lightboxImg) lightboxImg.src = srcs[currentLightbox];
+    }
+
+    thumbs.forEach((thumb) => {
+      thumb.addEventListener('click', () => {
+        const idx = parseInt(thumb.getAttribute('data-index') || '0');
+        openLightbox(idx);
       });
     });
 
-    // Swipe support
-    let startX = 0;
-    carousel.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; });
-    carousel.addEventListener('touchend', (e) => {
-      const diff = startX - e.changedTouches[0].clientX;
-      if (Math.abs(diff) > 50) goTo(current + (diff > 0 ? 1 : -1));
+    lightboxClose?.addEventListener('click', closeLightbox);
+    lightboxPrev?.addEventListener('click', (e) => { e.stopPropagation(); lightboxGoTo(currentLightbox - 1); });
+    lightboxNext?.addEventListener('click', (e) => { e.stopPropagation(); lightboxGoTo(currentLightbox + 1); });
+
+    // Close on backdrop click
+    lightbox?.addEventListener('click', (e) => {
+      if (e.target === lightbox) closeLightbox();
+    });
+
+    // Keyboard support
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox || lightbox.style.display === 'none') return;
+      if (e.key === 'Escape') closeLightbox();
+      if (e.key === 'ArrowLeft') lightboxGoTo(currentLightbox - 1);
+      if (e.key === 'ArrowRight') lightboxGoTo(currentLightbox + 1);
+    });
+
+    // Swipe support in lightbox
+    let lbStartX = 0;
+    lightbox?.addEventListener('touchstart', (e) => { lbStartX = e.touches[0].clientX; }, { passive: true });
+    lightbox?.addEventListener('touchend', (e) => {
+      const diff = lbStartX - e.changedTouches[0].clientX;
+      if (Math.abs(diff) > 50) lightboxGoTo(currentLightbox + (diff > 0 ? 1 : -1));
     });
   }
 
