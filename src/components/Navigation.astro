@@ -171,7 +171,7 @@ const mobileLabel = isSportPage ? 'Follow Me' : 'Get in Touch';
 </nav>
 
 <!-- Mobile Bottom Navigation -->
-<nav class="sm:hidden fixed bottom-0 left-0 w-full glass z-50 px-4 py-3 flex justify-between items-center shadow-[0_-4px_20px_rgba(0,0,0,0.3)] border-t border-white/10">
+<nav id="mobile-bottom-nav" class="sm:hidden fixed bottom-0 left-0 w-full glass z-50 px-4 py-3 flex justify-between items-center shadow-[0_-4px_20px_rgba(0,0,0,0.3)] border-t border-white/10" style="transition: transform 0.3s ease;">
     <!-- DU Logo -->
     <a href={`${base}/`} class={`font-bold text-xl bg-clip-text text-transparent truncate mr-2 ${
       isSportPage ? 'bg-gradient-to-r from-orange-500 to-red-500' : 'bg-gradient-to-r from-blue-400 to-purple-600'
@@ -226,7 +226,7 @@ const mobileLabel = isSportPage ? 'Follow Me' : 'Get in Touch';
 </nav>
 
 <!-- Mobile CV Sub-Navigation -->
-<div id="mobile-cv-subnav" class="sm:hidden fixed bottom-[56px] left-0 w-full z-40 bg-slate-900/95 backdrop-blur-md border-t border-white/10 px-3 py-2 hidden">
+<div id="mobile-cv-subnav" class="sm:hidden fixed bottom-[56px] left-0 w-full z-40 bg-slate-900/95 backdrop-blur-md border-t border-white/10 px-3 py-2 hidden" style="transition: transform 0.3s ease;">
     <div class="flex flex-wrap justify-center gap-1.5">
         <a href={`${base}/#experience`} data-cv-section="experience" class="mobile-cv-sub-link px-3 py-1.5 text-xs font-medium text-slate-300 hover:text-white bg-white/5 hover:bg-white/15 rounded-full transition-all border border-white/10">Experience</a>
         <a href={`${base}/#education`} data-cv-section="education" class="mobile-cv-sub-link px-3 py-1.5 text-xs font-medium text-slate-300 hover:text-white bg-white/5 hover:bg-white/15 rounded-full transition-all border border-white/10">Education</a>
@@ -452,13 +452,50 @@ const mobileLabel = isSportPage ? 'Follow Me' : 'Get in Touch';
     });
   }
 
+  function setupMobileNavScrollBehavior() {
+    const mobileNav = document.getElementById('mobile-bottom-nav');
+    const mobileSubnav = document.getElementById('mobile-cv-subnav');
+    if (!mobileNav) return;
+    if (mobileNav.hasAttribute('data-scroll-initialized')) return;
+    mobileNav.setAttribute('data-scroll-initialized', 'true');
+
+    let lastScrollY = window.scrollY;
+    let ticking = false;
+
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      requestAnimationFrame(() => {
+        const currentScrollY = window.scrollY;
+        const delta = currentScrollY - lastScrollY;
+
+        if (delta > 5 && currentScrollY > 80) {
+          // Scrolling down — hide
+          mobileNav.style.transform = 'translateY(100%)';
+          if (mobileSubnav) mobileSubnav.style.transform = 'translateY(100%)';
+        } else if (delta < -5) {
+          // Scrolling up — show
+          mobileNav.style.transform = 'translateY(0)';
+          if (mobileSubnav) mobileSubnav.style.transform = 'translateY(0)';
+        }
+
+        lastScrollY = currentScrollY;
+        ticking = false;
+      });
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+  }
+
   // Run on load and after view transitions
   setupNavigation();
   setupMobileMenu();
   setupMobileCVToggle();
+  setupMobileNavScrollBehavior();
   document.addEventListener('astro:page-load', () => {
     setupNavigation();
     setupMobileMenu();
     setupMobileCVToggle();
+    setupMobileNavScrollBehavior();
   });
 </script>

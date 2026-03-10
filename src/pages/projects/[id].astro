@@ -19,7 +19,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
 
 <Layout title={`${project.title} | Projects`}>
   <div class="max-w-4xl mx-auto min-h-screen flex flex-col justify-center py-12">
-    <a href={`${base}/#projects`} class="inline-flex items-center text-blue-500 hover:text-blue-600 mb-8 font-medium transition-colors w-fit">
+    <a id="back-to-projects" href={`${base}/#projects`} class="inline-flex items-center text-blue-500 hover:text-blue-600 mb-8 font-medium transition-colors w-fit">
       <svg class="w-5 h-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
       </svg>
@@ -174,29 +174,91 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
   </div>
 </Layout>
 
-<script define:vars={{ base }}>
+<script>
+  import { navigate } from 'astro:transitions/client';
+
   document.addEventListener('astro:page-load', () => {
-      // Helper: navigate back using history (triggers reverse view transition)
-      // Falls back to standard navigation if there's no history (direct URL access)
-      function goBackToProjects() {
-          if (window.history.length > 1) {
-              window.history.back();
-          } else {
-              window.location.href = `${base}/#projects`;
-          }
+      // Only run on project detail pages
+      const backLink = document.getElementById('back-to-projects');
+      if (!backLink) return;
+
+      // Get the base URL without the hash — navigating without hash
+      // prevents the browser from scrolling to #projects during the view transition
+      const backUrl = backLink.getAttribute('href');
+      const baseUrl = backUrl.replace(/#.*$/, '') || '/';
+
+      // Remove href so Astro's ClientRouter doesn't intercept this link
+      // (Astro's router only intercepts <a> elements with href attributes)
+      backLink.removeAttribute('href');
+      backLink.style.cursor = 'pointer';
+
+      // Navigate back with Astro view transition (clean morph animation)
+      function goBackToProjects(e) {
+          if (e) e.preventDefault();
+          
+          // Before swap: inject styles to hide the page during scroll repositioning
+          const onBeforeSwap = (event) => {
+              document.removeEventListener('astro:before-swap', onBeforeSwap);
+              
+              // Add styles to hide content and disable smooth scroll in the new document
+              const style = event.newDocument.createElement('style');
+              style.id = 'transition-scroll-fix';
+              style.textContent = `
+                  html { scroll-behavior: auto !important; }
+                  body > main { opacity: 0 !important; }
+              `;
+              event.newDocument.head.appendChild(style);
+          };
+          document.addEventListener('astro:before-swap', onBeforeSwap);
+          
+          // After swap: restore exact scroll position, then reveal page
+          const onAfterSwap = () => {
+              document.removeEventListener('astro:after-swap', onAfterSwap);
+              
+              // Restore exact scroll position from when the card was clicked
+              const savedY = sessionStorage.getItem('project-scroll-y');
+              if (savedY) {
+                  document.documentElement.scrollTop = parseInt(savedY, 10);
+                  document.body.scrollTop = parseInt(savedY, 10); // Safari fallback
+                  sessionStorage.removeItem('project-scroll-y');
+              } else {
+                  // Fallback: scroll to projects section
+                  const projectsSection = document.getElementById('projects');
+                  if (projectsSection) {
+                      document.documentElement.scrollTop = projectsSection.offsetTop;
+                      document.body.scrollTop = projectsSection.offsetTop;
+                  }
+              }
+              
+              // Reveal content after a microtask to ensure scroll has settled
+              requestAnimationFrame(() => {
+                  const fixStyle = document.getElementById('transition-scroll-fix');
+                  if (fixStyle) {
+                      // Replace with smooth fade-in + slide-up animation
+                      fixStyle.textContent = `
+                          body > main { 
+                              animation: revealContent 0.4s cubic-bezier(0, 0, 0.2, 1) forwards;
+                          }
+                          @keyframes revealContent {
+                              from { opacity: 0; transform: translateY(12px); }
+                              to   { opacity: 1; transform: translateY(0); }
+                          }
+                      `;
+                      // Clean up after animation
+                      setTimeout(() => fixStyle.remove(), 450);
+                  }
+              });
+          };
+          document.addEventListener('astro:after-swap', onAfterSwap);
+          
+          // Navigate without hash
+          navigate(baseUrl);
       }
 
-      // Intercept "Back to Projects" link to use history.back()
-      const backLink = document.querySelector('a[href$="/#projects"]');
-      if (backLink) {
-          backLink.addEventListener('click', (e) => {
-              e.preventDefault();
-              goBackToProjects();
-          });
-      }
+      // Intercept "Back to Projects" link
+      backLink.addEventListener('click', goBackToProjects);
 
       // Handles clicking outside the project card to close
-      const card = document.querySelector('.project-card');
       const container = document.querySelector('.min-h-screen');
       
       if (container) {
@@ -207,7 +269,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
                
                // Only navigate if clicking outside the card content area
                if (!isCardContent && !isLink && !isButton) {
-                 goBackToProjects();
+                 goBackToProjects(event);
                }
           });
       }

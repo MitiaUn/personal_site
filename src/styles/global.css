@@ -77,3 +77,40 @@ body {
     scrollbar-width: none;
     /* Firefox */
 }
+
+/* ===== View Transition Animations ===== */
+
+/* Smoother morph duration for named elements (images, titles) */
+::view-transition-group(*) {
+    animation-duration: 0.45s;
+    animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Old page fades out */
+::view-transition-old(root) {
+    animation: vt-fade-out 0.3s cubic-bezier(0.4, 0, 1, 1) forwards;
+}
+
+/* New page fades in */
+::view-transition-new(root) {
+    animation: vt-fade-in 0.35s cubic-bezier(0, 0, 0.2, 1) forwards;
+}
+
+@keyframes vt-fade-out {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+@keyframes vt-fade-in {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+/* Respect reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-group(*),
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+        animation-duration: 0.01s !important;
+    }
+}
