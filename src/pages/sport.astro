@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import ExternalLinkIcon from '../components/icons/ExternalLink.astro';
-import profilePhoto from '../assets/photo6.jpg';
 
 const rawBase = import.meta.env.BASE_URL;
 const base = rawBase === '/' ? '' : (rawBase.endsWith('/') ? rawBase.slice(0, -1) : rawBase);
@@ -145,7 +144,7 @@ const sportLinks = [
   <!-- Mobile Profile Header -->
   <div class="sm:hidden flex flex-row items-center justify-start gap-4 px-4 pt-2 pb-8">
     <img 
-      src={profilePhoto.src} 
+      src={`${base}/pics_sport/main.jpg`} 
       alt="Dimitri Unuchek" 
       class="w-40 h-40 rounded-full border-2 border-white/20 object-cover shadow-lg flex-shrink-0"
     />
@@ -173,7 +172,7 @@ const sportLinks = [
           I am an amateur athlete competing in triathlon, trail running, cross-country skiing, ski mountaineering, and alpinism, occasionally finding my way onto the podium. Currently, I am expanding my horizons by training for a paragliding license.
         </p>
         <p>
-          Sport allows me to test my limits and push boundaries, while exploring the breathtaking beauty of high altitudes.
+          Sport allows me to test my limits and push boundaries, while the grit and focus I’ve built through endurance sports are exactly what drive my professional endeavors. I apply that same relentless push for optimization to every R&D challenge, ensuring deep-tech breakthroughs actually make it into the real world. Meticulous planning, discipline and the stamina are what push complex project through to the finish line.
         </p>
       </div>
     </div>
