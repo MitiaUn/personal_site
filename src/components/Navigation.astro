@@ -29,9 +29,9 @@ const mainNavItems = [
 ];
 
 const sportNavItems = [
-  { name: 'CV', href: `${base}/`, type: 'main' },
-  { name: 'Results', href: `#results`, type: 'main' },
   { name: 'Highlights', href: `#highlights`, type: 'main' },
+  { name: 'Results', href: `#results`, type: 'main' },
+  { name: 'CV', href: `${base}/`, type: 'main' },
 ];
 
 const navItems = isSportPage ? sportNavItems : mainNavItems;
@@ -183,9 +183,9 @@ const mobileLabel = isSportPage ? 'Follow Me' : 'Get in Touch';
     <div class="flex items-center gap-5 text-sm font-medium relative">
         {isSportPage ? (
           <>
-            <a href={`${base}/`} class="text-slate-300 hover:text-white transition-colors">CV</a>
-            <a href="#results" class="text-slate-300 hover:text-white transition-colors">Results</a>
             <a href="#highlights" class="text-slate-300 hover:text-white transition-colors">Highlights</a>
+            <a href="#results" class="text-slate-300 hover:text-white transition-colors">Results</a>
+            <a href={`${base}/`} class="text-slate-300 hover:text-white transition-colors">CV</a>
           </>
         ) : (
           <>
