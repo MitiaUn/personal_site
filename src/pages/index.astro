@@ -415,20 +415,20 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
       <img 
         src={profilePhoto.src} 
         alt="Dimitri Unuchek" 
-        class="w-full h-[110%] max-w-none object-contain object-[center_40%] translate-x-[27%] -translate-y-[5%] -scale-x-100 opacity-70 brightness-[0.6] contrast-[1.1]"
+        class="w-full h-[110%] max-w-none object-contain object-[center_40%] translate-x-[27%] -translate-y-[5%] -scale-x-100 opacity-80 dark:opacity-70 brightness-[0.8] dark:brightness-[0.6] contrast-[1.1]"
         style="mask-image: radial-gradient(ellipse 90% 90% at 60% 40%, black 50%, transparent 80%); -webkit-mask-image: radial-gradient(ellipse 90% 90% at 60% 40%, black 50%, transparent 80%);"
       />
     </div>
     <!-- Top Gradient Overlay purely for text readability -->
-    <div class="absolute inset-x-0 top-0 h-[40%] bg-gradient-to-b from-black/60 to-transparent pointer-events-none"></div>
+    <div class="absolute inset-x-0 top-0 h-[40%] bg-gradient-to-b from-slate-900/60 dark:from-black/60 to-transparent pointer-events-none"></div>
     
     <!-- Content (Title & Info) at the top -->
     <div class="absolute top-0 left-0 w-full pt-20 px-8 text-left z-10">
-      <h2 class="text-[2.5rem] font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600 mb-2 leading-tight tracking-tight drop-shadow-md">
+      <h2 class="text-[2.5rem] font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-purple-600 dark:from-blue-400 dark:to-purple-600 mb-2 leading-tight tracking-tight drop-shadow-md">
         Dr Dimitri Unuchek
       </h2>
-      <p class="text-xl text-slate-400 font-medium mb-3 drop-shadow">R&D Leader <span class="text-slate-600">|</span> Physicist</p>
-      <p class="text-sm text-slate-400 flex items-center justify-start gap-1.5 opacity-90 drop-shadow">
+      <p class="text-xl text-slate-800 dark:text-slate-400 font-medium mb-3 drop-shadow">R&D Leader <span class="text-slate-500 dark:text-slate-600">|</span> Physicist</p>
+      <p class="text-sm text-slate-700 dark:text-slate-400 flex items-center justify-start gap-1.5 opacity-90 drop-shadow">
         <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
         Lausanne, Switzerland
       </p>
@@ -437,11 +437,11 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
 
   <!-- Mobile Buttons (above hero) -->
   <div class="sm:hidden flex flex-wrap gap-3 justify-center mb-6 px-4">
-    <a href="#projects" class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold transition-all shadow-lg hover:shadow-blue-500/25">
+    <a href="#projects" class="px-8 py-3 bg-slate-900 dark:bg-white hover:bg-slate-800 dark:hover:bg-slate-100 text-white dark:text-slate-900 rounded-full font-medium transition-colors duration-300">
       My Work
     </a>
-    <a href={`${base}/CV_mar2026 - CH - photo.pdf`} download class="px-8 py-3 bg-slate-800 hover:bg-slate-700 text-white border border-slate-700 rounded-full font-bold transition-all shadow-lg flex items-center gap-2 group">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:text-blue-600 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+    <a href={`${base}/CV_mar2026 - CH - photo.pdf`} download class="px-8 py-3 bg-transparent text-slate-600 dark:text-slate-400 border border-slate-300 dark:border-white/20 hover:border-slate-900 dark:hover:border-slate-100 hover:text-slate-900 dark:hover:text-slate-100 rounded-full font-medium transition-all duration-300 flex items-center gap-2 group">
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:text-slate-900 dark:group-hover:text-slate-100 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
       </svg>
       My CV
@@ -449,42 +449,54 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
   </div>
 
   <!-- Hero Section -->
-  <section id="hero" class="flex items-start pt-6 md:pt-8 justify-center relative overflow-hidden pb-12">
-    <div class="absolute inset-x-0 top-0 bottom-12 bg-gradient-to-br from-blue-500/10 to-purple-500/10 -z-10 rounded-3xl"></div>
-    <div class="max-w-4xl mx-auto text-center px-4">
-      <h1 class="hidden sm:block text-3xl md:text-4xl font-bold mb-6 tracking-tight">
-        <span class="bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600">Hi, I'm Dimitri</span>
-      </h1>
-      <div class="text-lg md:text-xl text-slate-600 dark:text-slate-300 mb-8 leading-relaxed max-w-3xl mx-auto space-y-4 font-light">
-        <p>
+  <section id="hero" class="max-w-4xl mx-auto px-4 mb-24 md:mb-32 pt-4 md:pt-16">
+    <div class="flex flex-row items-stretch gap-6 md:gap-12">
+      
+      <!-- Rotated Title (Visible on both) -->
+      <div class="hidden sm:flex flex-shrink-0 items-center justify-center border-r border-slate-200 dark:border-white/10 pr-6 md:pr-8">
+        <h1 class="text-4xl md:text-[2.75rem] leading-none font-bold tracking-tight text-slate-900 dark:text-slate-100 whitespace-nowrap" style="writing-mode: vertical-rl; transform: rotate(180deg);">
+          Scalable Hardware
+        </h1>
+      </div>
+
+      <!-- Bio Content -->
+      <div class="text-justify flex-1 flex flex-col justify-center">
+        <p class="text-lg text-slate-700 dark:text-slate-300 font-light leading-relaxed mb-6">
           I am an R&D leader and scientist with a PhD from EPFL, specializing in the development of next-generation optoelectronics and semiconductor products.
         </p>
-        <p>
+        <p class="text-base text-slate-600 dark:text-slate-400 font-light leading-relaxed mb-6">
           With 6 years in industrial R&D management and 7 years of academic research, my career spans from pioneering fundamental research of quantum phenomena in 2D materials to building and managing diverse cross-disciplinary teams and driving product development from POC to industrialization in the field of optics, electronics, renewable energy and quantum devices.
         </p>
-        <p>
+        <p class="text-base text-slate-600 dark:text-slate-400 font-light leading-relaxed mb-8">
           I thrive at the intersection of complex problem-solving, innovations and industrialization, bridging the gap between scientific breakthroughs and scalable hardware solutions.
         </p>
-      </div>
-      <div class="hidden sm:flex flex-wrap gap-4 justify-center mb-8">
-        <a href="#projects" class="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-full font-bold transition-all shadow-lg hover:shadow-blue-500/25">
-          View My Work
-        </a>
-        <a href={`${base}/CV_mar2026 - CH - photo.pdf`} download class="px-8 py-3 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700 text-slate-900 dark:text-white border border-slate-200 dark:border-slate-700 rounded-full font-bold transition-all shadow-lg flex items-center gap-2 group">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:text-blue-600 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
-          </svg>
-          Download my CV
-        </a>
-        <!-- <a href={`${base}/sport`} class="px-8 py-3 glass hover:bg-white/20 rounded-full font-bold transition-all flex items-center gap-2">
-          <span>🏃‍♂️</span> Sports Endeavors  
-        </a> -->
+        <div class="hidden sm:flex flex-wrap gap-4 justify-start">
+          <a href="#projects" class="px-8 py-3 bg-slate-900 dark:bg-white hover:bg-slate-800 dark:hover:bg-slate-100 text-white dark:text-slate-900 rounded-full font-medium transition-colors duration-300">
+            View My Work
+          </a>
+          <a href={`${base}/CV_mar2026 - CH - photo.pdf`} download class="px-8 py-3 bg-transparent text-slate-600 dark:text-slate-400 border border-slate-300 dark:border-white/20 hover:border-slate-900 dark:hover:border-slate-100 hover:text-slate-900 dark:hover:text-slate-100 rounded-full font-medium transition-all duration-300 flex items-center gap-2 group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 group-hover:text-slate-900 dark:group-hover:text-slate-100 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            Download my CV
+          </a>
+          <!-- <a href={`${base}/sport`} class="px-8 py-3 glass hover:bg-white/20 rounded-full font-bold transition-all flex items-center gap-2">
+            <span>🏃‍♂️</span> Endeavors  
+          </a> -->
+        </div>
       </div>
     </div>
   </section>
 
+  <!-- CV Group Header -->
+  <div class="max-w-4xl mx-auto px-4 mb-6 border-b border-slate-200 dark:border-white/5 pb-4">
+    <h2 class="text-sm font-bold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+      Curriculum Vitae
+    </h2>
+  </div>
+
   <!-- CV Section -->
-  <section id="experience" class="max-w-4xl mx-auto px-1 sm:px-4 mt-8">
+  <section id="experience" class="max-w-4xl mx-auto px-1 sm:px-4">
     <CollapsibleSection
       id="experience-section"
       title="Experience"
@@ -496,7 +508,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
         <span class="font-semibold text-slate-700 dark:text-slate-300">Core:</span> 7 years of academic research and 6 years of R&D management and product development. <br/>
         <span class="font-semibold text-slate-700 dark:text-slate-300">Extra:</span> Extensive teaching and academic event organization.
       </span>
-      <BriefcaseIcon slot="icon" class="w-6 h-6 text-slate-600 dark:text-slate-400" />
+
       
       <div class="mb-10">
         <Timeline items={coreExperience} inlineHeader={true} showRoleHint={true} />
@@ -520,7 +532,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
         Doctoral degree in Electrical Engineering/Nanoelectronics and Master's in Physics. <br/>
         Recipient of two research awards.
       </span>
-      <GraduationCapIcon slot="icon" class="w-6 h-6 text-slate-600 dark:text-slate-400" />
+
       <div class="relative border-l border-slate-200 dark:border-slate-800 ml-0 sm:ml-5 space-y-8">
         {education.map((item) => (
           <div class="ml-2 sm:ml-6">
@@ -552,7 +564,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
         iconColorClass="bg-slate-100 dark:bg-slate-800"
         description="Multidisciplinary profile with extensive software and hardware skills."
       >
-        <ToolsIcon slot="icon" class="w-6 h-6 text-slate-600 dark:text-slate-400" />
+
         <div class="mb-10">
           <h3 class="text-xl font-semibold mb-4 text-slate-800 dark:text-slate-200">Languages</h3>
           <div class="flex flex-wrap gap-3">
@@ -617,7 +629,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
         title="Publications"
         iconColorClass="bg-slate-100 dark:bg-slate-800"
       >
-        <DocumentTextIcon slot="icon" class="w-6 h-6 text-slate-600 dark:text-slate-400" />
+
         <span slot="description">
             Over 10 papers in top scientific journals (2300+ citations, h-index 10). See all in <a href="https://scholar.google.com/citations?user=fncAM5EAAAAJ&hl=en" target="_blank" rel="noopener noreferrer" class="group text-blue-600 dark:text-blue-400 hover:underline">Google Scholar<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 inline align-text-bottom ml-0.5 text-slate-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg></a>
         </span>
@@ -647,7 +659,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
         iconColorClass="bg-slate-100 dark:bg-slate-800"
         description="Multiple talks at international scientific conferences."
       >
-        <MicrophoneIcon slot="icon" class="w-6 h-6 text-slate-600 dark:text-slate-400" />
+
 
         <!-- Talks Photo Carousel (thumbnails) -->
         <div class="talks-carousel relative mb-10" id="talks-carousel">
@@ -722,7 +734,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
         iconColorClass="bg-slate-100 dark:bg-slate-800"
         description="Co-authored multiple inventions and patent applications."
       >
-        <LightBulbIcon slot="icon" class="w-6 h-6 text-slate-600 dark:text-slate-400" />
+
         <div class="space-y-6">
             {patents.map((p) => (
               <div class="mx-2 group">
@@ -752,7 +764,7 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
         iconColorClass="bg-slate-100 dark:bg-slate-800"
         description="Recognition for scientific achievements and academic excellence."
       >
-        <TrophyIcon slot="icon" class="w-6 h-6 text-slate-600 dark:text-slate-400" />
+
         <div class="space-y-10">
           <div>
               <h3 class="text-xl font-semibold mb-4 text-slate-800 dark:text-slate-200">Scientific recognition:</h3>
@@ -832,10 +844,12 @@ const base = import.meta.env.BASE_URL === '/' ? '' : import.meta.env.BASE_URL.re
 
 
   <!-- Projects Section -->
-  <section id="projects" class="mt-32">
-    <h2 class="text-4xl font-bold mb-12 flex items-center gap-3 px-4 max-w-4xl mx-auto">
-       Key Projects & Innovations
-    </h2>
+  <section id="projects" class="mt-24">
+    <div class="max-w-4xl mx-auto px-4 mb-10 border-b border-slate-200 dark:border-white/5 pb-4">
+      <h2 class="text-sm font-bold uppercase tracking-[0.2em] text-slate-500 dark:text-slate-400">
+        Key Projects & Innovations
+      </h2>
+    </div>
     <ProjectList />
     <div class="max-w-4xl mx-auto px-4 mt-8 text-center">
       <p class="text-slate-500 dark:text-slate-400 text-sm italic">

@@ -29,7 +29,7 @@ const results = [
 
 const highlights = [
   {
-    title: "S25 Berlin 25km",
+    title: "S25 Berlin",
     year: "2026",
     summary: "Age group win and 4th overall.",
     description: "S25 Berlin 25km run, a huge event with thousands of participants. I secured 4th place overall and 1st in the M30 age group with a time of 01:30:10, missing the overall podium by just 1 minute and 1 place.",
@@ -60,7 +60,7 @@ const highlights = [
     ]
   },
   {
-    title: "XTERRA Trail Run World Championship",
+    title: "XTERRA Trail Run World Champs",
     year: "2025",
     summary: "Silver medal at the World Cup in Wales.",
     description: "Trail running World Cup organized by XTERRA in Wales, UK, extending over 21km with 1200m elevation gain, passing by Snowdon, the highest summit in Wales. I finished 4th overall and 2nd in the M30-34 age group, earning a silver medal for the XTERRA World Cup 2025. The race was held under exceptional heatwave conditions, forcing organizers to eventually halt the event and launch rescue operation.",
@@ -161,7 +161,7 @@ const sportLinks = [
 <Layout title="Sports Journey | Dimitri Unuchek" description="Dimitri Unuchek - Endurance Athlete" ogTitle="Dimitri Unuchek - Endurance Athlete" ogDescription="Triathlon, Trailrunning, Cross-Country Skiing" speedDialLinks={sportLinks} speedDialLabel="Follow Me">
   
   <!-- Mobile Profile Header (Visible only on phone) -->
-  <div class="md:hidden flex flex-row items-center justify-center gap-6 pt-8 pb-8">
+  <div class="sm:hidden flex flex-row items-center justify-center gap-6 pt-8 pb-8">
     <img 
       src={`${base}/pics_sport/main.jpg`} 
       alt="Dimitri Unuchek" 
@@ -185,7 +185,7 @@ const sportLinks = [
     <div class="flex flex-row items-stretch gap-6 md:gap-12">
       
       <!-- Rotated Title (Visible on both) -->
-      <div class="flex flex-shrink-0 items-center justify-center border-r border-white/10 pr-6 md:pr-8">
+      <div class="hidden sm:flex flex-shrink-0 items-center justify-center border-r border-white/10 pr-6 md:pr-8">
         <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-slate-100 whitespace-nowrap" style="writing-mode: vertical-rl; transform: rotate(180deg);">
           Endurance<br class="hidden md:block"/><span class="md:hidden"> </span>& Alpinism
         </h1>
@@ -193,11 +193,11 @@ const sportLinks = [
 
       <!-- Bio Content -->
       <div class="text-justify flex-1 flex flex-col justify-center">
-        <p class="text-lg text-slate-400 font-light leading-relaxed mb-6">
-          I am an amateur athlete competing in triathlon, trail running, cross-country skiing, ski mountaineering, and alpinism, occasionally finding my way onto the <a href="#highlights" class="text-slate-300 hover:text-white underline decoration-slate-700 underline-offset-4 transition-colors">podium</a>. Currently, I am expanding my horizons by training for a paragliding license.
+        <p class="text-lg text-slate-300 font-light leading-relaxed mb-6">
+          I am an amateur athlete competing in triathlon, trail running, cross-country skiing, ski mountaineering, and alpinism, occasionally finding my way onto the <a href="#highlights" class="text-slate-200 hover:text-white underline decoration-slate-600 underline-offset-4 transition-colors">podium</a>. Currently, I am expanding my horizons by training for a paragliding license.
         </p>
-        <p class="text-base text-slate-500 font-light leading-relaxed">
-          Sport allows me to test my limits and push boundaries, while the grit and focus I’ve built through endurance sports are exactly what drive my <a href={`${base}/`} class="text-slate-300 hover:text-white underline decoration-slate-700 underline-offset-4 transition-colors">professional endeavors</a>. Meticulous planning, strict discipline and the stamina are what push complex project through to the finish line.
+        <p class="text-base text-slate-400 font-light leading-relaxed">
+          Sport allows me to test my limits and push boundaries, while the grit and focus I’ve built through endurance sports are exactly what drive my <a href={`${base}/`} class="text-slate-200 hover:text-white underline decoration-slate-600 underline-offset-4 transition-colors">professional endeavors</a>. Meticulous planning, strict discipline and the stamina are what push complex project through to the finish line.
         </p>
       </div>
     </div>
@@ -315,7 +315,240 @@ const sportLinks = [
     </div>
   </section>
 
+  <!-- Projects Section -->
+  <section id="projects" class="max-w-4xl mx-auto px-4 mb-24">
+    <div class="mb-10 border-b border-white/5 pb-4">
+      <h2 class="text-sm font-bold uppercase tracking-[0.2em] text-slate-400">
+        Long-Term Projects
+      </h2>
+    </div>
+
+    {(() => {
+      const projects = [
+        {
+          id: "lakes",
+          title: "Project Lakes",
+          description: "Cycle around the 23 largest Swiss lakes — a rolling tour through every major body of water in the country, from Lac Léman to the Alpine reservoirs.",
+          total: 23,
+          totalDistance: 1719,
+          totalElevation: 15195,
+          notionUrl: "https://www.notion.so/f4035ac3cd1e4dda815055ddf79352c8",
+          items: [
+            { name: "Lac Léman", done: true, year: "2023" },
+            { name: "Lago Maggiore", done: true, year: "2024" },
+            { name: "Lake Lucerne", done: true, year: "2025" },
+            { name: "Lac de Bienne", done: true, year: "2024" },
+            { name: "Lac de Morat", done: true, year: "2023" },
+            { name: "Zürichsee", done: true, year: "2022" },
+            { name: "Thunersee", done: true, year: "2023" },
+            { name: "Brienzersee", done: true, year: "2022" },
+            { name: "Zugersee", done: true, year: "2024" },
+            { name: "Baldegger", done: true, year: "2024" },
+            { name: "Hallwilersee", done: true, year: "2024" },
+            { name: "Greifensee", done: true, year: "2024" },
+            { name: "Sempachersee", done: true, year: "2024" },
+            { name: "Lago di Lugano", done: true, year: "2024" },
+            { name: "Lac de Joux", done: true, year: "2022" },
+            { name: "Sarnersee", done: true, year: "2024" },
+            { name: "Sihlsee", done: true, year: "2025" },
+            { name: "Walensee", done: true, year: "2025" },
+            { name: "Lac de la Gruyère", done: true, year: "2026" },
+            { name: "Untersee", done: false, year: "" },
+            { name: "Bodensee", done: false, year: "" },
+          ],
+          others: null,
+        },
+        {
+          id: "pass",
+          title: "Project Pass",
+          description: "Cycle over all Swiss mountain passes above 1200m — conquering the iconic and the hidden, from the Grimsel to the Bernina and beyond.",
+          total: 69,
+          totalDistance: null,
+          totalElevation: 15244,
+          notionUrl: "https://www.notion.so/25c6907e18eb807c8764c17f145d2794",
+          items: [
+            { name: "Mollendruz E", done: true, year: "2020" },
+            { name: "Mollendruz Croy", done: true, year: "2026" },
+            { name: "Mollendruz Pont", done: true, year: "2024" },
+            { name: "Marchairuz E", done: true, year: "2022" },
+            { name: "Marchairuz W", done: true, year: "2020" },
+            { name: "Etroits W", done: true, year: "2025" },
+            { name: "Albis W", done: true, year: "2023" },
+            { name: "Etzel N", done: true, year: "2025" },
+            { name: "Brunig N", done: true, year: "2024" },
+            { name: "Susten W", done: true, year: "2025" },
+            { name: "Grimsel S", done: true, year: "2025" },
+            { name: "Albula W", done: true, year: "2025" },
+            { name: "Livigno W", done: true, year: "2025" },
+            { name: "Livigno E", done: true, year: "2025" },
+            { name: "Bernina S", done: true, year: "2025" },
+            { name: "Bernina N", done: true, year: "2025" },
+            { name: "Maloja E", done: true, year: "2025" },
+            { name: "Lenzerheide S", done: true, year: "2025" },
+            { name: "Julier E", done: true, year: "2025" },
+            { name: "Simplon N", done: true, year: "2023" },
+            { name: "Jaun W", done: true, year: "2026" },
+            { name: "Givrine", done: true, year: "2026" },
+            { name: "Mont d'Orzeires W", done: true, year: "2024" },
+            { name: "Jaun E", done: false, year: "" },
+            { name: "Nufen E", done: false, year: "" },
+          ],
+          others: null,
+        },
+        {
+          id: "peaks",
+          title: "Project Peaks",
+          description: "Summit all Swiss 4000m peaks — the 48 highest mountains in Switzerland. A long-term alpinism journey across glaciers, ridges, and couloirs.",
+          total: 48,
+          totalDistance: null,
+          totalElevation: 8200,
+          notionUrl: "https://www.notion.so/1586907e18eb803db70bd8b918a84d19",
+          items: [
+            { name: "Matterhorn (4478m)", done: true, year: "2024" },
+            { name: "Alphubel (4206m)", done: true, year: "2024" },
+            { name: "Strahlhorn (4190m)", done: true, year: "2023" },
+            { name: "Breithorn (4160m)", done: true, year: "2023" },
+            { name: "Jungfrau (4158m)", done: true, year: "2021" },
+            { name: "Mönch (4110m)", done: true, year: "2021" },
+            { name: "Allalinhorn (4027m)", done: true, year: "2021" },
+            { name: "Lagginhorn (4010m)", done: true, year: "2022" },
+            { name: "Dufourspitze (4634m)", done: false, year: "" },
+          ],
+          others: [
+            { name: "Mont Blanc (4806m)", done: true, year: "2026", note: "France" },
+            { name: "Mont Blanc du Tacul (4248m)", done: true, year: "2026", note: "France" },
+            { name: "Huayna Potosi (6088m)", done: true, year: "2017", note: "Bolivia" },
+          ],
+        },
+      ];
+
+      return (
+        <div class="space-y-4">
+          {projects.map(project => {
+            const completed = project.items.filter(i => i.done).length;
+            const pct = Math.round((completed / project.total) * 100);
+            return (
+              <div
+                class="project-card group rounded-2xl border border-white/5 overflow-hidden cursor-pointer hover:border-white/10 transition-all duration-300"
+                data-expanded="false"
+                role="button"
+                tabindex="0"
+              >
+                {/* Folded Header */}
+                <div class="p-6 md:p-8">
+                  <div class="flex justify-between items-start gap-4 mb-1">
+                    <h3 class="text-xl font-semibold text-slate-100 tracking-tight">{project.title}</h3>
+                    <div class="text-slate-500 transition-transform duration-300 chevron-icon flex-shrink-0 mt-1">
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                  </div>
+
+                  {/* Progress bar (always visible) */}
+                  <div class="mt-4">
+                    <div class="flex justify-between items-center mb-2 text-xs font-mono text-slate-500 uppercase tracking-wider">
+                      <span>{completed} / {project.total} complete</span>
+                      <span class="text-slate-400 font-medium">{pct}%</span>
+                    </div>
+                    <div class="h-1.5 bg-white/5 rounded-full overflow-hidden">
+                      <div
+                        class="h-full bg-gradient-to-r from-slate-400 to-slate-300 rounded-full transition-all duration-700"
+                        style={`width: ${pct}%`}
+                      ></div>
+                    </div>
+                    {/* Stats */}
+                    <div class="flex gap-6 mt-3">
+                      {project.totalDistance && (
+                        <span class="text-xs text-slate-600 font-mono">{project.totalDistance.toLocaleString()} km</span>
+                      )}
+                      <span class="text-xs text-slate-600 font-mono">{project.totalElevation.toLocaleString()} m elevation</span>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Expanded Details */}
+                <div class="project-details-wrapper">
+                  <div class="overflow-hidden">
+                    <div class="px-6 md:px-8 pb-8">
+                      <p class="text-slate-400 text-sm leading-relaxed mb-6 font-light">{project.description}</p>
+
+                      {/* Map */}
+                      {project.id === 'lakes' ? (
+                        <img
+                          src="/lakes-map.png"
+                          alt="Swiss lakes cycling route map"
+                          class="w-full rounded-xl mb-6 object-cover"
+                        />
+                      ) : project.id === 'pass' ? (
+                        <img
+                          src="/passes-map.png"
+                          alt="Swiss mountain passes cycling route map"
+                          class="w-full rounded-xl mb-6 object-cover"
+                        />
+                      ) : project.id === 'peaks' ? (
+                        <img
+                          src="/peaks-map.png"
+                          alt="Swiss mountain peaks climbing map"
+                          class="w-full rounded-xl mb-6 object-cover"
+                        />
+                      ) : (
+                        <div class="w-full h-40 rounded-xl bg-white/5 border border-white/5 mb-6 flex items-center justify-center text-slate-600 text-sm italic">
+                          Map coming soon
+                        </div>
+                      )}
+
+                      {/* Checklist */}
+                      <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2">
+                        {project.items.map(item => (
+                          <div class="flex items-center gap-2.5">
+                            {item.done ? (
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-slate-300 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                              </svg>
+                            ) : (
+                              <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-slate-700 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <circle cx="12" cy="12" r="2.5" stroke-width="1.5" />
+                              </svg>
+                            )}
+                            <span class={`text-sm ${item.done ? 'text-slate-300' : 'text-slate-600'}`}>{item.name}</span>
+                            {item.year && <span class="text-[10px] text-slate-600 font-mono ml-auto flex-shrink-0">{item.year}</span>}
+                          </div>
+                        ))}
+                      </div>
+
+                      {/* Others (non-Swiss peaks) */}
+                      {project.others && project.others.length > 0 && (
+                        <div class="mt-6 pt-5 border-t border-white/5">
+                          <p class="text-[10px] uppercase tracking-widest text-slate-600 mb-3">Other summits</p>
+                          <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2">
+                            {project.others.map(item => (
+                              <div class="flex items-center gap-2.5">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-slate-500 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" />
+                                </svg>
+                                <span class="text-sm text-slate-500">{item.name}</span>
+                                <span class="text-[10px] text-slate-700 font-mono ml-auto flex-shrink-0">{item.note} {item.year}</span>
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      );
+    })()}
+  </section>
+
   <!-- Key Results Section -->
+
   <section id="results" class="max-w-4xl mx-auto px-4 mb-24">
     <div class="mb-10 border-b border-white/5 pb-4">
       <h2 class="text-sm font-bold uppercase tracking-[0.2em] text-slate-400">
@@ -396,6 +629,21 @@ const sportLinks = [
     grid-template-rows: 1fr;
     opacity: 1;
   }
+
+  /* Project card expand animation */
+  .project-details-wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    opacity: 0;
+  }
+  .project-card[data-expanded="true"] .project-details-wrapper {
+    grid-template-rows: 1fr;
+    opacity: 1;
+  }
+  .project-card[data-expanded="true"] .chevron-icon {
+    transform: rotate(180deg);
+  }
   
   /* Scrollbar hiding */
   .scrollbar-hide::-webkit-scrollbar {
@@ -425,6 +673,22 @@ const sportLinks = [
 
 <script>
   function initSportPage() {
+    // Setup project cards interactivity
+    const projectCards = document.querySelectorAll('.project-card');
+    projectCards.forEach(card => {
+      if (card.hasAttribute('data-proj-initialized')) return;
+      card.setAttribute('data-proj-initialized', 'true');
+
+      const toggle = () => {
+        const isExpanded = card.getAttribute('data-expanded') === 'true';
+        card.setAttribute('data-expanded', (!isExpanded).toString());
+      };
+      card.addEventListener('click', toggle);
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); toggle(); }
+      });
+    });
+
     // Setup highlight cards interactivity
     const cards = document.querySelectorAll('.highlight-card');
     cards.forEach(card => {

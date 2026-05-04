@@ -20,9 +20,11 @@ const { id, title, icon, iconColorClass, description, open = false, indent = tru
     aria-controls={`${id}-content`}
   >
     <div class="flex items-start gap-0 sm:gap-4">
-      <div class={`w-10 h-10 rounded-xl ${iconColorClass} hidden sm:flex items-center justify-center text-xl shadow-sm shrink-0 mt-1 transition-transform group-hover:scale-110 duration-300`}>
-        <slot name="icon">{icon}</slot>
-      </div>
+      {(Astro.slots.has('icon') || icon) && (
+        <div class={`w-10 h-10 rounded-xl ${iconColorClass} hidden sm:flex items-center justify-center text-xl shadow-sm shrink-0 mt-1 transition-transform group-hover:scale-110 duration-300`}>
+          <slot name="icon">{icon}</slot>
+        </div>
+      )}
       <div class="flex-grow">
         <div class="flex items-center justify-between">
           <h2 class="text-2xl font-bold text-slate-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">

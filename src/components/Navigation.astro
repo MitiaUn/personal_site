@@ -25,11 +25,12 @@ const mainNavItems = [
     ]
   },
   { name: 'Projects', href: `${base}/#projects`, type: 'main' },
-  { name: 'Hobby', href: `${base}/sport`, type: 'main' },
+  { name: 'Endeavors', href: `${base}/sport`, type: 'main' },
 ];
 
 const sportNavItems = [
   { name: 'Highlights', href: `#highlights`, type: 'main' },
+  { name: 'Projects', href: `#projects`, type: 'main' },
   { name: 'Results', href: `#results`, type: 'main' },
   { name: 'CV', href: `${base}/`, type: 'main' },
 ];
@@ -186,6 +187,7 @@ const mobileLabel = isSportPage ? 'Follow Me' : 'Get in Touch';
         {isSportPage ? (
           <>
             <a href="#highlights" class="text-slate-300 hover:text-white transition-colors">Highlights</a>
+            <a href="#projects" class="text-slate-300 hover:text-white transition-colors">Projects</a>
             <a href="#results" class="text-slate-300 hover:text-white transition-colors">Results</a>
             <a href={`${base}/`} class="text-slate-300 hover:text-white transition-colors">CV</a>
           </>
@@ -193,7 +195,7 @@ const mobileLabel = isSportPage ? 'Follow Me' : 'Get in Touch';
           <>
             <a href={`${base}/#experience`} data-action="toggle-cv-mobile" class="text-slate-300 hover:text-white transition-colors">CV</a>
             <a href={`${base}/#projects`} class="text-slate-300 hover:text-white transition-colors">Projects</a>
-            <a href={`${base}/sport`} class="text-slate-300 hover:text-white transition-colors">Hobby</a>
+            <a href={`${base}/sport`} class="text-slate-300 hover:text-white transition-colors">Endeavors</a>
           </>
         )}
         

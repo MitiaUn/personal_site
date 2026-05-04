@@ -29,7 +29,7 @@ const { items, inlineHeader = false, showRoleHint = false } = Astro.props;
           <p class="text-base font-medium text-slate-600 dark:text-slate-400" set:html={item.organization} />
         </>
       )}
-      <p class="mt-2 text-base font-normal text-slate-500 dark:text-slate-400 max-w-2xl" set:html={item.description} />
+      <p class="mt-2 text-base font-normal text-slate-500 dark:text-slate-400" set:html={item.description} />
       {showRoleHint && item.highlights && item.highlights.length > 0 && (
         <p class="role-hint text-xs text-slate-400 dark:text-slate-500 italic mt-1 transition-opacity duration-300">Click on the role to see more details</p>
       )}
