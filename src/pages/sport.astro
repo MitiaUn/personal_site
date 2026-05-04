@@ -8,25 +8,24 @@ const base = rawBase === '/' ? '' : (rawBase.endsWith('/') ? rawBase.slice(0, -1
 const results = [
   { year: "2026", sport: "Triathlon", event: "Challenge The Championship", location: "Slovakia", distance: "113km", time: "-", result: "Coming soon" },
   { year: "2026", sport: "Triathlon", event: "Triathlon Evian", location: "France", distance: "226km 4000m+", time: "-", result: "Coming soon" },
-  { year: "2026", sport: "Run", event: "S25 Berlin", location: "Germany", distance: "25km", time: "1h30'", result: "🥇 1st M30\n4th Overall", link: "https://www.davengo.com/event/result/s-25-berlin-2026/detail/io-mFEvAyv7ycAk7LcqPSpdSxdzmIqRo0imxWxF1rs4" },
+  { year: "2026", sport: "Run", event: "S25 Berlin", location: "Germany", distance: "25km", time: "1h30'", result: "1st M30\n4th Overall", link: "https://www.davengo.com/event/result/s-25-berlin-2026/detail/io-mFEvAyv7ycAk7LcqPSpdSxdzmIqRo0imxWxF1rs4", highlight: "gold" },
   { year: "2026", sport: "Trail Run", event: "UTMB Chianti 50K Trail", location: "Italy", distance: "46km 2000m+", time: "4h02", result: "My first ultra trail \n32nd man",link: "https://live.utmb.world/chianti/2026/runners/3100" },
-  { year: "2026", sport: "XC Ski", event: "Engadin Marathon", location: "Switzerland", distance: "44km", time: "1h16'", result: "🏆 PB Marathon 1h13", link: "https://results.datasport.com/en/race/56-engadin-skimarathon-2026/participant/unuchek-dimitri" },
+  { year: "2026", sport: "XC Ski", event: "Engadin Marathon", location: "Switzerland", distance: "44km", time: "1h16'", result: "PB Marathon 1h13", link: "https://results.datasport.com/en/race/56-engadin-skimarathon-2026/participant/unuchek-dimitri", highlight: "pb" },
   { year: "2026", sport: "XC Ski", event: "La Transjurassienne", location: "France", distance: "50km 1000m+", time: "2h09'", result: "18th M18-34", link: "https://my.raceresult.com/380926/#1_888596" },
   { year: "2025", sport: "XC Ski", event: "Gommerlauf International", location: "Switzerland", distance: "42km", time: "1h45'", result: "13th M30", link: "https://www.datasport.com/live/ranking/?racenr=27704#4_4D907C" },
-  { year: "2025", sport: "Triathlon", event: "Challenge San Remo", location: "Italy", distance: "113km 1500m+", time: "4h33'", result: "🥉 3rd M30-34", link: "https://my.raceresult.com/361042/" },
-  { year: "2025", sport: "Triathlon", event: "Triathlon de Lausanne", location: "Switzerland", distance: "51.5km 400m+", time: "2h17'", result: "🏆 PB Olympic", link: "https://www.datasport.com/live/ranking/?racenr=27506#1_6F4044" },
+  { year: "2025", sport: "Triathlon", event: "Challenge San Remo", location: "Italy", distance: "113km 1500m+", time: "4h33'", result: "3rd M30-34", link: "https://my.raceresult.com/361042/", highlight: "bronze" },
+  { year: "2025", sport: "Triathlon", event: "Triathlon de Lausanne", location: "Switzerland", distance: "51.5km 400m+", time: "2h17'", result: "PB Olympic", link: "https://www.datasport.com/live/ranking/?racenr=27506#1_6F4044", highlight: "pb" },
   { year: "2025", sport: "Skimo", event: "Patrouille des Aiguilles Rouges", location: "Switzerland", distance: "20km 2600m+", time: "5h03'", result: "My first patrouille", link: "https://sptiming.ch/par-25/" },
   { year: "2025", sport: "Skimo", event: "La Trace des Grands", location: "France", distance: "14km 2000m+", time: "3h36'", result: "My first SkiMo race", link: "https://my.raceresult.com/328968/#3_C380B5" },
   { year: "2025", sport: "Trail Run", event: "Défis des Chalets", location: "Switzerland", distance: "24km 1600m+", time: "2h22'", result: "5th Overall", link: "https://www.mso.swiss/events/2324-les-defis-des-chalets-trail-d'agaune/results" },
-  { year: "2025", sport: "Trail Run", event: "XTERRA World Championship", location: "UK", distance: "21km 1200m+", time: "2h06'", result: "🥈 2nd M30-34\n4th Overall", link: "https://rankings.xterraplanet.com/results/d506fea2-b291-4b2f-8299-0c2acd8ed0c8?race=867efd97-4b7d-49e9-9daf-6f35466b0de7&gender=M" },
+  { year: "2025", sport: "Trail Run", event: "XTERRA World Championship", location: "UK", distance: "21km 1200m+", time: "2h06'", result: "2nd M30-34\n4th Overall", link: "https://rankings.xterraplanet.com/results/d506fea2-b291-4b2f-8299-0c2acd8ed0c8?race=867efd97-4b7d-49e9-9daf-6f35466b0de7&gender=M", highlight: "silver" },
 
-  { year: "2024", sport: "Trail Run", event: "XTERRA Vallée de Joux", location: "Switzerland", distance: "22km 800m+", time: "1h49'", result: "🥈 2nd M30-34\n10th Overall", link: "https://rankings.xterraplanet.com/results/6ec8079e-cc1e-42bb-abf2-56e2d5d7d9cc?race=0aed6635-bed6-46a3-9cf6-b32c0b018919" },
-  { year: "2024", sport: "Triathlon", event: "Ironman 70.3 Emilia-Romagna", location: "Italy", distance: "113km", time: "4h18'", result: "🏆 PB 70.3 \n11th M30-34", link: "https://www.ironman.com/races/im703-emilia-romagna/results" },
-  { year: "2024", sport: "Run", event: "Lausanne Half Marathon", location: "Switzerland", distance: "21.1km", time: "1h15'", result: "🏆 PB 21k \n32nd Overall", link: "https://www.datasport.com/live/ranking/?racenr=26110#2_66B6DA" },
+  { year: "2024", sport: "Trail Run", event: "XTERRA Vallée de Joux", location: "Switzerland", distance: "22km 800m+", time: "1h49'", result: "2nd M30-34\n10th Overall", link: "https://rankings.xterraplanet.com/results/6ec8079e-cc1e-42bb-abf2-56e2d5d7d9cc?race=0aed6635-bed6-46a3-9cf6-b32c0b018919", highlight: "silver" },
+  { year: "2024", sport: "Triathlon", event: "Ironman 70.3 Emilia-Romagna", location: "Italy", distance: "113km", time: "4h18'", result: "PB 70.3 \n11th M30-34", link: "https://www.ironman.com/races/im703-emilia-romagna/results", highlight: "pb" },
+  { year: "2024", sport: "Run", event: "Lausanne Half Marathon", location: "Switzerland", distance: "21.1km", time: "1h15'", result: "PB 21k \n32nd Overall", link: "https://www.datasport.com/live/ranking/?racenr=26110#2_66B6DA", highlight: "pb" },
   { year: "2021", sport: "Run", event: "Lausanne Marathon", location: "Switzerland", distance: "42.2km", time: "3h42'", result: "My first marathon" },
   { year: "-", sport: "Alpinism", event: "4000m Summits", location: "Alps & Andes", distance: "Various", time: "-", result: "10+ Summits" },
 ];
-
 
 const highlights = [
   {
@@ -160,242 +159,242 @@ const sportLinks = [
 ---
 
 <Layout title="Sports Journey | Dimitri Unuchek" description="Dimitri Unuchek - Endurance Athlete" ogTitle="Dimitri Unuchek - Endurance Athlete" ogDescription="Triathlon, Trailrunning, Cross-Country Skiing" speedDialLinks={sportLinks} speedDialLabel="Follow Me">
-  <!-- Mobile Profile Header -->
-  <div class="sm:hidden flex flex-row items-center justify-start gap-4 px-4 pt-2 pb-8">
+  
+  <!-- Mobile Profile Header (Visible only on phone) -->
+  <div class="md:hidden flex flex-row items-center justify-center gap-6 pt-8 pb-8">
     <img 
       src={`${base}/pics_sport/main.jpg`} 
       alt="Dimitri Unuchek" 
-      class="w-40 h-40 rounded-full border-2 border-white/20 object-cover shadow-lg flex-shrink-0"
+      class="w-40 h-40 shrink-0 rounded-full border-[1.5px] border-white/20 object-cover shadow-2xl"
     />
-    <div class="text-left min-w-0">
-      <h2 class="text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-orange-500 to-red-500 leading-tight">
+    <div class="flex flex-col items-start gap-0.5">
+      <h2 class="text-2xl font-bold tracking-tight text-slate-100">
         Dimitri Unuchek
       </h2>
-      <p class="text-sm text-slate-400 mt-0.5">Endurance Athlete</p>
-      <p class="text-xs text-slate-500 flex items-center justify-start gap-1 mt-1">
-        <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      <p class="text-lg text-slate-400 font-light">
+        Endurance Athlete
+      </p>
+      <p class="text-base text-slate-500 font-light">
         Lausanne, Switzerland
       </p>
     </div>
   </div>
 
   <!-- Hero Section -->
-  <section id="hero" class="flex items-start pt-0 md:pt-8 justify-center relative overflow-hidden pb-12">
-    <div class="absolute inset-x-0 top-0 bottom-12 bg-gradient-to-br from-orange-500/10 to-red-500/10 -z-10 rounded-3xl"></div>
-    <div class="max-w-4xl mx-auto text-center px-4">
-      <h1 class="hidden sm:block text-3xl md:text-4xl font-bold mb-6 tracking-tight">
-        <span class="sport-gradient">Endurance & Mountains</span>
-      </h1>
-      <div class="text-lg md:text-xl text-slate-600 dark:text-slate-300 mb-8 leading-relaxed max-w-3xl mx-auto space-y-4 font-light">
-        <p>
-          I am an amateur athlete competing in triathlon, trail running, cross-country skiing, ski mountaineering, and alpinism, occasionally finding my way onto the <a href="#highlights" class="text-orange-500 hover:underline transition-colors">podium</a>. Currently, I am expanding my horizons by training for a paragliding license.
+  <section class="max-w-4xl mx-auto px-4 mb-16 pt-4 md:pt-16">
+    <div class="flex flex-row items-stretch gap-6 md:gap-12">
+      
+      <!-- Rotated Title (Visible on both) -->
+      <div class="flex flex-shrink-0 items-center justify-center border-r border-white/10 pr-6 md:pr-8">
+        <h1 class="text-4xl md:text-5xl font-bold tracking-tight text-slate-100 whitespace-nowrap" style="writing-mode: vertical-rl; transform: rotate(180deg);">
+          Endurance<br class="hidden md:block"/><span class="md:hidden"> </span>& Alpinism
+        </h1>
+      </div>
+
+      <!-- Bio Content -->
+      <div class="text-justify flex-1 flex flex-col justify-center">
+        <p class="text-lg text-slate-400 font-light leading-relaxed mb-6">
+          I am an amateur athlete competing in triathlon, trail running, cross-country skiing, ski mountaineering, and alpinism, occasionally finding my way onto the <a href="#highlights" class="text-slate-300 hover:text-white underline decoration-slate-700 underline-offset-4 transition-colors">podium</a>. Currently, I am expanding my horizons by training for a paragliding license.
         </p>
-        <p>
-          Sport allows me to test my limits and push boundaries, while the grit and focus I’ve built through endurance sports are exactly what drive my <a href={`${base}/`} class="text-orange-500 hover:underline transition-colors">professional endeavors</a>. Meticulous planning, strict discipline and the stamina are what push complex project through to the finish line.
+        <p class="text-base text-slate-500 font-light leading-relaxed">
+          Sport allows me to test my limits and push boundaries, while the grit and focus I’ve built through endurance sports are exactly what drive my <a href={`${base}/`} class="text-slate-300 hover:text-white underline decoration-slate-700 underline-offset-4 transition-colors">professional endeavors</a>. Meticulous planning, strict discipline and the stamina are what push complex project through to the finish line.
         </p>
       </div>
     </div>
   </section>
 
-   <!-- Highlights Section (Moved above Results) -->
-   <section id="highlights" class="max-w-4xl mx-auto px-4 mb-16">
-    <div class="mb-10">
-      <h2 class="text-3xl font-bold flex items-center gap-3 mb-2">
-        <span class="w-8 h-8 rounded-lg bg-orange-500/20 flex items-center justify-center">⚡</span>
+  <!-- Highlights Section -->
+  <section id="highlights" class="max-w-4xl mx-auto px-4 mb-24">
+    <div class="mb-10 border-b border-white/5 pb-4">
+      <h2 class="text-sm font-bold uppercase tracking-[0.2em] text-slate-400">
         Highlights
       </h2>
-      <p class="text-slate-500 dark:text-slate-400 text-sm ml-11">
-        Click on cards to see more details, see <a href="#results" class="text-orange-500 hover:underline">extended results below</a>
-      </p>
     </div>
     
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pb-12">
       {highlights.map(item => (
-        <div class="group">
-          <!-- Added tabindex and role for accessibility/interactivity -->
-          <div 
-            class="glass-card h-full flex flex-col overflow-hidden !p-0 transition-all duration-300 hover:-translate-y-1 cursor-pointer highlight-card"
-            tabindex="0"
-          >
-            <!-- Media Carousel -->
-            <div class="aspect-video relative overflow-hidden group/media">
-               <div class="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide h-full media-track">
-                  {item.media.map((media, index) => (
-                    <div class="min-w-full h-full snap-center relative">
-                        {media.type === 'video' ? (
-                            <video 
+        <div class="group border border-white/5 rounded-2xl overflow-hidden bg-white/5 hover:bg-white/[0.07] transition-colors duration-300 highlight-card flex flex-col cursor-pointer" tabindex="0">
+          <!-- Media Carousel -->
+          <div class="aspect-video relative overflow-hidden group/media bg-black shrink-0">
+             <div class="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide h-full media-track pointer-events-none">
+                {item.media.map((media, index) => (
+                  <div class="min-w-full h-full snap-center relative">
+                      {media.type === 'video' ? (
+                          <video 
+                            src={media.src} 
+                            poster={media.poster}
+                            controls 
+                            muted
+                            class="w-full h-full object-cover"
+                            playsinline
+                          />
+                      ) : (
+                           <img 
                               src={media.src} 
-                              poster={media.poster}
-                              controls 
-                              muted
-                              class="w-full h-full object-cover"
-                              playsinline
+                              alt={`${item.title} - ${index + 1}`} 
+                              class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300"
                             />
-                        ) : (
-                             <img 
-                                src={media.src} 
-                                alt={`${item.title} - ${index + 1}`} 
-                                class="w-full h-full object-cover"
-                              />
-                        )}
-                        {/* Overlay gradient only on the first item to make title readable */}
-                        {index === 0 && (
-                             <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent opacity-60 pointer-events-none"></div>
-                        )}
-                    </div>
-                  ))}
-               </div>
-              
-              {/* Year Badge */}
-              <div class="absolute top-4 left-4 bg-orange-500/90 text-white text-xs font-bold px-2 py-1 rounded-md shadow-lg backdrop-blur-sm pointer-events-none z-10">
-                {item.year}
-              </div>
-
-              {/* Title Overlay */}
-              <div class="absolute bottom-4 left-4 pointer-events-none z-10 title-overlay transition-opacity duration-300 w-full pr-8">
-                <h3 class="text-lg font-bold text-white truncate drop-shadow-md">{item.title}</h3>
-              </div>
-              
-              {/* Gallery Navigation Buttons (Visible when expanded & multiple items) */}
-              {item.media.length > 1 && (
-                <>
-                  <button class="nav-btn prev absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/30 text-white/70 hover:bg-black/50 hover:text-white backdrop-blur-sm transition-all opacity-0 pointer-events-none" aria-label="Previous photo">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-                    </svg>
-                  </button>
-                  <button class="nav-btn next absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/30 text-white/70 hover:bg-black/50 hover:text-white backdrop-blur-sm transition-all opacity-0 pointer-events-none" aria-label="Next photo">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                    </svg>
-                  </button>
-                </>
-              )}
-            </div>
-
-            <div class="p-6 flex-1 flex flex-col">
-              
-              {/* Summary (Visible by default) */}
-              <div class="summary-content">
-                  <p class="text-slate-800 dark:text-slate-200 font-medium mb-3">{item.summary}</p>
-              </div>
-
-               {/* Tags (Now always visible) */}
-               <div class="flex flex-wrap gap-2 mb-4">
-                {item.tags.map(tag => (
-                  <span class="text-[9px] uppercase tracking-wider px-1.5 py-0.5 bg-orange-500/10 rounded-md border border-orange-500/20 text-orange-400/80">
-                    {tag}
-                  </span>
-                ))}
-              </div>
-
-              {/* Details (Hidden by default, animated) */}
-              <div class="details-wrapper">
-                <div class="overflow-hidden">
-                  <div class="details-content">
-                      <p class="text-slate-600 dark:text-slate-400 mb-4 text-sm leading-relaxed">{item.description}</p>
-                      
-                      {/* Links */}
-                      {item.links && item.links.length > 0 && (
-                        <div class="flex flex-wrap gap-3 mt-auto pt-4 border-t border-white/5">
-                            {item.links.map(link => (
-                                <a 
-                                    href={link.url} 
-                                    target="_blank" 
-                                    rel="noopener noreferrer" 
-                                    class="text-xs font-semibold uppercase tracking-wider text-orange-500 hover:text-orange-400 flex items-center gap-1 transition-colors z-10 relative"
-                                >
-                                    {link.label}
-                                    <ExternalLinkIcon class="w-3 h-3" />
-                                </a>
-                            ))}
-                        </div>
                       )}
                   </div>
-                </div>
-              </div>
-            </div>
+                ))}
+             </div>
+            
+            {/* Gallery Navigation Buttons */}
+            {item.media.length > 1 && (
+              <>
+                <button class="nav-btn prev absolute left-3 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center rounded-full bg-black/40 text-white/70 hover:bg-black/70 hover:text-white backdrop-blur-sm transition-all opacity-0 pointer-events-none" aria-label="Previous photo">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+                  </svg>
+                </button>
+                <button class="nav-btn next absolute right-3 top-1/2 -translate-y-1/2 w-8 h-8 flex items-center justify-center rounded-full bg-black/40 text-white/70 hover:bg-black/70 hover:text-white backdrop-blur-sm transition-all opacity-0 pointer-events-none" aria-label="Next photo">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                  </svg>
+                </button>
+              </>
+            )}
+          </div>
+
+          <div class="p-6 md:p-8 flex flex-col flex-1">
+             <div class="flex justify-between items-start gap-4 mb-2">
+                 <h3 class="text-xl font-semibold text-slate-100 tracking-tight">{item.title}</h3>
+                 {/* Expand icon indicator */}
+                 <div class="text-slate-500 transition-transform duration-300 group-data-[expanded=true]:rotate-180 flex-shrink-0">
+                     <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                     </svg>
+                 </div>
+             </div>
+             
+             {/* Tags & Year (Visible in both states) */}
+             <div class="flex flex-wrap items-center gap-2 mb-4 text-[10px] uppercase tracking-wider text-slate-400 font-mono">
+                 <span class="text-slate-300 font-medium">{item.year}</span>
+                 {item.tags.map(tag => (
+                     <>
+                        <span class="opacity-50">•</span>
+                        <span>{tag}</span>
+                     </>
+                 ))}
+             </div>
+             
+             {/* Summary (Visible when folded, hidden when unfolded) */}
+             <div class="summary-wrapper">
+                 <div class="overflow-hidden">
+                     <p class="text-slate-300 font-medium text-sm pb-1">{item.summary}</p>
+                 </div>
+             </div>
+
+             {/* Details (Hidden when folded, visible when unfolded) */}
+             <div class="details-wrapper">
+                 <div class="overflow-hidden">
+                     <div class="details-content pt-2">
+                         <p class="text-slate-400 text-sm leading-relaxed mb-6 font-light">{item.description}</p>
+                         
+                         {item.links && item.links.length > 0 && (
+                           <div class="flex flex-wrap gap-6 pt-4 border-t border-white/5">
+                               {item.links.map(link => (
+                                   <a 
+                                       href={link.url} 
+                                       target="_blank" 
+                                       rel="noopener noreferrer" 
+                                       class="text-xs uppercase tracking-widest text-slate-300 hover:text-white transition-colors flex items-center gap-1 group/link relative z-10 whitespace-nowrap"
+                                   >
+                                       {link.label}
+                                       <ExternalLinkIcon class="w-3 h-3 opacity-50 group-hover/link:opacity-100 transition-opacity" />
+                                   </a>
+                               ))}
+                           </div>
+                         )}
+                     </div>
+                 </div>
+             </div>
           </div>
         </div>
       ))}
     </div>
   </section>
 
-  <!-- Key Results Section (Renamed from Results) -->
+  <!-- Key Results Section -->
   <section id="results" class="max-w-4xl mx-auto px-4 mb-24">
-    <h2 class="text-3xl font-bold mb-10 flex items-center gap-3">
-      <span class="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center">🏆</span>
-      Key Results
-    </h2>
-    <div class="glass overflow-hidden rounded-2xl shadow-xl">
-      <div class="overflow-x-auto">
-        <table class="w-full text-left text-sm">
-          <thead class="bg-white/5 border-b border-white/10 uppercase tracking-wider text-slate-500 text-xs">
-            <tr>
-              <th class="px-4 py-3 font-semibold">Year</th>
-              <th class="px-4 py-3 font-semibold">Sport</th>
-              <th class="px-4 py-3 font-semibold">Event</th>
-              <th class="px-4 py-3 font-semibold hidden md:table-cell">Location</th>
-              <th class="px-4 py-3 font-semibold">Distance</th>
-              <th class="px-4 py-3 font-semibold">Time</th>
-              <th class="px-4 py-3 font-semibold">Result</th>
+    <div class="mb-10 border-b border-white/5 pb-4">
+      <h2 class="text-sm font-bold uppercase tracking-[0.2em] text-slate-400">
+        Key Results
+      </h2>
+    </div>
+    
+    <div class="overflow-x-auto">
+      <table class="w-full text-left text-sm">
+        <thead class="border-b border-white/10 uppercase tracking-wider text-slate-500 text-xs font-light">
+          <tr>
+            <th class="px-2 py-3 font-normal">Year</th>
+            <th class="px-4 py-3 font-normal">Sport</th>
+            <th class="px-4 py-3 font-normal">Event</th>
+            <th class="px-4 py-3 font-normal hidden md:table-cell">Location</th>
+            <th class="px-4 py-3 font-normal">Distance</th>
+            <th class="px-4 py-3 font-normal">Time</th>
+            <th class="px-4 py-3 font-normal">Result</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-white/5 text-slate-300 font-light">
+          {results.map(row => (
+            <tr class="transition-colors hover:bg-white/[0.02]">
+              <td class="px-2 py-4 text-slate-500 font-mono text-xs align-top">{row.year}</td>
+              <td class="px-4 py-4 text-slate-300 align-top">{row.sport}</td>
+              <td class="px-4 py-4 text-slate-100 font-medium align-top">{row.event}</td>
+              <td class="px-4 py-4 text-slate-500 hidden md:table-cell text-xs align-top">{row.location}</td>
+              <td class="px-4 py-4 text-slate-400 whitespace-nowrap text-xs align-top">{row.distance}</td>
+              <td class="px-4 py-4 font-mono text-slate-300 align-top">
+                {row.link ? (
+                  <a href={row.link} target="_blank" rel="noopener noreferrer" class="hover:text-white transition-colors underline decoration-slate-700 underline-offset-4 flex items-center gap-1 w-fit group/link">
+                    {row.time}
+                    <ExternalLinkIcon class="w-3 h-3 opacity-50 group-hover/link:opacity-100 transition-opacity" />
+                  </a>
+                ) : (
+                  row.time
+                )}
+              </td>
+              <td class="px-4 py-4 text-slate-400 text-xs whitespace-pre-line align-top">
+                <div class="flex items-start gap-2">
+                  {row.highlight === 'gold' && <div class="w-1.5 h-1.5 rounded-full bg-yellow-500 mt-1 flex-shrink-0 shadow-[0_0_8px_rgba(234,179,8,0.5)]"></div>}
+                  {row.highlight === 'silver' && <div class="w-1.5 h-1.5 rounded-full bg-slate-300 mt-1 flex-shrink-0 shadow-[0_0_8px_rgba(203,213,225,0.5)]"></div>}
+                  {row.highlight === 'bronze' && <div class="w-1.5 h-1.5 rounded-full bg-orange-600 mt-1 flex-shrink-0 shadow-[0_0_8px_rgba(234,88,12,0.5)]"></div>}
+                  {row.highlight === 'pb' && <div class="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-1 flex-shrink-0 shadow-[0_0_8px_rgba(129,140,248,0.5)]"></div>}
+                  {!row.highlight && <div class="w-1.5 h-1.5 mt-1 flex-shrink-0"></div>}
+                  <span>{row.result}</span>
+                </div>
+              </td>
             </tr>
-          </thead>
-          <tbody class="divide-y divide-white/5 text-slate-300">
-            {results.map(row => (
-              <tr class="hover:bg-white/5 transition-colors">
-                <td class="px-4 py-3 text-slate-400 font-mono text-xs">{row.year}</td>
-                <td class="px-4 py-3 font-medium text-orange-400">{row.sport}</td>
-                <td class="px-4 py-3 text-slate-200">{row.event}</td>
-                <td class="px-4 py-3 text-slate-500 hidden md:table-cell text-xs">{row.location}</td>
-                <td class="px-4 py-3 text-slate-400 whitespace-nowrap text-xs">{row.distance}</td>
-                <td class="px-4 py-3 font-mono font-bold text-orange-200">
-                  {row.link ? (
-                    <a href={row.link} target="_blank" rel="noopener noreferrer" class="hover:text-orange-400 transition-colors border-b border-transparent hover:border-orange-400/50 flex items-center gap-1 w-fit group/link">
-                      {row.time}
-                      <ExternalLinkIcon class="w-3 h-3 opacity-50 group-hover/link:opacity-100 transition-opacity" />
-                    </a>
-                  ) : (
-                    row.time
-                  )}
-                </td>
-                <td class="px-4 py-3 text-slate-400 text-xs whitespace-pre-line">{row.result}</td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+          ))}
+        </tbody>
+      </table>
     </div>
   </section>
 </Layout>
 
-<style is:global>
-  /* Sporty background override for the sport page */
-  body.sport-page {
-    background-image:
-      radial-gradient(at 0% 0%, hsla(20, 16%, 7%, 1) 0, transparent 50%),
-      radial-gradient(at 50% 0%, hsla(25, 60%, 20%, 1) 0, transparent 50%),
-      radial-gradient(at 100% 0%, hsla(15, 70%, 18%, 1) 0, transparent 50%);
-  }
-</style>
-
 <style>
-  .sport-gradient {
-    background: linear-gradient(135deg, #f97316, #ef4444);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+  /* Smooth expansion animations */
+  .summary-wrapper {
+    display: grid;
+    grid-template-rows: 1fr;
+    transition: grid-template-rows 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    opacity: 1;
+  }
+  .highlight-card[data-expanded="true"] .summary-wrapper {
+    grid-template-rows: 0fr;
+    opacity: 0;
   }
 
-  /* Smooth expansion animation */
   .details-wrapper {
     display: grid;
     grid-template-rows: 0fr;
-    transition: grid-template-rows 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: grid-template-rows 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+    opacity: 0;
   }
 
   .highlight-card[data-expanded="true"] .details-wrapper {
     grid-template-rows: 1fr;
+    opacity: 1;
   }
   
   /* Scrollbar hiding */
@@ -407,7 +406,7 @@ const sportLinks = [
       -ms-overflow-style: none;
       scrollbar-width: none;
   }
-  
+
   /* Media track behavior */
   .media-track {
       pointer-events: none; /* Disable scrolling when collapsed */
@@ -422,21 +421,10 @@ const sportLinks = [
       opacity: 1;
       pointer-events: auto;
   }
-
-  /* Override hover effect to match hero gradient */
-  .highlight-card:hover {
-      background-image: linear-gradient(to bottom right, rgba(249, 115, 22, 0.15), rgba(239, 68, 68, 0.15));
-      border-color: rgba(249, 115, 22, 0.3);
-      background-color: rgba(0, 0, 0, 0.6); /* Slightly darker base for better contrast */
-  }
-  
-  /* Hide Title Overlay when scrolling? Or just keep it. */
 </style>
 
 <script>
   function initSportPage() {
-    document.body.classList.add('sport-page');
-    
     // Setup highlight cards interactivity
     const cards = document.querySelectorAll('.highlight-card');
     cards.forEach(card => {
@@ -453,7 +441,8 @@ const sportLinks = [
             const scrollAmount = () => card.clientWidth; // Scroll one width
 
             prevBtn.addEventListener('click', (e) => {
-                e.stopPropagation(); // Prevent card toggle
+                e.preventDefault();
+                e.stopPropagation();
                 
                 // Infinite Loop Logic: Left
                 if (mediaTrack.scrollLeft <= 5) {
@@ -464,10 +453,10 @@ const sportLinks = [
             });
 
             nextBtn.addEventListener('click', (e) => {
-                e.stopPropagation(); // Prevent card toggle
+                e.preventDefault();
+                e.stopPropagation();
 
                 // Infinite Loop Logic: Right
-                // Check if we are close to the end (allow 5px buffer)
                 const maxScroll = mediaTrack.scrollWidth - mediaTrack.clientWidth;
                 if (mediaTrack.scrollLeft >= maxScroll - 5) {
                      mediaTrack.scrollTo({ left: 0, behavior: 'smooth' });
@@ -502,23 +491,14 @@ const sportLinks = [
     });
   }
 
-  function cleanupSportPage() {
-    document.body.classList.remove('sport-page');
-  }
-
   // Apply on load
   initSportPage();
 
   // Re-apply after view transitions
   document.addEventListener('astro:page-load', () => {
-    // Check if we're on the sport page
     if (window.location.pathname.includes('/sport')) {
       initSportPage();
-    } else {
-      cleanupSportPage();
     }
   });
-
-  // Clean up before navigating away
-  document.addEventListener('astro:before-swap', cleanupSportPage);
 </script>
+
