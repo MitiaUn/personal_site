@@ -8,6 +8,7 @@ const base = rawBase === '/' ? '' : (rawBase.endsWith('/') ? rawBase.slice(0, -1
 const results = [
   { year: "2026", sport: "Triathlon", event: "Challenge The Championship", location: "Slovakia", distance: "113km", time: "-", result: "Coming soon" },
   { year: "2026", sport: "Triathlon", event: "Triathlon Evian", location: "France", distance: "226km 4000m+", time: "-", result: "Coming soon" },
+  { year: "2026", sport: "Run", event: "S25 Berlin", location: "Germany", distance: "25km", time: "1h30'", result: "🥇 1st M30\n4th Overall", link: "https://www.davengo.com/event/result/s-25-berlin-2026/detail/io-mFEvAyv7ycAk7LcqPSpdSxdzmIqRo0imxWxF1rs4" },
   { year: "2026", sport: "Trail Run", event: "UTMB Chianti 50K Trail", location: "Italy", distance: "46km 2000m+", time: "4h02", result: "My first ultra trail \n32nd man",link: "https://live.utmb.world/chianti/2026/runners/3100" },
   { year: "2026", sport: "XC Ski", event: "Engadin Marathon", location: "Switzerland", distance: "44km", time: "1h16'", result: "🏆 PB Marathon 1h13", link: "https://results.datasport.com/en/race/56-engadin-skimarathon-2026/participant/unuchek-dimitri" },
   { year: "2026", sport: "XC Ski", event: "La Transjurassienne", location: "France", distance: "50km 1000m+", time: "2h09'", result: "18th M18-34", link: "https://my.raceresult.com/380926/#1_888596" },
@@ -28,6 +29,22 @@ const results = [
 
 
 const highlights = [
+  {
+    title: "S25 Berlin 25km",
+    year: "2026",
+    summary: "Age group win and 4th overall.",
+    description: "S25 Berlin 25km run, a huge event with thousands of participants. I secured 4th place overall and 1st in the M30 age group with a time of 01:30:10, missing the overall podium by just 1 minute and 1 place.",
+    media: [
+        { type: 'image', src: `${base}/pics_sport/2026%20Berlin%20S25/s-25-2026-1%20(1).jpg` },
+        { type: 'image', src: `${base}/pics_sport/2026%20Berlin%20S25/136%20(1).jpg` },
+        { type: 'image', src: `${base}/pics_sport/2026%20Berlin%20S25/137.jpg` },
+        { type: 'image', src: `${base}/pics_sport/2026%20Berlin%20S25/025.jpg` }
+    ],
+    tags: ["Run", "Age Group Win"],
+    links: [
+        { label: "Results", url: "https://www.davengo.com/event/result/s-25-berlin-2026/detail/io-mFEvAyv7ycAk7LcqPSpdSxdzmIqRo0imxWxF1rs4" }
+    ]
+  },
   {
     title: "Challenge San Remo",
     year: "2025",
