@@ -176,9 +176,7 @@ const mobileLabel = isSportPage ? 'Follow Me' : 'Get in Touch';
 <!-- Mobile Bottom Navigation -->
 <nav id="mobile-bottom-nav" class="sm:hidden fixed bottom-0 left-0 w-full glass z-50 px-4 py-3 flex justify-between items-center shadow-[0_-4px_20px_rgba(0,0,0,0.3)] border-t border-white/10" style="transition: transform 0.3s ease;">
     <!-- DU Logo -->
-    <a href={`${base}/`} class={`font-bold text-xl truncate mr-2 ${
-      isSportPage ? 'text-white' : 'bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600'
-    }`} data-action="collapse-all">
+    <a href={`${base}/`} class="font-bold text-xl truncate mr-2 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-purple-600" data-action="collapse-all">
         DU
     </a>
 
@@ -189,7 +187,6 @@ const mobileLabel = isSportPage ? 'Follow Me' : 'Get in Touch';
             <a href="#highlights" class="text-slate-300 hover:text-white transition-colors">Highlights</a>
             <a href="#projects" class="text-slate-300 hover:text-white transition-colors">Projects</a>
             <a href="#results" class="text-slate-300 hover:text-white transition-colors">Results</a>
-            <a href={`${base}/`} class="text-slate-300 hover:text-white transition-colors">CV</a>
           </>
         ) : (
           <>

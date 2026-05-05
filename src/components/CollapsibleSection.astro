@@ -10,7 +10,7 @@ interface Props {
   hintText?: string;
 }
 
-const { id, title, icon, iconColorClass, description, open = false, indent = true, hintText } = Astro.props;
+const { id, title, icon, iconColorClass, description, open = false, indent = false, hintText } = Astro.props;
 ---
 
 <div class="collapsible-section rounded-2xl p-3 sm:p-6 transition-[border-color,box-shadow] duration-300 hover:shadow-lg border border-transparent hover:border-blue-500/10" id={id}>
@@ -52,10 +52,10 @@ const { id, title, icon, iconColorClass, description, open = false, indent = tru
   
   <div 
     id={`${id}-content`}
-    class={`grid transition-[grid-template-rows] duration-500 ease-in-out mt-4 ${open ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}
+    class={`grid transition-[grid-template-rows] duration-500 ease-in-out ${open ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}
   >
     <div class="overflow-hidden px-3 -mx-3">
-      <div class={`pb-6 ${indent ? 'pl-0 sm:pl-[3.5rem]' : 'pl-0'}`}>
+      <div class={`pt-4 pb-6 ${indent ? 'pl-0 sm:pl-[3.5rem]' : 'pl-0'}`}>
         <slot />
       </div>
     </div>

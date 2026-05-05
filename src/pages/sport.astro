@@ -328,7 +328,7 @@ const sportLinks = [
         {
           id: "lakes",
           title: "Project Lakes",
-          description: "Cycle around the 23 largest Swiss lakes — a rolling tour through every major body of water in the country, from Lac Léman to the Alpine reservoirs.",
+          description: "The project is about cycling around the 23 largest <a href='https://en.wikipedia.org/wiki/List_of_lakes_of_Switzerland' target='_blank' class='text-slate-300 hover:text-white underline decoration-slate-600 underline-offset-4 transition-colors'>Swiss lakes</a>. Why 23? Because Livigno lake, which is the 24th, is simply not cyclable. Follow my rolling tour through every major body of water in the country, from Lac Léman to the Alpine reservoirs.",
           total: 23,
           totalDistance: 1719,
           totalElevation: 15195,
@@ -361,7 +361,7 @@ const sportLinks = [
         {
           id: "pass",
           title: "Project Pass",
-          description: "Cycle over all Swiss mountain passes above 1200m — conquering the iconic and the hidden, from the Grimsel to the Bernina and beyond.",
+          description: "This project brings my bike and me up to the Alps: cycling over all <a href='https://en.wikipedia.org/wiki/List_of_mountain_passes_in_Switzerland' target='_blank' class='text-slate-300 hover:text-white underline decoration-slate-600 underline-offset-4 transition-colors'>Swiss mountain passes</a> above 1200m. Follow along as I conquer both the iconic and the hidden climbs, from the Grimsel to the Bernina and beyond.",
           total: 69,
           totalDistance: null,
           totalElevation: 15244,
@@ -398,7 +398,7 @@ const sportLinks = [
         {
           id: "peaks",
           title: "Project Peaks",
-          description: "Summit all Swiss 4000m peaks — the 48 highest mountains in Switzerland. A long-term alpinism journey across glaciers, ridges, and couloirs.",
+          description: "This project brings me even higher, to the summit of the tallest mountains in Switzerland. The goal is to summit all <a href='https://www.myswitzerland.com/en-ch/destinations/nature/mountains/mountains-4000-peak-search/' target='_blank' class='text-slate-300 hover:text-white underline decoration-slate-600 underline-offset-4 transition-colors'>48 Swiss 4000m peaks</a> officially recognized by Swiss tourism. Follow my long-term alpinism journey across glaciers, ridges, and couloirs.",
           total: 48,
           totalDistance: null,
           totalElevation: 8200,
@@ -436,8 +436,11 @@ const sportLinks = [
               >
                 {/* Folded Header */}
                 <div class="p-6 md:p-8">
-                  <div class="flex justify-between items-start gap-4 mb-1">
-                    <h3 class="text-xl font-semibold text-slate-100 tracking-tight">{project.title}</h3>
+                  <div class="flex justify-between items-start gap-4 mb-4">
+                    <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
+                      <h3 class="text-xl font-semibold text-slate-100 tracking-tight">{project.title}</h3>
+                      <span class="text-xs font-mono text-slate-500 uppercase tracking-wider sm:mt-1">{completed} / {project.total} complete</span>
+                    </div>
                     <div class="text-slate-500 transition-transform duration-300 chevron-icon flex-shrink-0 mt-1">
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -446,11 +449,7 @@ const sportLinks = [
                   </div>
 
                   {/* Progress bar (always visible) */}
-                  <div class="mt-4">
-                    <div class="flex justify-between items-center mb-2 text-xs font-mono text-slate-500 uppercase tracking-wider">
-                      <span>{completed} / {project.total} complete</span>
-                      <span class="text-slate-400 font-medium">{pct}%</span>
-                    </div>
+                  <div>
                     <div class="h-1.5 bg-white/5 rounded-full overflow-hidden">
                       <div
                         class="h-full bg-gradient-to-r from-slate-400 to-slate-300 rounded-full transition-all duration-700"
@@ -458,11 +457,15 @@ const sportLinks = [
                       ></div>
                     </div>
                     {/* Stats */}
-                    <div class="flex gap-6 mt-3">
-                      {project.totalDistance && (
-                        <span class="text-xs text-slate-600 font-mono">{project.totalDistance.toLocaleString()} km</span>
-                      )}
-                      <span class="text-xs text-slate-600 font-mono">{project.totalElevation.toLocaleString()} m elevation</span>
+                    <div class="flex justify-between items-start gap-4 mt-3">
+                      <div>
+                        {project.totalDistance ? (
+                          <span class="text-xs text-slate-600 font-mono">Already covered {project.totalDistance.toLocaleString()} km with {project.totalElevation.toLocaleString()} m elevation</span>
+                        ) : (
+                          <span class="text-xs text-slate-600 font-mono">Already gained {project.totalElevation.toLocaleString()} m elevation</span>
+                        )}
+                      </div>
+                      <span class="text-xs text-slate-500 font-mono">{pct}%</span>
                     </div>
                   </div>
                 </div>
@@ -471,7 +474,7 @@ const sportLinks = [
                 <div class="project-details-wrapper">
                   <div class="overflow-hidden">
                     <div class="px-6 md:px-8 pb-8">
-                      <p class="text-slate-400 text-sm leading-relaxed mb-6 font-light">{project.description}</p>
+                      <p class="text-slate-400 text-sm leading-relaxed mb-6 font-light" set:html={project.description}></p>
 
                       {/* Map */}
                       {project.id === 'lakes' ? (

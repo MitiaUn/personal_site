@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://unuchek.com/sitemap-index.xml
