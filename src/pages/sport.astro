@@ -330,8 +330,8 @@ const sportLinks = [
           title: "Project Lakes",
           description: "The project is about cycling around the 23 largest <a href='https://en.wikipedia.org/wiki/List_of_lakes_of_Switzerland' target='_blank' class='text-slate-300 hover:text-white underline decoration-slate-600 underline-offset-4 transition-colors'>Swiss lakes</a>. Why 23? Because Livigno lake, which is the 24th, is simply not cyclable. Follow my rolling tour through every major body of water in the country, from Lac Léman to the Alpine reservoirs.",
           total: 23,
-          totalDistance: 1719,
-          totalElevation: 15195,
+          totalDistance: 2749,
+          totalElevation: 23269,
           notionUrl: "https://www.notion.so/f4035ac3cd1e4dda815055ddf79352c8",
           items: [
             { name: "Lac Léman", done: true, year: "2023" },
@@ -357,6 +357,20 @@ const sportLinks = [
             { name: "Bodensee", done: false, year: "" },
           ],
           others: null,
+          photos: [
+            "20240413_141054.jpg",
+            "20240616_143112.jpg",
+            "20250718_213130.jpg",
+            "20250906_130635.jpg",
+            "20250906_144134.jpg",
+            "20250906_153751.jpg",
+            "20250908_165722.jpg",
+            "20250914_095734.jpg",
+            "PXL_20220522_103327363.jpg",
+            "PXL_20230611_113509528.jpg",
+            "PXL_20230813_114120334.jpg",
+            "PXL_20230902_130700221.jpg",
+          ],
         },
         {
           id: "pass",
@@ -364,7 +378,7 @@ const sportLinks = [
           description: "This project brings my bike and me up to the Alps: cycling over all <a href='https://en.wikipedia.org/wiki/List_of_mountain_passes_in_Switzerland' target='_blank' class='text-slate-300 hover:text-white underline decoration-slate-600 underline-offset-4 transition-colors'>Swiss mountain passes</a> above 1200m. Follow along as I conquer both the iconic and the hidden climbs, from the Grimsel to the Bernina and beyond.",
           total: 69,
           totalDistance: null,
-          totalElevation: 15244,
+          totalElevation: 25259,
           notionUrl: "https://www.notion.so/25c6907e18eb807c8764c17f145d2794",
           items: [
             { name: "Mollendruz E", done: true, year: "2020" },
@@ -394,6 +408,40 @@ const sportLinks = [
             { name: "Nufen E", done: false, year: "" },
           ],
           others: null,
+          photos: [
+            "20250426_163624.jpg",
+            "20250516_195211.jpg",
+            "20250628_155856.jpg",
+            "20250629_103605 (1).jpg",
+            "20250629_105345.jpg",
+            "20250629_131027.jpg",
+            "20250903_133719.jpg",
+            "20250903_142403(0).jpg",
+            "20250903_143313.jpg",
+            "20250903_145641.jpg",
+            "20250903_182454.jpg",
+            "20250903_192307.jpg",
+            "20250906_131451.jpg",
+            "20250908_145011.jpg",
+            "20250911_160613.jpg",
+            "20250912_143848.jpg",
+            "20250912_162315.jpg",
+            "20250912_164825.jpg",
+            "20250914_094016.jpg",
+            "20250914_094538.jpg",
+            "20250914_122415.jpg",
+            "20250914_122912.jpg",
+            "20250914_123307.jpg",
+            "20250919_130725.jpg",
+            "20250927_123220.jpg",
+            "IMG_20191110_122859.jpg",
+            "IMG_20200713_125819-01.jpeg",
+            "IMG_20200713_130159.jpg",
+            "PXL_20201009_133202895.jpg",
+            "PXL_20201009_133555487.jpg",
+            "PXL_20220611_120356646.jpg",
+            "PXL_20220711_175323821.jpg",
+          ],
         },
         {
           id: "peaks",
@@ -401,7 +449,7 @@ const sportLinks = [
           description: "This project brings me even higher, to the summit of the tallest mountains in Switzerland. The goal is to summit all <a href='https://www.myswitzerland.com/en-ch/destinations/nature/mountains/mountains-4000-peak-search/' target='_blank' class='text-slate-300 hover:text-white underline decoration-slate-600 underline-offset-4 transition-colors'>48 Swiss 4000m peaks</a> officially recognized by Swiss tourism. Follow my long-term alpinism journey across glaciers, ridges, and couloirs.",
           total: 48,
           totalDistance: null,
-          totalElevation: 8200,
+          totalElevation: 13600,
           notionUrl: "https://www.notion.so/1586907e18eb803db70bd8b918a84d19",
           items: [
             { name: "Matterhorn (4478m)", done: true, year: "2024" },
@@ -418,6 +466,27 @@ const sportLinks = [
             { name: "Mont Blanc (4806m)", done: true, year: "2026", note: "France" },
             { name: "Mont Blanc du Tacul (4248m)", done: true, year: "2026", note: "France" },
             { name: "Huayna Potosi (6088m)", done: true, year: "2017", note: "Bolivia" },
+          ],
+          photos: [
+            "20210904_155854.jpg",
+            "20240811_070847.jpg",
+            "20240901_110726.jpg",
+            "20240902_074808.jpg",
+            "20250309_111705.jpg",
+            "20260425_064544.jpg",
+            "20260426_055838.jpg",
+            "20260426_063636.jpg",
+            "20260426_082630.jpg",
+            "20260426_092633.jpg",
+            "400083900178_327077.jpg",
+            "image00018.jpeg",
+            "IMG_4741.JPG",
+            "PXL_20210904_112906877.jpg",
+            "PXL_20210904_114053565.jpg",
+            "PXL_20220724_070321863.jpg",
+            "PXL_20220903_080230047.jpg",
+            "PXL_20220903_083236607.jpg",
+            "PXL_20230820_065648542.jpg",
           ],
         },
       ];
@@ -476,30 +545,109 @@ const sportLinks = [
                     <div class="px-6 md:px-8 pb-8">
                       <p class="text-slate-400 text-sm leading-relaxed mb-6 font-light" set:html={project.description}></p>
 
-                      {/* Map */}
-                      {project.id === 'lakes' ? (
-                        <img
-                          src="/lakes-map.png"
-                          alt="Swiss lakes cycling route map"
-                          class="w-full rounded-xl mb-6 object-cover"
-                        />
-                      ) : project.id === 'pass' ? (
-                        <img
-                          src="/passes-map.png"
-                          alt="Swiss mountain passes cycling route map"
-                          class="w-full rounded-xl mb-6 object-cover"
-                        />
-                      ) : project.id === 'peaks' ? (
-                        <img
-                          src="/peaks-map.png"
-                          alt="Swiss mountain peaks climbing map"
-                          class="w-full rounded-xl mb-6 object-cover"
-                        />
-                      ) : (
-                        <div class="w-full h-40 rounded-xl bg-white/5 border border-white/5 mb-6 flex items-center justify-center text-slate-600 text-sm italic">
-                          Map coming soon
-                        </div>
-                      )}
+                      {/* Paginated gallery: map → photo grids of 9 */}
+                      {(() => {
+                        const mapSrc = project.id === 'lakes' ? '/lakes-map.png'
+                          : project.id === 'pass' ? '/passes-map.png'
+                          : project.id === 'peaks' ? '/peaks-map.png'
+                          : null;
+                        const photoFolder = project.id === 'lakes' ? '/lakes/'
+                          : project.id === 'pass' ? '/pass/'
+                          : '/peaks/';
+                        const photos = (project.photos || []).map(f => photoFolder + f);
+                        const perPage = 6;
+                        const photoPages: string[][] = [];
+                        for (let i = 0; i < photos.length; i += perPage) {
+                          photoPages.push(photos.slice(i, i + perPage));
+                        }
+                        const totalPages = 1 + photoPages.length; // map + photo pages
+                        const galleryId = `gallery-${project.id}`;
+                        return (
+                          <div class="relative mb-6" id={galleryId} data-photos={JSON.stringify(photos)}>
+                            {/* All pages stacked, JS toggles visibility */}
+                            <div class="gallery-pages">
+                              {/* Page 0: Map */}
+                              <div class="gallery-page" data-page="0">
+                                {mapSrc && (
+                                  <img
+                                    src={mapSrc}
+                                    alt={`${project.title} map`}
+                                    class="w-full rounded-xl object-contain"
+                                  />
+                                )}
+                              </div>
+                              {/* Pages 1+: Photo grids */}
+                              {photoPages.map((page, pageIdx) => (
+                                <div class="gallery-page hidden" data-page={String(pageIdx + 1)}>
+                                  <div class="grid grid-cols-3 gap-2">
+                                    {page.map((src, idx) => {
+                                      const globalIdx = pageIdx * perPage + idx;
+                                      return (
+                                        <button
+                                          class="block overflow-hidden rounded-lg focus:outline-none gallery-photo-btn"
+                                          data-src={src}
+                                          data-global-idx={String(globalIdx)}
+                                          type="button"
+                                        >
+                                          <img
+                                            src={src}
+                                            alt={`${project.title} photo ${globalIdx + 1}`}
+                                            class="w-full aspect-square object-cover hover:scale-105 transition-transform duration-300 cursor-pointer"
+                                            loading="lazy"
+                                          />
+                                        </button>
+                                      );
+                                    })}
+                                  </div>
+                                </div>
+                              ))}
+                            </div>
+
+                            {/* Navigation arrows */}
+                            {totalPages > 1 && (
+                              <>
+                                <button
+                                  class="gallery-prev absolute left-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-all z-10"
+                                  aria-label="Previous"
+                                >
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
+                                  </svg>
+                                </button>
+                                <button
+                                  class="gallery-next absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-full bg-black/50 text-white hover:bg-black/70 transition-all z-10"
+                                  aria-label="Next"
+                                >
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+                                  </svg>
+                                </button>
+                              </>
+                            )}
+
+                            {/* Page counter */}
+                            <div class="gallery-counter text-center mt-2 text-xs text-slate-500 font-mono">
+                              1 / {totalPages}
+                            </div>
+
+                            {/* Lightbox */}
+                            {photos.length > 0 && (
+                              <div class="gallery-lightbox fixed inset-0 z-50 bg-black/90 items-center justify-center" style="display:none;" data-index="0">
+                                <button class="absolute top-4 right-4 text-white/70 hover:text-white p-2 z-20 lightbox-close" aria-label="Close">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" /></svg>
+                                </button>
+                                <button class="lightbox-prev absolute left-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 text-white/70 hover:bg-white/20 hover:text-white z-20" aria-label="Previous">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" /></svg>
+                                </button>
+                                <button class="lightbox-next absolute right-4 top-1/2 -translate-y-1/2 p-3 rounded-full bg-white/10 text-white/70 hover:bg-white/20 hover:text-white z-20" aria-label="Next">
+                                  <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" /></svg>
+                                </button>
+                                <img class="lightbox-img max-w-[90vw] max-h-[85vh] object-contain rounded-xl" src="" alt="Enlarged photo" />
+                              </div>
+                            )}
+                          </div>
+                        );
+                      })()}
 
                       {/* Checklist */}
                       <div class="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-2">
@@ -766,6 +914,82 @@ const sportLinks = [
     if (window.location.pathname.includes('/sport')) {
       initSportPage();
     }
+  });
+
+  // ---- Paginated Gallery + Lightbox ----
+  function initGalleries() {
+    document.querySelectorAll('[id^="gallery-"]').forEach((gallery) => {
+      const el = gallery as HTMLElement;
+      const pages = el.querySelectorAll('.gallery-page');
+      const counter = el.querySelector('.gallery-counter');
+      const photos: string[] = JSON.parse(el.dataset.photos || '[]');
+      const lightbox = el.querySelector('.gallery-lightbox') as HTMLElement | null;
+      const lbImg = lightbox?.querySelector('.lightbox-img') as HTMLImageElement | null;
+      const totalPages = pages.length;
+      let currentPage = 0;
+
+      function showPage(idx: number) {
+        currentPage = ((idx % totalPages) + totalPages) % totalPages;
+        pages.forEach((p, i) => {
+          (p as HTMLElement).classList.toggle('hidden', i !== currentPage);
+        });
+        if (counter) counter.textContent = `${currentPage + 1} / ${totalPages}`;
+      }
+
+      el.querySelector('.gallery-prev')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showPage(currentPage - 1);
+      });
+      el.querySelector('.gallery-next')?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        showPage(currentPage + 1);
+      });
+
+      // Photo click → lightbox
+      el.querySelectorAll('.gallery-photo-btn').forEach((btn) => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation();
+          if (!lightbox || !lbImg) return;
+          const idx = Number((btn as HTMLElement).dataset.globalIdx || 0);
+          lightbox.dataset.index = String(idx);
+          lbImg.src = photos[idx];
+          lightbox.style.display = 'flex';
+        });
+      });
+
+      // Lightbox navigation
+      if (lightbox && lbImg) {
+        function lbShow(idx: number) {
+          const i = ((idx % photos.length) + photos.length) % photos.length;
+          lightbox!.dataset.index = String(i);
+          lbImg!.src = photos[i];
+        }
+
+        lightbox.querySelector('.lightbox-close')?.addEventListener('click', (e) => {
+          e.stopPropagation(); lightbox!.style.display = 'none';
+        });
+        lightbox.querySelector('.lightbox-prev')?.addEventListener('click', (e) => {
+          e.stopPropagation(); lbShow(Number(lightbox!.dataset.index || 0) - 1);
+        });
+        lightbox.querySelector('.lightbox-next')?.addEventListener('click', (e) => {
+          e.stopPropagation(); lbShow(Number(lightbox!.dataset.index || 0) + 1);
+        });
+        lightbox.addEventListener('click', (e) => {
+          if ((e.target as HTMLElement) === lightbox) lightbox!.style.display = 'none';
+        });
+        document.addEventListener('keydown', (e) => {
+          if (lightbox!.style.display !== 'flex') return;
+          if (e.key === 'Escape') lightbox!.style.display = 'none';
+          if (e.key === 'ArrowLeft') lbShow(Number(lightbox!.dataset.index || 0) - 1);
+          if (e.key === 'ArrowRight') lbShow(Number(lightbox!.dataset.index || 0) + 1);
+        });
+      }
+    });
+  }
+
+  initGalleries();
+  document.addEventListener('astro:page-load', () => {
+    if (window.location.pathname.includes('/sport')) initGalleries();
   });
 </script>
 
