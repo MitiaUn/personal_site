@@ -375,37 +375,44 @@ const sportLinks = [
         {
           id: "pass",
           title: "Project Pass",
-          description: "This project brings my bike and me up to the Alps: cycling over all <a href='https://en.wikipedia.org/wiki/List_of_mountain_passes_in_Switzerland' target='_blank' class='text-slate-300 hover:text-white underline decoration-slate-600 underline-offset-4 transition-colors'>Swiss mountain passes</a> above 1200m. Follow along as I conquer both the iconic and the hidden climbs, from the Grimsel to the Bernina and beyond.",
-          total: 69,
+          description: "This project brings my bike and me up to the Alps: cycling over all <a href='https://en.wikipedia.org/wiki/List_of_mountain_passes_in_Switzerland' target='_blank' class='text-slate-300 hover:text-white underline decoration-slate-600 underline-offset-4 transition-colors'>Swiss mountain passes</a> above 1000m. Follow along as I conquer both the iconic and the hidden climbs, from the Grimsel to the Bernina and beyond.",
+          total: 70,
+          completed: 35,
           totalDistance: null,
-          totalElevation: 25259,
+          totalElevation: 34495,
           notionUrl: "https://www.notion.so/25c6907e18eb807c8764c17f145d2794",
           items: [
-            { name: "Mollendruz E", done: true, year: "2020" },
-            { name: "Mollendruz Croy", done: true, year: "2026" },
-            { name: "Mollendruz Pont", done: true, year: "2024" },
-            { name: "Marchairuz E", done: true, year: "2022" },
-            { name: "Marchairuz W", done: true, year: "2020" },
-            { name: "Etroits W", done: true, year: "2025" },
-            { name: "Albis W", done: true, year: "2023" },
-            { name: "Etzel N", done: true, year: "2025" },
-            { name: "Brunig N", done: true, year: "2024" },
-            { name: "Susten W", done: true, year: "2025" },
-            { name: "Grimsel S", done: true, year: "2025" },
-            { name: "Albula W", done: true, year: "2025" },
-            { name: "Livigno W", done: true, year: "2025" },
-            { name: "Livigno E", done: true, year: "2025" },
-            { name: "Bernina S", done: true, year: "2025" },
-            { name: "Bernina N", done: true, year: "2025" },
-            { name: "Maloja E", done: true, year: "2025" },
-            { name: "Lenzerheide S", done: true, year: "2025" },
-            { name: "Julier E", done: true, year: "2025" },
-            { name: "Simplon N", done: true, year: "2023" },
-            { name: "Jaun W", done: true, year: "2026" },
-            { name: "Givrine", done: true, year: "2026" },
-            { name: "Mont d'Orzeires W", done: true, year: "2024" },
-            { name: "Jaun E", done: false, year: "" },
-            { name: "Nufen E", done: false, year: "" },
+            { name: "St. Bernard", done: true, altitude: "2469m" },
+            { name: "Furka", done: true, altitude: "2427m" },
+            { name: "Bernina", done: true, altitude: "2328m" },
+            { name: "Livigno", done: true, altitude: "2315m" },
+            { name: "Albula", done: true, altitude: "2312m" },
+            { name: "Julier", done: true, altitude: "2284m" },
+            { name: "Sanetsch", done: true, altitude: "2251m" },
+            { name: "Susten", done: true, altitude: "2224m" },
+            { name: "Grimsel", done: true, altitude: "2165m" },
+            { name: "Simplon", done: true, altitude: "2005m" },
+            { name: "Maloja", done: true, altitude: "1815m" },
+            { name: "Croix", done: true, altitude: "1778m" },
+            { name: "Wolfgang", done: true, altitude: "1637m" },
+            { name: "Mittelberg", done: true, altitude: "1633m" },
+            { name: "Lenzerheide", done: true, altitude: "1549m" },
+            { name: "Pillon", done: true, altitude: "1546m" },
+            { name: "Vorder Höhi", done: true, altitude: "1537m" },
+            { name: "Forclaz", done: true, altitude: "1527m" },
+            { name: "Jaun", done: true, altitude: "1509m" },
+            { name: "Champex", done: true, altitude: "1490m" },
+            { name: "Marchairuz", done: true, altitude: "1447m" },
+            { name: "Mosses", done: true, altitude: "1445m" },
+            { name: "Planches", done: true, altitude: "1411m" },
+            { name: "Aiguillon", done: true, altitude: "1293m" },
+            { name: "La Froclaz", done: true, altitude: "1283m" },
+            { name: "Givrine", done: true, altitude: "1228m" },
+            { name: "Mollendruz", done: true, altitude: "1180m" },
+            { name: "Etroits", done: true, altitude: "1152m" },
+            { name: "Wildhaus", done: true, altitude: "1090m" },
+            { name: "Mont d'Orzeires", done: true, altitude: "1060m" },
+            { name: "Brunig", done: true, altitude: "1008m" },
           ],
           others: null,
           photos: [
@@ -494,7 +501,7 @@ const sportLinks = [
       return (
         <div class="space-y-4">
           {projects.map(project => {
-            const completed = project.items.filter(i => i.done).length;
+            const completed = project.completed !== undefined ? project.completed : project.items.filter(i => i.done).length;
             const pct = Math.round((completed / project.total) * 100);
             return (
               <div
@@ -662,8 +669,8 @@ const sportLinks = [
                                 <circle cx="12" cy="12" r="2.5" stroke-width="1.5" />
                               </svg>
                             )}
-                            <span class={`text-sm ${item.done ? 'text-slate-300' : 'text-slate-600'}`}>{item.name}</span>
-                            {item.year && <span class="text-[10px] text-slate-600 font-mono ml-auto flex-shrink-0">{item.year}</span>}
+                             <span class={`text-sm ${item.done ? 'text-slate-300' : 'text-slate-600'}`}>{item.name}</span>
+                             {(item.altitude || item.year) && <span class="text-[10px] text-slate-600 font-mono ml-auto flex-shrink-0">{item.altitude || item.year}</span>}
                           </div>
                         ))}
                       </div>
