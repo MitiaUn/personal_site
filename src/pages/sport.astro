@@ -29,6 +29,7 @@ const results = [
 
 const highlights = [
   {
+    id: "s25-berlin",
     title: "S25 Berlin",
     year: "2026",
     summary: "Age group win and 4th overall.",
@@ -45,6 +46,7 @@ const highlights = [
     ]
   },
   {
+    id: "challenge-sanremo",
     title: "Challenge San Remo",
     year: "2025",
     summary: "Podium finish and Championship qualification.",
@@ -60,6 +62,7 @@ const highlights = [
     ]
   },
   {
+    id: "xterra-world-champs",
     title: "XTERRA Trail Run World Champs",
     year: "2025",
     summary: "Silver medal at the World Cup in Wales.",
@@ -78,6 +81,7 @@ const highlights = [
     ]
   },
   {
+    id: "matterhorn",
     title: "Matterhorn Summit 4478m",
     year: "2024",
     summary: "Speed climbing under 2h30'.",
@@ -94,6 +98,7 @@ const highlights = [
     ]
   },
   {
+    id: "xterra-joux",
     title: "XTERRA Trail Vallée de Joux",
     year: "2024",
     summary: "Podium finish and World Cup qualification.",
@@ -108,6 +113,7 @@ const highlights = [
     ]
   },
   {
+    id: "ironman-emilia",
     title: "Ironman 70.3 Emilia Romagna",
     year: "2024",
     summary: "Personal Record (4h18') for a half Ironman.",
@@ -194,7 +200,7 @@ const sportLinks = [
       <!-- Bio Content -->
       <div class="text-justify flex-1 flex flex-col justify-center">
         <p class="text-lg text-slate-300 font-light leading-relaxed mb-6">
-          I am an amateur athlete competing in triathlon, trail running, cross-country skiing, ski mountaineering, and alpinism, occasionally finding my way onto the <a href="#highlights" class="text-slate-200 hover:text-white underline decoration-slate-600 underline-offset-4 transition-colors">podium</a>. Currently, I am expanding my horizons by training for a paragliding license.
+          I am an amateur athlete competing in triathlon, trail running, cross-country skiing, ski mountaineering, and alpinism, occasionally finding my way onto the <a href="#highlights" class="text-slate-200 hover:text-white underline decoration-slate-600 underline-offset-4 transition-colors">podium</a> and qualifying for World Cups and Championships in <a href="#xterra-world-champs" class="text-slate-200 hover:text-white underline decoration-slate-600 underline-offset-4 transition-colors">trail running</a> and <a href="#challenge-sanremo" class="text-slate-200 hover:text-white underline decoration-slate-600 underline-offset-4 transition-colors">triathlon</a>. As a licensed paraglider pilot, I am now expanding my horizons into the skies, exploring the Alps from above.
         </p>
         <p class="text-base text-slate-400 font-light leading-relaxed">
           Sport allows me to test my limits and push boundaries, while the grit and focus I’ve built through endurance sports are exactly what drive my <a href={`${base}/`} class="text-slate-200 hover:text-white underline decoration-slate-600 underline-offset-4 transition-colors">professional endeavors</a>. Meticulous planning, strict discipline and the stamina are what push complex project through to the finish line.
@@ -213,7 +219,7 @@ const sportLinks = [
     
     <div class="grid grid-cols-1 md:grid-cols-2 gap-8 pb-12">
       {highlights.map(item => (
-        <div class="group border border-white/5 rounded-2xl overflow-hidden bg-white/5 hover:bg-white/[0.07] transition-colors duration-300 highlight-card flex flex-col cursor-pointer" tabindex="0">
+        <div id={item.id} class="group border border-white/5 rounded-2xl overflow-hidden bg-white/5 hover:bg-white/[0.07] transition-colors duration-300 highlight-card flex flex-col cursor-pointer scroll-mt-24" tabindex="0">
           <!-- Media Carousel -->
           <div class="aspect-video relative overflow-hidden group/media bg-black shrink-0">
              <div class="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide h-full media-track pointer-events-none">
@@ -377,11 +383,12 @@ const sportLinks = [
           title: "Project Pass",
           description: "This project brings my bike and me up to the Alps: cycling over all <a href='https://en.wikipedia.org/wiki/List_of_mountain_passes_in_Switzerland' target='_blank' class='text-slate-300 hover:text-white underline decoration-slate-600 underline-offset-4 transition-colors'>Swiss mountain passes</a> above 1000m. Follow along as I conquer both the iconic and the hidden climbs, from the Grimsel to the Bernina and beyond.",
           total: 70,
-          completed: 35,
+          completed: 39,
           totalDistance: null,
-          totalElevation: 34495,
+          totalElevation: 35079,
           notionUrl: "https://www.notion.so/25c6907e18eb807c8764c17f145d2794",
           items: [
+            { name: "Nufen", done: true, altitude: "2478m" },
             { name: "St. Bernard", done: true, altitude: "2469m" },
             { name: "Furka", done: true, altitude: "2427m" },
             { name: "Bernina", done: true, altitude: "2328m" },
@@ -391,6 +398,7 @@ const sportLinks = [
             { name: "Sanetsch", done: true, altitude: "2251m" },
             { name: "Susten", done: true, altitude: "2224m" },
             { name: "Grimsel", done: true, altitude: "2165m" },
+            { name: "St. Gotthard", done: true, altitude: "2106m" },
             { name: "Simplon", done: true, altitude: "2005m" },
             { name: "Maloja", done: true, altitude: "1815m" },
             { name: "Croix", done: true, altitude: "1778m" },
@@ -405,6 +413,7 @@ const sportLinks = [
             { name: "Marchairuz", done: true, altitude: "1447m" },
             { name: "Mosses", done: true, altitude: "1445m" },
             { name: "Planches", done: true, altitude: "1411m" },
+            { name: "Morgins", done: true, altitude: "1369m" },
             { name: "Aiguillon", done: true, altitude: "1293m" },
             { name: "La Froclaz", done: true, altitude: "1283m" },
             { name: "Givrine", done: true, altitude: "1228m" },
