@@ -22,3 +22,8 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Temporary data and extracts
+maps-*/
+notion_response*.json
+
