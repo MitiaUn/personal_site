@@ -6,15 +6,20 @@ const rawBase = import.meta.env.BASE_URL;
 const base = rawBase === '/' ? '' : (rawBase.endsWith('/') ? rawBase.slice(0, -1) : rawBase);
 
 const results = [
-  { year: "2026", sport: "Triathlon", event: "Challenge The Championship", location: "Slovakia", distance: "113km", time: "-", result: "Coming soon" },
-  { year: "2026", sport: "Triathlon", event: "Triathlon Evian", location: "France", distance: "226km 4000m+", time: "-", result: "Coming soon" },
+  { year: "2026", sport: "Triathlon", event: "Evian Full Distance", location: "France", distance: "226km 4000m+", time: "11h42'", result: "3rd M30-34\nPB Ironman\nPB Marathon 3h22", items: [
+    { text: "3rd M30-34", highlight: "bronze" },
+    { text: "PB Ironman", highlight: "pb" },
+    { text: "PB Marathon 3h22", highlight: "pb" },
+  ], link: "https://www.triathlonevian.com/results" },
+  { year: "2026", sport: "Triathlon", event: "Challenge The Championship", location: "Slovakia", distance: "113km", time: "4h18'", result: "PB half ironman\n13th in AG", link: "https://live.ultimate.dk/desktop/front/?eventid=7418&mode=results", highlight: "pb" },
+  { year: "2026", sport: "Triathlon", event: "Zurich Zc3", location: "Switzerland", distance: "51.5km", time: "2h07'", result: "PB Olympic\n11th M20-34", link: "https://zurichcitytriathlon.ch/en/rankings-2026/", highlight: "pb" },
   { year: "2026", sport: "Run", event: "S25 Berlin", location: "Germany", distance: "25km", time: "1h30'", result: "1st M30\n4th Overall", link: "https://www.davengo.com/event/result/s-25-berlin-2026/detail/io-mFEvAyv7ycAk7LcqPSpdSxdzmIqRo0imxWxF1rs4", highlight: "gold" },
   { year: "2026", sport: "Trail Run", event: "UTMB Chianti 50K Trail", location: "Italy", distance: "46km 2000m+", time: "4h02", result: "My first ultra trail \n32nd man",link: "https://live.utmb.world/chianti/2026/runners/3100" },
-  { year: "2026", sport: "XC Ski", event: "Engadin Marathon", location: "Switzerland", distance: "44km", time: "1h16'", result: "PB Marathon 1h13", link: "https://results.datasport.com/en/race/56-engadin-skimarathon-2026/participant/unuchek-dimitri", highlight: "pb" },
+  { year: "2026", sport: "XC Ski", event: "Engadin Marathon", location: "Switzerland", distance: "44km", time: "1h16'", result: "PB ski mara 1h13", link: "https://results.datasport.com/en/race/56-engadin-skimarathon-2026/participant/unuchek-dimitri", highlight: "pb" },
   { year: "2026", sport: "XC Ski", event: "La Transjurassienne", location: "France", distance: "50km 1000m+", time: "2h09'", result: "18th M18-34", link: "https://my.raceresult.com/380926/#1_888596" },
   { year: "2025", sport: "XC Ski", event: "Gommerlauf International", location: "Switzerland", distance: "42km", time: "1h45'", result: "13th M30", link: "https://www.datasport.com/live/ranking/?racenr=27704#4_4D907C" },
   { year: "2025", sport: "Triathlon", event: "Challenge San Remo", location: "Italy", distance: "113km 1500m+", time: "4h33'", result: "3rd M30-34", link: "https://my.raceresult.com/361042/", highlight: "bronze" },
-  { year: "2025", sport: "Triathlon", event: "Triathlon de Lausanne", location: "Switzerland", distance: "51.5km 400m+", time: "2h17'", result: "PB Olympic", link: "https://www.datasport.com/live/ranking/?racenr=27506#1_6F4044", highlight: "pb" },
+  { year: "2025", sport: "Triathlon", event: "Triathlon de Lausanne", location: "Switzerland", distance: "51.5km 400m+", time: "2h17'", result: "18th Overall", link: "https://datasport.com/live/ranking?racenr=331707#1_6F4044" },
   { year: "2025", sport: "Skimo", event: "Patrouille des Aiguilles Rouges", location: "Switzerland", distance: "20km 2600m+", time: "5h03'", result: "My first patrouille", link: "https://sptiming.ch/par-25/" },
   { year: "2025", sport: "Skimo", event: "La Trace des Grands", location: "France", distance: "14km 2000m+", time: "3h36'", result: "My first SkiMo race", link: "https://my.raceresult.com/328968/#3_C380B5" },
   { year: "2025", sport: "Trail Run", event: "Défis des Chalets", location: "Switzerland", distance: "24km 1600m+", time: "2h22'", result: "5th Overall", link: "https://www.mso.swiss/events/2324-les-defis-des-chalets-trail-d'agaune/results" },
@@ -336,31 +341,33 @@ const sportLinks = [
           title: "Project Lakes",
           description: "The project is about cycling around the 23 largest <a href='https://en.wikipedia.org/wiki/List_of_lakes_of_Switzerland' target='_blank' class='text-slate-300 hover:text-white underline decoration-slate-600 underline-offset-4 transition-colors'>Swiss lakes</a>. Why 23? Because Livigno lake, which is the 24th, is simply not cyclable. Follow my rolling tour through every major body of water in the country, from Lac Léman to the Alpine reservoirs.",
           total: 23,
-          totalDistance: 2749,
-          totalElevation: 23269,
+          totalDistance: 2953,
+          totalElevation: 23669,
           notionUrl: "https://www.notion.so/f4035ac3cd1e4dda815055ddf79352c8",
           items: [
             { name: "Lac Léman", done: true, year: "2023" },
+            { name: "Bodensee", done: true, year: "2026" },
+            { name: "Lac de Neuchâtel", done: true, year: "2021" },
             { name: "Lago Maggiore", done: true, year: "2024" },
             { name: "Lake Lucerne", done: true, year: "2025" },
-            { name: "Lac de Bienne", done: true, year: "2024" },
-            { name: "Lac de Morat", done: true, year: "2023" },
             { name: "Zürichsee", done: true, year: "2022" },
+            { name: "Untersee", done: true, year: "2026" },
+            { name: "Lago di Lugano", done: true, year: "2024" },
             { name: "Thunersee", done: true, year: "2023" },
-            { name: "Brienzersee", done: true, year: "2022" },
+            { name: "Lac de Bienne", done: true, year: "2024" },
             { name: "Zugersee", done: true, year: "2024" },
+            { name: "Brienzersee", done: true, year: "2022" },
+            { name: "Walensee", done: true, year: "2025" },
+            { name: "Lac de Morat", done: true, year: "2023" },
+            { name: "Sempachersee", done: true, year: "2024" },
+            { name: "Sihlsee", done: true, year: "2025" },
             { name: "Baldegger", done: true, year: "2024" },
             { name: "Hallwilersee", done: true, year: "2024" },
-            { name: "Greifensee", done: true, year: "2024" },
-            { name: "Sempachersee", done: true, year: "2024" },
-            { name: "Lago di Lugano", done: true, year: "2024" },
-            { name: "Lac de Joux", done: true, year: "2022" },
-            { name: "Sarnersee", done: true, year: "2024" },
-            { name: "Sihlsee", done: true, year: "2025" },
-            { name: "Walensee", done: true, year: "2025" },
             { name: "Lac de la Gruyère", done: true, year: "2026" },
-            { name: "Untersee", done: false, year: "" },
-            { name: "Bodensee", done: false, year: "" },
+            { name: "Lac de Joux", done: true, year: "2022" },
+            { name: "Greifensee", done: true, year: "2024" },
+            { name: "Sarnersee", done: true, year: "2024" },
+            { name: "Ägerisee", done: true, year: "2026" },
           ],
           others: null,
           photos: [
@@ -383,9 +390,9 @@ const sportLinks = [
           title: "Project Pass",
           description: "This project brings my bike and me up to the Alps: cycling over all <a href='https://en.wikipedia.org/wiki/List_of_mountain_passes_in_Switzerland' target='_blank' class='text-slate-300 hover:text-white underline decoration-slate-600 underline-offset-4 transition-colors'>Swiss mountain passes</a> above 1000m. Follow along as I conquer both the iconic and the hidden climbs, from the Grimsel to the Bernina and beyond.",
           total: 70,
-          completed: 39,
+          completed: 47,
           totalDistance: null,
-          totalElevation: 35079,
+          totalElevation: 40347,
           notionUrl: "https://www.notion.so/25c6907e18eb807c8764c17f145d2794",
           items: [
             { name: "Nufen", done: true, altitude: "2478m" },
@@ -402,8 +409,10 @@ const sportLinks = [
             { name: "Simplon", done: true, altitude: "2005m" },
             { name: "Maloja", done: true, altitude: "1815m" },
             { name: "Croix", done: true, altitude: "1778m" },
+            { name: "Pierre du Moëllé", done: true, altitude: "1661m" },
             { name: "Wolfgang", done: true, altitude: "1637m" },
             { name: "Mittelberg", done: true, altitude: "1633m" },
+            { name: "Agites", done: true, altitude: "1569m" },
             { name: "Lenzerheide", done: true, altitude: "1549m" },
             { name: "Pillon", done: true, altitude: "1546m" },
             { name: "Vorder Höhi", done: true, altitude: "1537m" },
@@ -413,14 +422,18 @@ const sportLinks = [
             { name: "Marchairuz", done: true, altitude: "1447m" },
             { name: "Mosses", done: true, altitude: "1445m" },
             { name: "Planches", done: true, altitude: "1411m" },
+            { name: "Alpe di Neggia", done: true, altitude: "1395m" },
             { name: "Morgins", done: true, altitude: "1369m" },
             { name: "Aiguillon", done: true, altitude: "1293m" },
             { name: "La Froclaz", done: true, altitude: "1283m" },
+            { name: "Saanenmöser", done: true, altitude: "1279m" },
             { name: "Givrine", done: true, altitude: "1228m" },
             { name: "Mollendruz", done: true, altitude: "1180m" },
             { name: "Etroits", done: true, altitude: "1152m" },
             { name: "Wildhaus", done: true, altitude: "1090m" },
+            { name: "Raten", done: true, altitude: "1077m" },
             { name: "Mont d'Orzeires", done: true, altitude: "1060m" },
+            { name: "Zugerberg", done: true, altitude: "1039m" },
             { name: "Brunig", done: true, altitude: "1008m" },
           ],
           others: null,
@@ -524,7 +537,7 @@ const sportLinks = [
                   <div class="flex justify-between items-start gap-4 mb-4">
                     <div class="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-4">
                       <h3 class="text-xl font-semibold text-slate-100 tracking-tight">{project.title}</h3>
-                      <span class="text-xs font-mono text-slate-500 uppercase tracking-wider sm:mt-1">{completed} / {project.total} complete</span>
+                      <span class="text-xs font-mono text-white uppercase tracking-wider sm:mt-1">{completed} / {project.total} complete</span>
                     </div>
                     <div class="text-slate-500 transition-transform duration-300 chevron-icon flex-shrink-0 mt-1">
                       <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -537,7 +550,7 @@ const sportLinks = [
                   <div>
                     <div class="h-1.5 bg-white/5 rounded-full overflow-hidden">
                       <div
-                        class="h-full bg-gradient-to-r from-slate-400 to-slate-300 rounded-full transition-all duration-700"
+                        class={`h-full rounded-full transition-all duration-700 ${pct === 100 ? 'bg-gradient-to-r from-emerald-500 to-emerald-400' : 'bg-gradient-to-r from-slate-400 to-slate-300'}`}
                         style={`width: ${pct}%`}
                       ></div>
                     </div>
@@ -545,12 +558,12 @@ const sportLinks = [
                     <div class="flex justify-between items-start gap-4 mt-3">
                       <div>
                         {project.totalDistance ? (
-                          <span class="text-xs text-slate-600 font-mono">Already covered {project.totalDistance.toLocaleString()} km with {project.totalElevation.toLocaleString()} m elevation</span>
+                          <span class="text-xs text-white font-mono">Already covered {project.totalDistance.toLocaleString()} km with {project.totalElevation.toLocaleString()} m elevation</span>
                         ) : (
-                          <span class="text-xs text-slate-600 font-mono">Already gained {project.totalElevation.toLocaleString()} m elevation</span>
+                          <span class="text-xs text-white font-mono">Already gained {project.totalElevation.toLocaleString()} m elevation</span>
                         )}
                       </div>
-                      <span class="text-xs text-slate-500 font-mono">{pct}%</span>
+                      <span class={`text-xs font-mono ${pct === 100 ? 'text-emerald-400 font-bold' : 'text-white'}`}>{pct}%</span>
                     </div>
                   </div>
                 </div>
@@ -754,15 +767,30 @@ const sportLinks = [
                   row.time
                 )}
               </td>
-              <td class="px-4 py-4 text-slate-400 text-xs whitespace-pre-line align-top">
-                <div class="flex items-start gap-2">
-                  {row.highlight === 'gold' && <div class="w-1.5 h-1.5 rounded-full bg-yellow-500 mt-1 flex-shrink-0 shadow-[0_0_8px_rgba(234,179,8,0.5)]"></div>}
-                  {row.highlight === 'silver' && <div class="w-1.5 h-1.5 rounded-full bg-slate-300 mt-1 flex-shrink-0 shadow-[0_0_8px_rgba(203,213,225,0.5)]"></div>}
-                  {row.highlight === 'bronze' && <div class="w-1.5 h-1.5 rounded-full bg-orange-600 mt-1 flex-shrink-0 shadow-[0_0_8px_rgba(234,88,12,0.5)]"></div>}
-                  {row.highlight === 'pb' && <div class="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-1 flex-shrink-0 shadow-[0_0_8px_rgba(129,140,248,0.5)]"></div>}
-                  {!row.highlight && <div class="w-1.5 h-1.5 mt-1 flex-shrink-0"></div>}
-                  <span>{row.result}</span>
-                </div>
+              <td class="px-4 py-4 text-slate-400 text-xs align-top">
+                {row.items ? (
+                  <div class="flex flex-col gap-1">
+                    {row.items.map(item => (
+                      <div class="flex items-start gap-2">
+                        {item.highlight === 'gold' && <div class="w-1.5 h-1.5 rounded-full bg-yellow-500 mt-1 flex-shrink-0 shadow-[0_0_8px_rgba(234,179,8,0.5)]"></div>}
+                        {item.highlight === 'silver' && <div class="w-1.5 h-1.5 rounded-full bg-slate-300 mt-1 flex-shrink-0 shadow-[0_0_8px_rgba(203,213,225,0.5)]"></div>}
+                        {item.highlight === 'bronze' && <div class="w-1.5 h-1.5 rounded-full bg-orange-600 mt-1 flex-shrink-0 shadow-[0_0_8px_rgba(234,88,12,0.5)]"></div>}
+                        {item.highlight === 'pb' && <div class="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-1 flex-shrink-0 shadow-[0_0_8px_rgba(129,140,248,0.5)]"></div>}
+                        {!item.highlight && <div class="w-1.5 h-1.5 mt-1 flex-shrink-0"></div>}
+                        <span>{item.text}</span>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <div class="flex items-start gap-2 whitespace-pre-line">
+                    {row.highlight === 'gold' && <div class="w-1.5 h-1.5 rounded-full bg-yellow-500 mt-1 flex-shrink-0 shadow-[0_0_8px_rgba(234,179,8,0.5)]"></div>}
+                    {row.highlight === 'silver' && <div class="w-1.5 h-1.5 rounded-full bg-slate-300 mt-1 flex-shrink-0 shadow-[0_0_8px_rgba(203,213,225,0.5)]"></div>}
+                    {row.highlight === 'bronze' && <div class="w-1.5 h-1.5 rounded-full bg-orange-600 mt-1 flex-shrink-0 shadow-[0_0_8px_rgba(234,88,12,0.5)]"></div>}
+                    {row.highlight === 'pb' && <div class="w-1.5 h-1.5 rounded-full bg-indigo-400 mt-1 flex-shrink-0 shadow-[0_0_8px_rgba(129,140,248,0.5)]"></div>}
+                    {!row.highlight && <div class="w-1.5 h-1.5 mt-1 flex-shrink-0"></div>}
+                    <span>{row.result}</span>
+                  </div>
+                )}
               </td>
             </tr>
           ))}
