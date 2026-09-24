@@ -78,8 +78,6 @@
 </style>
 </head>
 <body>
-  <div class="top"><span class="n" id="n-all"></span><span class="pct" id="p-all"></span></div>
-  <div class="bar"><i id="b-all"></i></div>
   <div class="frame"><div class="stage">
     <svg class="map" id="m-main" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Switzerland with the 48 Swiss 4000 m summits, grouped into the Pennine and Bernese Alps"></svg>
     <svg class="map off" id="m-pennine" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pennine Alps 4000 m summits"></svg>
@@ -259,10 +257,6 @@
   });
 
   // ---- view switching
-  const nd = P.filter(p=>p.status==='done').length, N = P.length;
-  document.getElementById('n-all').textContent = `${nd} / ${N} Swiss 4000ers complete`;
-  document.getElementById('p-all').textContent = `${Math.round(nd/N*100)}%`;
-  document.getElementById('b-all').style.width = `${nd/N*100}%`;
   const count = document.getElementById('count');
   show = v => {
     ['main','pennine','bernese'].forEach(k => document.getElementById('m-'+k).classList.toggle('off', k!==v));
